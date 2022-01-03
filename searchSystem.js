@@ -106,10 +106,10 @@ function printResults(matchArray) {
         showTemp.classList.add("resultCard");
         showTitle = `<p class="resultTitle"><strong>TITLE: </strong>${data.title}</p>`;
         showAuthor = `<p class="resultAuthor"><strong>AUTHOR: </strong>${data.author}</p>`;
-        showSolution = `<p class="resultSolution"><strong>SOLUTION: </strong><br>${data.solution.replace(
+        showSolution = `<pre class="resultSolution"><strong>SOLUTION: </strong><br>${data.solution.replace(
             /\n/g,
             "<br>"
-        )}</p>`;
+        )}</pre>`;
         console.log(showTitle + showAuthor + showSolution);
         showTemp.innerHTML = showTitle + showAuthor + showSolution;
         div.appendChild(showTemp);
