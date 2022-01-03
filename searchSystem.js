@@ -101,6 +101,7 @@ function printResults(matchArray) {
         showTitle = `<p><strong>TITLE: </strong>${data.title}</p>`;
         showAuthor = `<p><strong>AUTHOR: </strong>${data.author}</p>`;
         showSolution = `<p><strong>SOLUTION: </strong><br>${data.solution}</p>`;
+        console.log(showTitle + showAuthor + showSolution);
         showTemp.innerHTML = showTitle + showAuthor + showSolution;
         div.appendChild(showTemp);
     });
