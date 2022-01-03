@@ -102,17 +102,58 @@ function printResults(matchArray) {
     console.log(`Matches ${matchArray}`);
     var div = document.getElementById("results");
     matchArray.forEach((data) => {
-        var showTemp = document.createElement("div");
-        showTemp.classList.add("resultCard");
-        showTitle = `<pre class="resultTitle"><strong>TITLE: </strong>${data.title}</pre>`;
-        showAuthor = `<pre class="resultAuthor"><strong>AUTHOR: </strong>${data.author}</pre>`;
-        showSolution = `<pre class="resultSolution"><strong>SOLUTION: </strong><br>${data.solution.replace(
-            /\n/g,
-            "<br>"
-        )}</pre>`;
-        console.log(showTitle + showAuthor + showSolution);
-        showTemp.innerHTML = showTitle + showAuthor + showSolution;
-        div.appendChild(showTemp);
+        var showAll = document.createElement("div");
+        showAll.classList.add("resultCard");
+        
+        //Title info
+        var showTitle = document.createElement("pre");
+        showTitle.classList.add("resultTitle");
+        var showTitleLabelBolded = document.createElement("span");
+        showTitleLabelBolded.classList.add("boldedResultInfo");
+        showTitleLabelBolded.innerHTML = `<strong>TITLE: </strong>`;
+        var showTitleInfo = document.createElement("span");
+        showTitleInfo.classList.add("resultValue");
+        showTitleInfo.innerText = data.title;
+        showTitle.appendChild(showTitleLabelBolded);
+        showTitle.appendChild(showTitleInfo);
+        showAll.appendChild(showTitle);
+        
+        //Author info
+        var showAuthor = document.createElement("pre");
+        showAuthor.classList.add("resultAuthor");
+        var showAuthorLabelBolded = document.createElement("span");
+        showAuthorLabelBolded.classList.add("boldedResultInfo");
+        showAuthorLabelBolded.innerHTML = `<strong>AUTHOR: </strong>`;
+        var showAuthorInfo = document.createElement("span");
+        showAuthorInfo.classList.add("resultValue");
+        showAuthorInfo.innerText = data.author;
+        showAuthor.appendChild(showAuthorLabelBolded);
+        showAuthor.appendChild(showAuthorInfo);
+        showAll.appendChild(showAuthor);
+        
+        //Solution info
+        var showSolution = document.createElement("pre");
+        showSolution.classList.add("resultSolution");
+        var showSolutionLabelBolded = document.createElement("span");
+        showSolutionLabelBolded.classList.add("boldedResultInfo");
+        showSolutionLabelBolded.innerHTML = `<strong>SOLUTION: </strong><br>`;
+        var showSolutionInfo = document.createElement("div");
+        showSolutionInfo.classList.add("resultValueSolution");
+        showSolutionInfo.innerText = data.solution;
+        showSolution.appendChild(showSolutionLabelBolded);
+        showSolution.appendChild(showSolutionInfo);
+        showAll.appendChild(showSolution);
+        
+        div.appendChild(showAll);
+        
+//         showAuthor = `<pre class="resultAuthor"><strong>AUTHOR: </strong>${data.author}</pre>`;
+//         showSolution = `<pre class="resultSolution"><strong>SOLUTION: </strong><br>${data.solution.replace(
+//             /\n/g,
+//             "<br>"
+//         )}</pre>`;
+//         console.log(showTitle + showAuthor + showSolution);
+//         showTemp.innerHTML = showTitle + showAuthor + showSolution;
+        
     });
 }
 
