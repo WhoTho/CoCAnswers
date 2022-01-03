@@ -6,4 +6,17 @@
   <body>
     <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
   </body>
+  <form>
+    <input class="inputField" type="text" required="required" pattern="[a-zA-Z]+" />
+    <input class="myButton" type="submit" value="Submit" />
+  </form>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $(".myButton").on("click", function () {
+            var value = $(".inputField").val();
+            alert(value);
+        });
+    });
+  </script>
 </html>
