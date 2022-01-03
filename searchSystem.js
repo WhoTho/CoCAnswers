@@ -79,11 +79,9 @@ const settings = {
 // }
 
 function searchByAuthor(authorName) {
-    let matchesList = [];
-    masterFileRead.forEach((e) => {
-        if (e.author === match) matchesList.push(e);
+    return masterFileRead.filter((e) => {
+        e.author === authorName;
     });
-    return matchesList;
 }
 
 function clearSearchResults() {
