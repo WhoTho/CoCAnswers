@@ -7,7 +7,9 @@
     <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
   </body>
   <input type="text" id="userInput"=> give me input</input>
-  <button onclick="test()">Submit</button>
+  <button onclick="test()">Submit small</button>
+  <textarea id="UserInputMultiLine" style="width:250px;height:150px;">yeah put in stuff</textarea>
+  <button onclick="testMulti()">Submit multiline</button>
 
   <!-- add this line for function to write into -->
   <p id="demo"></p>   
@@ -15,6 +17,10 @@
   <script type="text/javascript">
   function test(){
       var userInput = document.getElementById("userInput").value;
+      document.getElementById("demo").innerHTML = userInput;
+  }
+  function testMulti(){
+      var userInput = document.getElementById("UserInputMultiLine").value;
       document.getElementById("demo").innerHTML = userInput;
   }
   </script>
