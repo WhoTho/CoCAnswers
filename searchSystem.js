@@ -86,8 +86,7 @@ async function loadAnswerFile() {
         return;
     } catch (err) {
         // console.log("Error loading data");
-        // console.log(err);
-        alert("Error loading data");
+        alert(err);
         return;
     }
     // console.log("Loaded data");
@@ -118,7 +117,7 @@ function printResults(matchArray) {
         showTemp.classList.add("resultCard");
         showTitle = `<p><strong>TITLE: </strong>${data.title}</p>`;
         showAuthor = `<p><strong>AUTHOR: </strong>${data.author}</p>`;
-        showSolution = `<p><strong>Solution: </strong><br>${data.solution}</p>`;
+        showSolution = `<p><strong>SOLUTION: </strong><br>${data.solution}</p>`;
         showTemp.innerHTML = showTitle + showAuthor + showSolution;
         div.appendChild(showTemp);
     });
