@@ -85,7 +85,7 @@ async function loadAnswerFile() {
         masterFileRead = require("./answers")["ANSWERS"];
         return;
     } catch (err) {
-        // console.log("Error loading data");
+        console.log(err);
         alert(err);
         return;
     }
