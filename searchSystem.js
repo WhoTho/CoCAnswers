@@ -104,8 +104,8 @@ function printResults(matchArray) {
     matchArray.forEach((data) => {
         var showTemp = document.createElement("div");
         showTemp.classList.add("resultCard");
-        showTitle = `<p class="resultTitle"><strong>TITLE: </strong>${data.title}</p>`;
-        showAuthor = `<p class="resultAuthor"><strong>AUTHOR: </strong>${data.author}</p>`;
+        showTitle = `<pre class="resultTitle"><strong>TITLE: </strong>${data.title}</pre>`;
+        showAuthor = `<pre class="resultAuthor"><strong>AUTHOR: </strong>${data.author}</pre>`;
         showSolution = `<pre class="resultSolution"><strong>SOLUTION: </strong><br>${data.solution.replace(
             /\n/g,
             "<br>"

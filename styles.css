@@ -1,7 +1,8 @@
 .resultCard {
-    border: 3px;
-    border-style: solid;
-    border-color: #0038e0;
-    padding: lem;
-    background-color: #a3baff;
+    border-radius: 24px 24px 24px 24px;
+    -webkit-border-radius: 24px 24px 24px 24px;
+    -moz-border-radius: 24px 24px 24px 24px;
+    background: #1587ba14;
+    border: 2px solid #000000;
+    padding: 15px;
 }
