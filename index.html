@@ -6,7 +6,7 @@
   <body>
     <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
   </body>
-  <input type="text" id="userInput"=> give me input</input>
+  <input type="text" id="userInput"> give me input</input>
   <button onclick="test()">Submit small</button>
   <textarea id="UserInputMultiLine" style="width:250px;height:150px;">yeah put in stuff</textarea>
   <button onclick="testMulti()">Submit multiline</button>
@@ -21,7 +21,7 @@
   }
   function testMulti(){
       var userInput = document.getElementById("UserInputMultiLine").value;
-      document.getElementById("demo").innerHTML = userInput;
+      document.getElementById("demo").innerHTML = String.raw`${userInput}`;
   }
   </script>
 </html>
