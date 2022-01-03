@@ -6,6 +6,16 @@
   <body>
     <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
   </body>
-  <input id="userInput" type="text" placeholder="Text">
-  <button onclick="returnText()">Submit</button>
+  <input type="text" id="userInput"=> give me input</input>
+  <button onclick="test()">Submit</button>
+
+  <!-- add this line for function to write into -->
+  <p id="demo"></p>   
+
+  <script type="text/javascript">
+  function test(){
+      var userInput = document.getElementById("userInput").value;
+      document.getElementById("demo").innerHTML = userInput;
+  }
+  </script>
 </html>
