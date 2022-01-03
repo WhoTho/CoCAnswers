@@ -1,4 +1,4 @@
-var masterFileRead = { title: "TITLE", author: "AUTHOR", testCases: [["INPUT", "OUTPUT"]], solution: "SOLUTION" };
+var masterFileRead = [{ title: "TITLE", author: "AUTHOR", testCases: [["INPUT", "OUTPUT"]], solution: "SOLUTION" }];
 
 const settings = {
     maxPrintMatchesLength: 5,
