@@ -80,7 +80,7 @@ const settings = {
 
 function searchByAuthor(authorName) {
     return masterFileRead.filter((e) => {
-        e.author === authorName;
+        return e.author === authorName;
     });
 }
 
@@ -104,9 +104,12 @@ function printResults(matchArray) {
     matchArray.forEach((data) => {
         var showTemp = document.createElement("div");
         showTemp.classList.add("resultCard");
-        showTitle = `<p><strong>TITLE: </strong>${data.title}</p>`;
-        showAuthor = `<p><strong>AUTHOR: </strong>${data.author}</p>`;
-        showSolution = `<p><strong>SOLUTION: </strong><br>${data.solution}</p>`;
+        showTitle = `<p class="resultTitle"><strong>TITLE: </strong>${data.title}</p>`;
+        showAuthor = `<p class="resultAuthor"><strong>AUTHOR: </strong>${data.author}</p>`;
+        showSolution = `<p class="resultSolution"><strong>SOLUTION: </strong><br>${data.solution.replace(
+            "\n",
+            "<br>"
+        )}</p>`;
         console.log(showTitle + showAuthor + showSolution);
         showTemp.innerHTML = showTitle + showAuthor + showSolution;
         div.appendChild(showTemp);
