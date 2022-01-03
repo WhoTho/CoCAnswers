@@ -2736,4 +2736,401 @@ const masterFileRead = [
         solution:
             'I=input\ns=I()\nn=int(I())\nt=[I()for i in"A"*n]\nfor c in s:\n l=""\n for y in range(n):\n  for x in range(len(t[0])):\n   if t[y][x]==c:l+=f\'{x} {y}, \'\n if len(l):print(c+":",l[:-2])',
     },
+    {
+        title: "String transformation",
+        author: "ValNykol",
+        testCases: [
+            ["bubble gum\nturtle ham", "bubble gum\ntubble gum\nturble gum\nturtle gum\nturtle hum\nturtle ham"],
+            ["sayonara\nserenity", "sayonara\nseyonara\nseronara\nserenara\nserenira\nserenita\nserenity"],
+            [
+                "it is a miracle\ni got a monocle",
+                "it is a miracle\ni  is a miracle\ni gis a miracle\ni gos a miracle\ni got a miracle\ni got a moracle\ni got a monacle\ni got a monocle",
+            ],
+            [
+                "aren't you worried?\nprepare our troops!",
+                "aren't you worried?\npren't you worried?\nprep't you worried?\nprepat you worried?\nprepar you worried?\nprepareyou worried?\nprepare ou worried?\nprepare ourworried?\nprepare our orried?\nprepare our trried?\nprepare our troied?\nprepare our trooed?\nprepare our troopd?\nprepare our troops?\nprepare our troops!",
+            ],
+        ],
+        solution: "s=input()\nt=input()\nl=0\nfor x in range(len(s)+1):\n    if l!=(l:=t[:x]+s[x:]):print(l)",
+    },
+    {
+        title: "Primes",
+        author: "Macbeth",
+        testCases: [
+            ["11", "4"],
+            ["5000", "669"],
+            ["10000", "1229"],
+            ["100000", "9592"],
+        ],
+        solution:
+            "n=int(input())\np=[2]\nfor x in range(3,n):\n    if all(x%i for i in p):p+=[x]\nprint(len(p))\n# require'prime'\n# p Prime.each(gets.to_i-1).to_a.size",
+    },
+    {
+        title: "Mixed up",
+        author: "N.T.",
+        testCases: [
+            ["5\n1 2 6 5 4", "1 2 5 6 4"],
+            ["7\n9 8 6 7 5 4 3", "8 9 6 7 4 5 3"],
+            ["1\n1000", "1000"],
+            ["10\n54 21 6 33 14 70 20 88 99 14", "21 54 6 33 14 70 20 88 14 99"],
+        ],
+        solution:
+            "input()\n*l,=map(int,input().split())\nfor x in range(0,len(l),2):l[x:x+2]=sorted(l[x:x+2])\nprint(*l)",
+    },
+    {
+        title: "A strange calendar",
+        author: "Antoine_LurcyLeBourg",
+        testCases: [
+            ["2016 3 14", "2016 3 15"],
+            ["2001 5 17", "2001 6 1"],
+            ["-23 11 5", "-23 11 6"],
+            ["155 11 17", "156 1 1"],
+            ["-78 11 17", "-77 1 1"],
+            ["-1 11 9", "-1 11 10"],
+            ["-1 11 17", "1 1 1"],
+            ["111 7 17", "111 7 18"],
+            ["1001 10 23", "1001 10 24"],
+            ["-5001 7 24", "-5001 8 1"],
+            ["-1 10 24", "-1 11 1"],
+            ["8 10 17", "8 10 18"],
+        ],
+        solution:
+            "y,m,d=map(int,input().split())\nif d<17+7*(m in[7,10]):d+=1\nelse:\n    d=1\n    if m<11:m+=1\n    else:m=1;y+=1+(y==-1)\nprint(y,m,d)",
+    },
+    {
+        title: "Tiles",
+        author: "Racso",
+        testCases: [
+            ["20 15", "12"],
+            ["10 10", "1"],
+            ["800 400", "2"],
+            ["907 613", "555991"],
+            ["996211 999023", "995237701853"],
+        ],
+        solution: "import math\nn,m=map(int,input().split())\ng=math.gcd(n,m)\nprint(n//g*m//g)",
+    },
+    {
+        title: "Sales on the most expensive item",
+        author: "Shoko84",
+        testCases: [
+            ["20\n3\n100\n400\n200", "620"],
+            ["10\n5\n10\n20\n5\n1\n2", "36"],
+            ["50\n3\n1030\n2090\n39", "2114"],
+            ["23\n5\n399\n245\n308\n123\n95", "1079"],
+            ["100\n3\n301\n450\n323", "624"],
+            ["40\n2\n990\n990", "1584"],
+            ["0\n4\n490\n231\n599\n236", "1556"],
+            ["23\n15\n923\n1009\n3499\n2375\n234\n19091\n738\n382\n69\n10\n50\n938\n23\n623\n72", "25646"],
+        ],
+        solution:
+            "s,_,*l=map(int,open(0))\nprint(int(sum(l)-max(l)*s/100+.99))\n# s,_,*l=`dd`.split.map(&:to_i)\n# p (l.sum-l.max*s/100).to_i",
+    },
+    {
+        title: "Bus routes",
+        author: "Shoko84",
+        testCases: [
+            ["20\n3\n50\n20\n5", "16"],
+            ["60\n4\n100\n30\n14\n33", "15"],
+            ["50\n5\n30\n10\n5\n0\n3", "6"],
+            ["100\n6\n0\n0\n0\n0\n0\n0", "0"],
+            ["1\n2\n1\n3", "12"],
+            ["55\n4\n350\n205\n310\n22", "85"],
+            ["53\n14\n92\n63\n292\n82\n14\n58\n74\n127\n81\n9\n14\n32\n15\n29", "285"],
+            ["20\n3\n50\n20\n10", "16"],
+        ],
+        solution: "c,n,*l=map(int,open(0))\ns=sum(l)\nprint((s//c+(s%c>0))*-~n)",
+    },
+    {
+        title: "Keywords table",
+        author: "Shoko84",
+        testCases: [
+            ["5\n7\npick\nsome\npink\nor\nreddish\ncolor\nplease\n1\n1", "pick\nsome\npink\nor\nreddish"],
+            ["2\n7\nthreshold\nbreak\nengine\nnode\nmonitor\nextension\nsink\n1\n1", "threshold\nbreak"],
+            [
+                "3\n14\nlens\nfive\ndaily\noculus\ncondition\nedge\nrift\nholographic\ninterval\nleague\nanticipation\nfix\ncurve\nappearing\n1\n2",
+                "oculus\ncondition\nedge",
+            ],
+            ["4\n8\nconstitution\ncentering\nrhyme\nswear\nwin\nfound\nhelmet\noil\n1\n2", "win\nfound\nhelmet\noil"],
+            [
+                "9\n9\ntailor\ncash\nshift\ncaps\nmoney\ndispute\nargue\nconnector\ninsurance\n1\n1",
+                "tailor\ncash\nshift\ncaps\nmoney\ndispute\nargue\nconnector\ninsurance",
+            ],
+            [
+                "4\n45\nsaving\nball\nbasket\nfootball\nblessed\ninjured\nburden\ntaking\non\nvice\ncity\ncapitalism\nwar\nsunshine\nworld\nmoon\ntoy\nstory\nsomething\nwrong\nfalse\ntrue\nestimation\ngoodness\ntransfer\nannual\nmonthly\ngenerator\nceremony\nknife\nsharp\nbadge\nfish\nsteak\npork\ninefficiency\ntemperature\ncold\nhot\ntemperate\ninside\nbody\ndiversity\nnature\nbridge\n1\n6",
+                "false\ntrue\nestimation\ngoodness",
+            ],
+            [
+                "3\n13\nsatire\ndestination\njoking\nafternoon\nargument\nsupernatural\nfather\nlot\npeculiar\nassociate\nambassador\nderivative\nrectangle\n3\n2 3 4",
+                "afternoon\nargument\nsupernatural\nfather\nlot\npeculiar\nassociate\nambassador\nderivative",
+            ],
+            [
+                "3\n10\nsing\ncloser\nautomatic\ncosting\nlodge\nenough\nlaying\nfog\ndebate\nletting\n2\n3 1",
+                "laying\nfog\ndebate\nsing\ncloser\nautomatic",
+            ],
+            [
+                "4\n45\nsaving\nball\nbasket\nfootball\nblessed\ninjured\nburden\ntaking\non\nvice\ncity\ncapitalism\nwar\nsunshine\nworld\nmoon\ntoy\nstory\nsomething\nwrong\nfalse\ntrue\nestimation\ngoodness\ntransfer\nannual\nmonthly\ngenerator\nceremony\nknife\nsharp\nbadge\nfish\nsteak\npork\ninefficiency\ntemperature\ncold\nhot\ntemperate\ninside\nbody\ndiversity\nnature\nbridge\n3\n6 3 5",
+                "false\ntrue\nestimation\ngoodness\non\nvice\ncity\ncapitalism\ntoy\nstory\nsomething\nwrong\n",
+            ],
+        ],
+        solution:
+            'I=input\nm=int(I())\nl=[I()for i in"A"*int(I())]\nI()\nfor x in I().split():a=int(x)*m;print(*l[a-m:a],sep="\\n")',
+    },
+    {
+        title: "MinusStarPlus",
+        author: "GiB",
+        testCases: [
+            ["5\n3", "2158"],
+            ["0\n0", "0"],
+            ["4\n6", "-22410"],
+            ["100000\n99987", "139998700000199987"],
+            ["34000000\n20000000", "1400000068000000000000054000000"],
+        ],
+        solution:
+            "I=input\nn=int(I())\nm=int(I())\nI(int(f'{n-m}{n*m}{n+m}'))\n# a=gets.to_i\n# b=gets.to_i\n# p (\"#{a-b}#{a*b}#{a+b}\").to_i",
+    },
+    {
+        title: "Sum of vectors",
+        author: "MadKnight",
+        testCases: [
+            ["3 2\n2 3 4\n1 1 1", "1 2 3"],
+            ["4 3\n2 3 4 5\n1 1 1 1\n2 2 2 2", "3 4 5 6"],
+            ["4 4\n2 3 4 5\n1 1 1 1\n2 2 2 2\n1 2 3 4", "2 2 2 2"],
+            ["4 5\n2 3 4 5\n1 1 1 1\n2 2 2 2\n1 2 3 4\n5 3 6 1", "7 5 8 3"],
+            [
+                "7 15\n28 -5 -9 -4 8 -8 13\n20 0 10 -4 14 4 8\n18 30 15 23 6 24 -8\n-9 29 12 4 8 28 26\n-5 1 25 6 20 -1 -5\n9 -7 2 5 18 25 22\n1 22 18 29 -5 9 15\n29 14 30 22 -4 3 2\n-5 30 8 18 22 25 27\n-9 3 0 20 9 -2 11\n13 13 5 25 5 19 30\n1 12 2 20 20 5 7\n-5 21 3 22 11 5 15\n11 25 27 26 -8 22 15\n-3 -8 -9 -6 -9 -6 7",
+                "-10 28 -27 20 1 -18 3",
+            ],
+        ],
+        solution:
+            "_,*l=[[*map(int,x.split())]for x in open(0)]\nprint(*[sum(x[::2])-sum(x[1::2])for x in zip(*l)])\n# gets\n# $><<[*$<].map{_1.split.map(&:to_i)}.transpose.map{b=1;_1.inject{|c,v|c+(b=-b)*v}}*' '",
+    },
+    {
+        title: "Arithmetic Mean",
+        author: "JBM",
+        testCases: [
+            ["5\n1 2 3 4 5", "3"],
+            ["5\n2 4 1 3 5", "3"],
+            ["10\n1 10 2 9 3 8 4 7 5 6", "5.5"],
+            ["6\n-320 500 400 1 3 -2", "97"],
+        ],
+        solution:
+            "I=input\nn=int(I())\nI(f'{sum(map(int,I().split()))/n:g}')\n# n=gets.to_i\n# $><<\"%g\"%(gets.split.sum(&:to_f)/n)",
+    },
+    {
+        title: "Parallel Lines",
+        author: "JBM",
+        testCases: [
+            [
+                "20 10\n....................\n....................\n--------------------\n....................\n....................\n....................\n--------------------\n....................\n....................\n....................\n",
+                "VALID",
+            ],
+            [
+                "19 10\n..|............|...\n..|............|...\n..|............|...\n..|............|...\n..|............|...\n..|............|...\n..|............|...\n..|............|...\n..|............|...\n..|............|...\n",
+                "VALID",
+            ],
+            [
+                "19 10\n...............|...\n...............|...\n...............|...\n---------------+---\n...............|...\n...............|...\n...............|...\n...............|...\n...............|...\n...............|...\n",
+                "INVALID",
+            ],
+            [
+                "19 10\n...................\n-------............\n.......-------.....\n..............-----\n...................\n-------............\n.......-------.....\n..............-----\n...................\n...................\n",
+                "INVALID",
+            ],
+            [
+                "19 10\n........./...../...\n......../...../....\n......./...../.....\n....../...../......\n...../...../.......\n..../...../........\n.../...../.........\n../...../..........\n./...../...........\n/...../............\n",
+                "INVALID",
+            ],
+            [
+                "19 10\n...\\.....\\.........\n....\\.....\\........\n.....\\.....\\.......\n......\\.....\\......\n.......\\.....\\.....\n........\\.....\\....\n.........\\.....\\...\n..........\\.....\\..\n...........\\.....\\.\n............\\.....\\\n",
+                "INVALID",
+            ],
+            [
+                "20 10\n....................\n....................\n--------------------\n....................\n....................\n....................\n....................\n....................\n....................\n....................\n",
+                "INVALID",
+            ],
+            [
+                "20 10\n................|...\n................|...\n................|...\n................|...\n................|...\n................|...\n................|...\n................|...\n................|...\n................|...\n",
+                "INVALID",
+            ],
+            [
+                "20 10\n....................\n....................\n--------------------\n....................\n--------------------\n....................\n....................\n....................\n--------------------\n....................\n",
+                "INVALID",
+            ],
+            [
+                "20 10\n..|.....|......|....\n..|.....|......|....\n..|.....|......|....\n..|.....|......|....\n..|.....|......|....\n..|.....|......|....\n..|.....|......|....\n..|.....|......|....\n..|.....|......|....\n..|.....|......|....\n",
+                "INVALID",
+            ],
+            [
+                "20 10\n..-...-.....-...-...\n.-...-.....-...-....\n-...-.....-...-.....\n...-.....-...-.....-\n..-.....-...-.....-.\n.-.....-...-.....-..\n-.....-...-.....-...\n.....-...-.....-...-\n....-...-.....-...-.\n...-...-.....-...-..\n",
+                "INVALID",
+            ],
+            [
+                "20 10\n....|......|........\n...|......|.........\n..|......|..........\n.|......|...........\n|......|............\n......|............|\n.....|............|.\n....|............|..\n...|............|...\n..|............|....\n",
+                "INVALID",
+            ],
+        ],
+        solution:
+            'I=input\nw,h=map(int,I().split())\nb=[I()for i in"A"*h]\nI(("","IN")[[*map("".join(b).count,"-|")]not in[[0,h*2],[w*2,0]]or any(".-"in x or"-."in x for x in b)or any(".|"in x or"|."in x for x in map("".join,zip(*b)))]+"VALID")\n# w,h=gets.split.map(&:to_i)\n# b=[*$<]*\'\'\n# $><<((b=~/^((\\.{#{w}}\\n)*?-{#{w}}\\n){2}(\\.{#{w}}\\n)*$|^((\\.*\\|){2}\\.*\\n)\\4{#{h-1}}$/)==0?\'\':\'IN\')+\'VALID\'',
+    },
+    {
+        title: "Average character",
+        author: "Varnas",
+        testCases: [
+            ["ABC", "B"],
+            ["KLMNOPQRS", "O"],
+            ["QWROJA", "N"],
+            ["ToavX", "P"],
+            [
+                "AwotIJHOAIJSRoieJHOjasOIADaoiHAOHJAOIJGOIajdOIQWJTOIGJDOINCOIASORIOGIMAOIMEORIQEMOIGMEOIFMASKDJQOWJGOJOASJOIQWOGIMASOIDMOQWIROQIGJOIAMSFOAIJGIHIWUNVNZMXCNXCKJQOWRIEOGSDGSPOKSDLAMKMROQIJRDFLKMZXOIAJSQPIRKLMAdglkaSFAJOIAJFOIQWJEOIQJKAMCLKACMALKSDLAKWEQANLEIRJRQFIJAOIVAWOTIJHOAIJSROIEJHOJASOIADAOIHAOHJAOIJGOIAJDOIQWJTOIGJDOINCOIASORIOGIMAOIMEORIQEMOIGMASODLQWKEJOIFJLKMALSKQIOWELKMZLXKMFALSFJQOIWEAOISFWIDHGPSODRJAWOPIJHOIDJOIAJTGIOJAORAJWOIJHOFMAOIFMOIPDMOAIPWJTOPIJDOIFjawoiRJOIpjmaioGJIGHAIJRHQHQIUEIvnaksJDNWIORQIOPEGHIDVNAJKNASIPHRQEUITHIUHDNAJSNWIHJQIWJQEOIGOIDVNAKOSDNAOPWPJQOPIWTJQEOIPGDPJFNASPJNQWOIRQWIOTOIVNAKSFNAIOAWOTIJHOAIJSROIEJHOJASOIADAOIHAOHJAOIJGOIAJDOIQWJTOIGJDOINCOIASORIOGIMAOIMEORIQEMOIGMASODLQWKEJOIFJLKMALSKQIOWELKMZLXKMFALSFJQOIWEAOISFWIDHGPSODRJAWOPIJHOIDJoiajTGIOJAORAJWOIJHOFMAOIFMOIPDMOAIPWJTOPIJDOIFJAWOIRJOIPJMAIOGJIGHAIJRHQHQIUEIVNAKSJDNWIORQIOPEGHIDVIPNWIHJQIWJQEOIGOIDVNAKOSDNAOPWPJQOPIWTJqeoIPGDPJFNASPJNQWJQWOIRJgonasKFAWOEJQWOIJOGALKFNASLFKqeqOFIJAOISFJAOISFJAWOI",
+                "K",
+            ],
+        ],
+        solution:
+            "*l,=map(ord,input().upper())\nprint(chr(sum(l)//len(l)))\n# l=gets.chomp.upcase.bytes\n# $><<(l.sum/l.size).chr",
+    },
+    {
+        title: "Angle between vectors",
+        author: "MadKnight",
+        testCases: [
+            ["3 6", "3"],
+            ["6 3", "3"],
+            ["3 358", "5"],
+            ["100 360", "100"],
+            ["5777 3876322", "175"],
+        ],
+        solution:
+            "a,b=[int(x)%360for x in input().split()]\nt=abs(a-b)\nprint(min(t,abs(360-t)))\n# a,b=gets.split.map{_1.to_i%360}\n# t=(a-b).abs\n# t=360-t if t>180\n# p t",
+    },
+    {
+        title: "English programming language",
+        author: "anonymousm",
+        testCases: [
+            ["write Hello World!.", "Hello World!"],
+            ["write Hello World!", "Syntax Error"],
+            ["3 times write hello.", "hello\nhello\nhello"],
+            ["write hello. 10 times", "hello\nhello\nhello\nhello\nhello\nhello\nhello\nhello\nhello\nhello"],
+            ["please 1 times write Done!.", "Done!"],
+        ],
+        solution:
+            'import re\nc=input()\nif "."not in c:input("Syntax Error")\nt=int((re.search(r"(\\d+)",c)or[1])[0])\nfor i in range(t):print(re.findall(r"te (.+)\\.",c)[0])\n# c=gets.chomp\n# [(c.scan(/\\d+/))[0].to_i,1].max.times{puts c.scan(/te (.+)\\./)}\n# exit if c[\'.\']!=p\n# puts\'Syntax Error\'',
+    },
+    {
+        title: "Simon says",
+        author: "Keelhaul",
+        testCases: [
+            ["Simon says : write 42", "42"],
+            ["Simon says : please write I love cakes", "I love cakes"],
+            ["Samantha says : write 42", "..."],
+            ["Simon says : write", "..."],
+            ["Jack says : Simon says : write I trolled you !", "..."],
+            ["Simon says : write Simon says : write I'm so meta !", "Simon says : write I'm so meta !"],
+            ["Simon says : do a barrel roll !", "..."],
+            ["Simoonmoon says : write wow such simon, much says !", "..."],
+            ["Simon write says : what ?", "..."],
+        ],
+        solution:
+            's=input()\nw=s.find("te")\nprint(s[w+3:]*(s[4:7]=="n s"and w>0) or"...")\n#s=gets.chomp\n#puts (s[((s=~/te/)||99)+3..]if(s=~/n s/)==4)||\'...\'',
+    },
+    {
+        title: "Construct a square",
+        author: "SahilK",
+        testCases: [
+            ["3", "+++\n+++\n+++"],
+            ["1", "+"],
+            [
+                "18",
+                "++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++\n++++++++++++++++++",
+            ],
+            ["8", "++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++"],
+        ],
+        solution: "x=int(input())\nexec('print(\"+\"*x);'*x)\n# x=gets.to_i\n# puts ['+'*x]*x",
+    },
+    {
+        title: "Combination of Progression",
+        author: "smartdiscover17",
+        testCases: [
+            ["4\n2\n3", "4 6 8\n4 2 1"],
+            ["81\n3\n4", "81 84 87 90\n81 27 9 3"],
+            ["10\n1\n3", "10 11 12\n10 10 10"],
+            ["27\n3\n3", "27 30 33\n27 9 3"],
+        ],
+        solution:
+            "l,m,n=map(int,open(0))\na=[l+m*x for x in range(n)]\nb=[l//m**x for x in range(n)]\nprint(*a)\nprint(*b)",
+    },
+    {
+        title: "Semi-Ellipse",
+        author: "Varnas",
+        testCases: [
+            ["0 0 4 4", "13"],
+            ["67 67 -5 -5 ", "4070"],
+            ["-63 -42 11 42", "4880"],
+            ["-32 -67 -70 -20", "1403"],
+            ["-99 -99 99 99", "30776"],
+            ["-10 50 0 10", "314"],
+        ],
+        solution:
+            "a,b,x,y=map(int,input().split())\nprint(-int(-3.14*abs((x-a)*(y-b))//4))\n# a,b,x,y=gets.split.map(&:to_i)\n# p (3.14*(x-a)*(y-b)/4).abs.ceil",
+    },
+    {
+        title: "Dentist",
+        author: "Varnas",
+        testCases: [
+            ["2\n----------1---------\n----------0---------", "----------1---------\n--------------------"],
+            ["2\n----1111110-1110----\n---111-10-11111-----", "----111111--111-----\n---111-1--11111-----"],
+            [
+                "2\n1111111---1111111100000111000111\n111100000---1111010101111111---1",
+                "1111111---11111111-----111---111\n1111--------1111-1-1-1111111---1",
+            ],
+            [
+                "5\n---11-1-01-01110-1-0-10-10-1-111\n11--0--------101-0-10----010---1\n---1-010-10-10-1-01-01-01--00111\n---1111---111---1010101011000111\n---1111---10-10-10-101-000-00111",
+                "---11-1--1--111--1---1--1--1-111\n11-----------1-1---1------1----1\n---1--1--1--1--1--1--1--1----111\n---1111---111---1-1-1-1-11---111\n---1111---1--1--1--1-1-------111",
+            ],
+            [
+                "10\n-1-01-0-10-10-10-1-01-01\n1----101-0-10---10-1-0-10-1-0111\n--------01--10-1-01-01-0-1\n-10-10-1-01-0-1-01-1-0-10-1-1-00\n-01--10-1-1-1-1-1-1-10000\n---------------\n----10-1-0-10-1-11111--0-0-0\n-01---------------1010111111----\n---------1010110101011011-1-\n----1-0-10-1-1--1-1-1-1-",
+                "-1--1---1--1--1--1--1--1\n1----1-1---1----1--1---1--1--111\n---------1--1--1--1--1---1\n-1--1--1--1---1--1-1---1--1-1---\n--1--1--1-1-1-1-1-1-1----\n---------------\n----1--1---1--1-11111-------\n--1---------------1-1-111111----\n---------1-1-11-1-1-11-11-1-\n----1---1--1-1--1-1-1-1-",
+            ],
+        ],
+        solution: "exec('print(input().replace(\"0\",\"-\"));'*int(input()))\n#puts`dd`.sub(/.+\\n/,'').tr'0','-'",
+    },
+    {
+        title: "Parametric sequence",
+        author: "Lupilum",
+        testCases: [
+            ["1 4 \n5 2 \n1", "111155"],
+            ["3 5 \n2 7 \n2", "333332222222444443333333\n"],
+            ["4 3 \n3 5 \n5", "4443333355544444666555557776666688877777"],
+            ["8 2 \n7 4 \n3", "887777998888009999"],
+            ["7 1\n4 3\n7\n", "7444855596660777188829993000"],
+            ["6 2 \n8 1 \n4", "668779880991"],
+        ],
+        solution:
+            "G=lambda:map(int,input().split())\na,b=G()\nc,d=G()\nfor x in range(int(input())):print(end=str((a+x)%10)*b+str((c+x)%10)*d)",
+    },
+    {
+        title: "Find the right angle",
+        author: "Entilore",
+        testCases: [
+            ["O 0 0\nA 1 1\nB -1 1", "O"],
+            ["O 0 0\nA 1 1\nB 2 0", "A"],
+            ["O 0 0\nA 4 -2\nB 1 1", "B"],
+            ["A 1 2\nB 3 4\nC 5 6", "_"],
+            ["A -578 238\nB 253 -815\nC 955 -261", "B"],
+            ["A 0 0\nB 0 1\nC 1 0", "A"],
+        ],
+        solution: "NO",
+    },
+    {
+        title: "L'horloge",
+        author: "Azziliz",
+        testCases: [
+            ["03:00", "90"],
+            ["00:30", "165"],
+            ["06:40", "40"],
+            ["01:10", "25"],
+            ["11:36", "132"],
+            ["9:14", "167"],
+            ["06:00", "180"],
+        ],
+        solution: "NO",
+    },
 ];
