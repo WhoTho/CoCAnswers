@@ -85,15 +85,21 @@ function searchByAuthor(authorName) {
 }
 
 function clearSearchResults() {
-    var div = document.getElementById("results");
+    try {
+        var div = document.getElementById("results");
 
-    while (div.firstChild) {
-        div.removeChild(div.firstChild);
+        while (div.firstChild) {
+            div.removeChild(div.firstChild);
+        }
+        return;
+    } catch (err) {
+        console.log(err);
+        return;
     }
-    return;
 }
 
 function printResults(matchArray) {
+    console.log(`Matches ${matchArray}`);
     var div = document.getElementById("results");
     matchArray.forEach((data) => {
         var showTemp = document.createElement("div");
@@ -108,9 +114,13 @@ function printResults(matchArray) {
 }
 
 async function test() {
+    console.log("startting search");
     await clearSearchResults();
+    console.log("clearned results");
     var searchQuery = document.getElementById("authorInput").value;
+    console.log(`Search query: ${searchQuery}`);
     var matches = await searchByAuthor(searchQuery);
+    console.log("Got matches");
     printResults(matches);
 }
 
