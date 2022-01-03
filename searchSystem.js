@@ -119,8 +119,9 @@ async function test() {
     console.log("clearned results");
     var searchQuery = document.getElementById("authorInput").value;
     console.log(`Search query: ${searchQuery}`);
-    var matches = await searchByAuthor(searchQuery);
+    var matches = searchByAuthor(searchQuery);
     console.log("Got matches");
+    console.log(matches);
     printResults(matches);
 }
 
