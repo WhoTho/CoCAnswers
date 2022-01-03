@@ -21,7 +21,8 @@
   }
   function testMulti(){
       var userInput = document.getElementById("UserInputMultiLine").value;
-      document.getElementById("demo").innerHTML = String.raw`${userInput}`;
+      var lines = userInput.split("\n").length;
+      document.getElementById("demo").innerHTML = `you wrote ${lines} lines`;
   }
   </script>
 </html>
