@@ -12,28 +12,29 @@
     <textarea id="UserInputMultiLine" style="width:250px;height:150px;">yeah put in stuff</textarea>
     <button onclick="testMulti()">Submit multiline</button> -->
     <div class="mainInputs">
-        <input type="text" id="authorInput" placeholder="Name">AUTHOR</input>
-        <button onclick="test()">Submit multiline</button>
+        <div id="authorInputDiv">
+            <p class="inputLabel">Author:</p>
+            <input type="text" id="authorInput" placeholder="Author"></input>
+        </div>
+        <br>
+        <div id="testCaseInputDiv">
+            <p class="inputLabel">Test case:</p>
+            <p class="testCaseLabel">Input:</p>
+            <textarea class="multiLineInput" id="testCaseInputInput" placeholder="Input"></input>
+            <br>
+            <p class="testCaseLabel">Output:</p>
+            <textarea class="multiLineInput" id="testCaseOutputInput" placeholder="Output"></input>
+        </div>
+    </div>
+    <div id="submitButtonDiv">
+        <button id="submitButton" onclick="test()">Search</button>
     </div>
 
     <!-- add this line for function to write into -->
 
     <div id="results">
-        <p>nothing yet</p>
+        <p>No results yet</p>
     </div>
 
     <script src="searchSystem.js"></script>
-
-    <!-- <script type="text/javascript">
-        function test(){
-            var userInput = document.getElementById("userInput").value;
-            document.getElementById("demo").innerHTML = userInput;
-        }
-        function testMulti(){
-            var userInput = document.getElementById("UserInputMultiLine").value;
-            var lines = userInput.split("\n").length;
-            document.getElementById("demo").innerHTML = `you wrote ${lines} lines`;
-            document.getElementById("multiOut").innerText = "hello\nmulit line\noutthing";
-        }
-    </script> -->
 </html>
