@@ -107,7 +107,7 @@ function printResults(matchArray) {
         showTitle = `<p class="resultTitle"><strong>TITLE: </strong>${data.title}</p>`;
         showAuthor = `<p class="resultAuthor"><strong>AUTHOR: </strong>${data.author}</p>`;
         showSolution = `<p class="resultSolution"><strong>SOLUTION: </strong><br>${data.solution.replace(
-            "\n",
+            /\n/g,
             "<br>"
         )}</p>`;
         console.log(showTitle + showAuthor + showSolution);
