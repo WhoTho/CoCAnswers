@@ -85,10 +85,10 @@ function searchByAuthor(authorName, currentMatchArray) {
 }
 
 function searchByTestCase(testCaseInput, testCaseOutput, currentMatchArray) {
-    var searchTestCaseArray = [testCaseInput, testCaseOutput];
-    console.log(`Search array test casea: ${searchTestCaseArray}`);
     return currentMatchArray.filter((e) => {
-        return e.testCases.includes(searchTestCaseArray);
+        return e.testCases.some((t) => {
+            return t[0] === testCaseInput && t[1] === testCaseOutput;
+        });
     });
 }
 
