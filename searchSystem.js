@@ -85,8 +85,10 @@ function searchByAuthor(authorName, currentMatchArray) {
 }
 
 function searchByTestCase(testCaseInput, testCaseOutput, currentMatchArray) {
+    var searchTestCaseArray = [testCaseInput, testCaseOutput];
+    console.log(`Search array test casea: ${searchTestCaseArray}`);
     return currentMatchArray.filter((e) => {
-        return e.testCases.includes([testCaseInput, testCaseOutput]);
+        return e.testCases.includes(searchTestCaseArray);
     });
 }
 
@@ -161,22 +163,25 @@ async function submitSearch() {
     console.log("clearned results");
 
     var searchAuthor = document.getElementById("authorInput").value;
-    console.log(`Search query: ${searchQuery}`);
 
     var searchTestCaseInput = document.getElementById("testCaseInputInput").value;
     var searchTestCaseOutput = document.getElementById("testCaseOutputInput").value;
-    console.log(`Testcase input: ${searchTestCaseInput}`);
-    console.log(`Testcase output: ${searchTestCaseOutput}`);
 
     var currentMatches = masterFileRead;
 
-    if (searchAuthor !== "") currentMatches = searchByAuthor(searchAuthor, currentMatches);
-    if (searchTestCaseInput !== "" && searchTestCaseOutput !== "")
+    if (searchAuthor !== "") {
+        console.log(`search author: ${searchAuthor}`);
+        currentMatches = searchByAuthor(searchAuthor, currentMatches);
+    }
+    if (searchTestCaseInput !== "" && searchTestCaseOutput !== "") {
+        console.log(`Testcase input: ${searchTestCaseInput}`);
+        console.log(`Testcase output: ${searchTestCaseOutput}`);
         currentMatches = searchByTestCase(searchTestCaseInput, searchTestCaseOutput, currentMatches);
+    }
 
     console.log("Got matches");
     console.log(currentMatches);
-    printResults(matches);
+    printResults(currentMatches);
 }
 
 const masterFileRead = [
