@@ -12,7 +12,8 @@
   <button onclick="testMulti()">Submit multiline</button>
 
   <!-- add this line for function to write into -->
-  <p id="demo"></p>   
+  <p id="demo"></p>
+  <p id="multiOut"></p>
 
   <script type="text/javascript">
   function test(){
@@ -23,6 +24,7 @@
       var userInput = document.getElementById("UserInputMultiLine").value;
       var lines = userInput.split("\n").length;
       document.getElementById("demo").innerHTML = `you wrote ${lines} lines`;
+      document.getElementById("multiOut").innerText = "hello\nmulit line\noutthing";
   }
   </script>
 </html>
