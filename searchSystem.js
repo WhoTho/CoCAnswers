@@ -82,10 +82,12 @@ const settings = {
 
 async function loadAnswerFile() {
     try {
-        masterFileRead = await require("./answers")["ANSWERS"];
+        masterFileRead = require("./answers")["ANSWERS"];
+        return;
     } catch (err) {
         // console.log("Error loading data");
         // console.log(err);
+        alert("Error loading data");
         return;
     }
     // console.log("Loaded data");
