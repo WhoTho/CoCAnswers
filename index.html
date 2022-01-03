@@ -1,30 +1,35 @@
 <!doctype html>
 <html>
-  <head>
-    <title>This is the title of the webpage!</title>
-  </head>
-  <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
-  <input type="text" id="userInput"> give me input</input>
-  <button onclick="test()">Submit small</button>
-  <textarea id="UserInputMultiLine" style="width:250px;height:150px;">yeah put in stuff</textarea>
-  <button onclick="testMulti()">Submit multiline</button>
+    <head>
+        <title>CoC Answers</title>
+    </head>
+    <body>
+        <p>HEAVILY <strong>WIP</strong></p>
+    </body>
+    <!-- <input type="text" id="userInput"> give me input</input>
+    <button onclick="test()">Submit small</button>
+    <textarea id="UserInputMultiLine" style="width:250px;height:150px;">yeah put in stuff</textarea>
+    <button onclick="testMulti()">Submit multiline</button> -->
+    <input type="text" id="authorInput" placeholder="Name">AUTHOR</input>
+    <button onclick="test()">Submit multiline</button>
 
-  <!-- add this line for function to write into -->
-  <p id="demo"></p>
-  <p id="multiOut"></p>
+    <!-- add this line for function to write into -->
 
-  <script type="text/javascript">
-  function test(){
-      var userInput = document.getElementById("userInput").value;
-      document.getElementById("demo").innerHTML = userInput;
-  }
-  function testMulti(){
-      var userInput = document.getElementById("UserInputMultiLine").value;
-      var lines = userInput.split("\n").length;
-      document.getElementById("demo").innerHTML = `you wrote ${lines} lines`;
-      document.getElementById("multiOut").innerText = "hello\nmulit line\noutthing";
-  }
-  </script>
+    <div id="results">
+        <p>nothing yet</p>
+    </div>
+    <script src="searchSystem.js"></script>
+
+    <!-- <script type="text/javascript">
+        function test(){
+            var userInput = document.getElementById("userInput").value;
+            document.getElementById("demo").innerHTML = userInput;
+        }
+        function testMulti(){
+            var userInput = document.getElementById("UserInputMultiLine").value;
+            var lines = userInput.split("\n").length;
+            document.getElementById("demo").innerHTML = `you wrote ${lines} lines`;
+            document.getElementById("multiOut").innerText = "hello\nmulit line\noutthing";
+        }
+    </script> -->
 </html>
