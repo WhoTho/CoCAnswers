@@ -78,9 +78,15 @@ const settings = {
 //     console.log("\n++++++++++++++\n");
 // }
 
-function searchByAuthor(authorName) {
-    return masterFileRead.filter((e) => {
+function searchByAuthor(authorName, currentMatchArray) {
+    return currentMatchArray.filter((e) => {
         return e.author === authorName;
+    });
+}
+
+function searchByTestCase(testCaseInput, testCaseOutput, currentMatchArray) {
+    return currentMatchArray.filter((e) => {
+        return e.testCases.includes([testCaseInput, testCaseOutput]);
     });
 }
 
@@ -99,12 +105,13 @@ function clearSearchResults() {
 }
 
 function printResults(matchArray) {
-    console.log(`Matches ${matchArray}`);
+    document.getElementById("resultAmount").innerText = `Found ${matchArray.length} results`;
+
     var div = document.getElementById("results");
     matchArray.forEach((data) => {
         var showAll = document.createElement("div");
         showAll.classList.add("resultCard");
-        
+
         //Title info
         var showTitle = document.createElement("pre");
         showTitle.classList.add("resultTitle");
@@ -117,7 +124,7 @@ function printResults(matchArray) {
         showTitle.appendChild(showTitleLabelBolded);
         showTitle.appendChild(showTitleInfo);
         showAll.appendChild(showTitle);
-        
+
         //Author info
         var showAuthor = document.createElement("pre");
         showAuthor.classList.add("resultAuthor");
@@ -130,7 +137,7 @@ function printResults(matchArray) {
         showAuthor.appendChild(showAuthorLabelBolded);
         showAuthor.appendChild(showAuthorInfo);
         showAll.appendChild(showAuthor);
-        
+
         //Solution info
         var showSolution = document.createElement("pre");
         showSolution.classList.add("resultSolution");
@@ -143,35 +150,33 @@ function printResults(matchArray) {
         showSolution.appendChild(showSolutionLabelBolded);
         showSolution.appendChild(showSolutionInfo);
         showAll.appendChild(showSolution);
-        
+
         div.appendChild(showAll);
-        
-//         showAuthor = `<pre class="resultAuthor"><strong>AUTHOR: </strong>${data.author}</pre>`;
-//         showSolution = `<pre class="resultSolution"><strong>SOLUTION: </strong><br>${data.solution.replace(
-//             /\n/g,
-//             "<br>"
-//         )}</pre>`;
-//         console.log(showTitle + showAuthor + showSolution);
-//         showTemp.innerHTML = showTitle + showAuthor + showSolution;
-        
     });
 }
 
-async function test() {
+async function submitSearch() {
     console.log("startting search");
     await clearSearchResults();
     console.log("clearned results");
-    var searchQuery = document.getElementById("authorInput").value;
-    console.log(`Search query: ${searchQuery}`);
-    var matches = searchByAuthor(searchQuery);
-    console.log("Got matches");
-    console.log(matches);
-    printResults(matches);
-}
 
-//Start code
-async function startCode() {
-    // await loadAnswerFile();
+    var searchAuthor = document.getElementById("authorInput").value;
+    console.log(`Search query: ${searchQuery}`);
+
+    var searchTestCaseInput = document.getElementById("testCaseInputInput").value;
+    var searchTestCaseOutput = document.getElementById("testCaseOutputInput").value;
+    console.log(`Testcase input: ${searchTestCaseInput}`);
+    console.log(`Testcase output: ${searchTestCaseOutput}`);
+
+    var currentMatches = masterFileRead;
+
+    if (searchAuthor !== "") currentMatches = searchByAuthor(searchAuthor, currentMatches);
+    if (searchTestCaseInput !== "" && searchTestCaseOutput !== "")
+        currentMatches = searchByTestCase(searchTestCaseInput, searchTestCaseOutput, currentMatches);
+
+    console.log("Got matches");
+    console.log(currentMatches);
+    printResults(matches);
 }
 
 const masterFileRead = [
@@ -1550,7 +1555,7 @@ const masterFileRead = [
             ["1 17", "01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12\n13\n14\n15\n16\n17"],
         ],
         solution:
-            "w,h=map(int,input().split())\nD=[(0,-1),(1,0),(0,1),(-1,0)]\ng=[[0]*w for i in\"A\"*h]\nx=y=d=0\nfor i in range(w*h):\n\tg[y][x]=i+1;X=x+D[d][0];Y=y+D[d][1]\n\twhile i<w*h-1and(not(0<=X<w and 0<=Y<h)or g[Y][X]>0):d=-~d%4;X=x+D[d][0];Y=y+D[d][1]\n\tx=X;y=Y\nfor r in g:print(*[f'{x:02}'for x in r])",
+            "w,h=map(int,input().split())\nD=[(0,-1),(1,0),(0,1),(-1,0)]\ng=[[0]*w for i in\"A\"*h]\nx=y=d=0\nfor i in range(w*h):\n    g[y][x]=i+1;X=x+D[d][0];Y=y+D[d][1]\n    while i<w*h-1and(not(0<=X<w and 0<=Y<h)or g[Y][X]>0):d=-~d%4;X=x+D[d][0];Y=y+D[d][1]\n    x=X;y=Y\nfor r in g:print(*[f'{x:02}'for x in r])",
     },
     {
         title: '"OLD" is GOLD',
@@ -2727,5 +2732,3 @@ const masterFileRead = [
             'I=input\ns=I()\nn=int(I())\nt=[I()for i in"A"*n]\nfor c in s:\n l=""\n for y in range(n):\n  for x in range(len(t[0])):\n   if t[y][x]==c:l+=f\'{x} {y}, \'\n if len(l):print(c+":",l[:-2])',
     },
 ];
-
-startCode();
