@@ -1,82 +1,7 @@
-const settings = {
-    maxPrintMatchesLength: 5,
-};
+// const settings = {
+//     maxPrintMatchesLength: 5,
+// };
 
-// function processUserCommand(cmd) {
-//     try {
-//         const splitCmd = cmd.split(" ");
-//         if (splitCmd[0] === "search") {
-//             printMatchArray(splitCmd[1], splitCmd[2], filterBy(splitCmd[1], splitCmd.slice(3).join(" ")));
-//         } else if (cmd === "reload") {
-//             loadAnswerFile();
-//         } else if (cmd === "exit" || cmd === "quit") {
-//             process.exit(1);
-//         } else {
-//             console.log("Unknown command");
-//         }
-//         return;
-//     } catch (err) {
-//         console.error(err);
-//         return;
-//     }
-// }
-
-// function filterBy(mode, match) {
-//     let matchesList = [];
-//     if (mode === "author") {
-//         masterFileRead.forEach((e) => {
-//             if (e.author === match) matchesList.push(e);
-//         });
-//     } else if (mode === "title") {
-//         masterFileRead.forEach((e) => {
-//             if (e.title === match) matchesList.push(e);
-//         });
-//     } else if (mode === "testCases") {
-//         console.log("testCase filtering not working");
-//         // return
-//         // log("match", match);
-//         // if (!Array.isArray(eval(match))) {
-//         //     // REMOVE EVAL MAKE IT BETTER
-//         //     console.log(`Invalid match type (${typeof match}) with mode (testCases)`);
-//         //     return [];
-//         // }
-//         // const matchArray = Array.from(eval(match));
-//         // log("matchArray", matchArray);
-//         // masterFileRead.forEach((e) => {
-//         //     const testCases = e.testCases;
-//         //     if (matchArray.every((v) => testCases.includes(v))) matchesList.push(e);
-//         // });
-//     } else {
-//         console.log("Invalid filter type");
-//     }
-//     // console.log(matchesF);
-//     return matchesList;
-// }
-
-// function printMatchArray(search, logType, matches) {
-//     if (!["all", "testCases", "author", "title", "solution"].includes(logType)) {
-//         console.log("Invalid logging type");
-//         return;
-//     }
-//     console.log(`Matched ${search} ${matches.length} time(s) || Printing ${logType} information`);
-
-//     if (matches.length > settings.maxPrintMatchesLength) {
-//         console.log(`Showing first ${settings.maxPrintMatchesLength} matches`);
-//         matches = matches.slice(0, settings.maxPrintMatchesLength);
-//     }
-
-//     matches.forEach((e, i) => {
-//         console.log(`\n++++++++++++++\n${i + 1}.\n`);
-//         if (logType === "all") console.log(e);
-//         else if (logType === "testCases") {
-//             e.testCases.forEach((t) => {
-//                 console.log(`INPUT:\n${t[0]}\n`);
-//                 console.log(`OUTPUT:\n${t[1]}\n------\n`);
-//             });
-//         } else console.log(eval(`e.${logType}`));
-//     });
-//     console.log("\n++++++++++++++\n");
-// }
 
 function searchByAuthor(authorName, currentMatchArray) {
     return currentMatchArray.filter((e) => {
@@ -155,6 +80,7 @@ function printResults(matchArray) {
 
         div.appendChild(showAll);
     });
+    return;
 }
 
 async function submitSearch() {
@@ -215,10 +141,10 @@ const masterFileRead = [
         title: "Almost anagrams",
         author: "Skywalker",
         testCases: [
-            ["ABC\\nABCD", "1\\n0"],
-            ["ABCD\\nABC", "0\\n1"],
-            ["CBA\\nBCD", "1\\n1"],
-            ["ABABCC\\nABDCD", "2\\n3"],
+            ["ABC\nABCD", "1\n0"],
+            ["ABCD\nABC", "0\n1"],
+            ["CBA\nBCD", "1\n1"],
+            ["ABABCC\nABDCD", "2\n3"],
         ],
         solution:
             "a=input()\nb=list(input())\nr=0\nfor c in sorted(a):\n    if c in b:b.remove(c)\n    else:r+=1\nprint(f'{len(b)}\\n{r}')",
@@ -227,11 +153,11 @@ const masterFileRead = [
         title: "Just sort",
         author: "SlobodanZivkovic",
         testCases: [
-            ["1\\n1", "1"],
-            ["2\\n3\\n2", "2 3"],
-            ["2\\n3\\n4", "3 4"],
+            ["1\n1", "1"],
+            ["2\n3\n2", "2 3"],
+            ["2\n3\n4", "3 4"],
             [
-                "50\\n117\\n433\\n371\\n115\\n426\\n309\\n96\\n272\\n84\\n326\\n294\\n101\\n111\\n467\\n300\\n34\\n245\\n278\\n101\\n203\\n147\\n76\\n16\\n122\\n315\\n87\\n134\\n492\\n235\\n0\\n73\\n172\\n258\\n179\\n189\\n415\\n485\\n287\\n464\\n2\\n194\\n323\\n242\\n235\\n184\\n33\\n190\\n278\\n8\\n465",
+                "50\n117\n433\n371\n115\n426\n309\n96\n272\n84\n326\n294\n101\n111\n467\n300\n34\n245\n278\n101\n203\n147\n76\n16\n122\n315\n87\n134\n492\n235\n0\n73\n172\n258\n179\n189\n415\n485\n287\n464\n2\n194\n323\n242\n235\n184\n33\n190\n278\n8\n465",
                 "0 2 8 16 33 34 73 76 84 87 96 101 101 111 115 117 122 134 147 172 179 184 189 190 194 203 235 235 242 245 258 272 278 278 287 294 300 309 315 323 326 371 415 426 433 464 465 467 485 492",
             ],
         ],
@@ -241,13 +167,13 @@ const masterFileRead = [
         title: "Reshape String",
         author: "Bryukh",
         testCases: [
-            ["Hello Perfect World\\n5", "Hello\\nPerfe\\nctWor\\nld"],
-            ["Coding Game!\\n1", "C\\no\\nd\\ni\\nn\\ng\\nG\\na\\nm\\ne\\n!"],
-            ["One Two Six\\n10", "OneTwoSix"],
-            ["Z\\n9", "Z"],
+            ["Hello Perfect World\n5", "Hello\nPerfe\nctWor\nld"],
+            ["Coding Game!\n1", "C\no\nd\ni\nn\ng\nG\na\nm\ne\n!"],
+            ["One Two Six\n10", "OneTwoSix"],
+            ["Z\n9", "Z"],
             [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget ligula interdum orci aliquam.\\n9",
-                "Loremipsu\\nmdolorsit\\namet,cons\\necteturad\\nipiscinge\\nlit.Praes\\nentegetli\\ngulainter\\ndumorcial\\niquam.",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget ligula interdum orci aliquam.\n9",
+                "Loremipsu\nmdolorsit\namet,cons\necteturad\nipiscinge\nlit.Praes\nentegetli\ngulainter\ndumorcial\niquam.",
             ],
             ["AaGpttaetdtoaahpcwelknre\\n4", "AaGp\\nttae\\ntdto\\naahp\\ncwel\\nknre"],
         ],
@@ -271,12 +197,12 @@ const masterFileRead = [
         title: "Diagonal Words",
         author: "Bryukh",
         testCases: [
-            ["4\\nmooa\\noano\\notio\\nioon", "main anti"],
-            ["3\\nxoo\\noxo\\noxx", "xxx oxo"],
-            ["1\\na", "a a"],
-            ["2\\ncx\\ncx", "cx xc"],
+            ["4\nmooa\noano\notio\nioon", "main anti"],
+            ["3\nxoo\noxo\noxx", "xxx oxo"],
+            ["1\na", "a a"],
+            ["2\ncx\ncx", "cx xc"],
             [
-                "10\\nloremipsum\\ndolorsitam\\netconsecte\\nturadipisc\\ningelitnul\\nlavenenati\\nsnisinonmi\\ndictumnece\\nfficiturli\\nberodapibu",
+                "10\nloremipsum\ndolorsitam\netconsecte\nturadipisc\ningelitnul\nlavenenati\nsnisinonmi\ndictumnece\nfficiturli\nberodapibu",
                 "localeoelu macpinscfb",
             ],
         ],
