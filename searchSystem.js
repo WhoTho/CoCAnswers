@@ -1,5 +1,5 @@
 const settings = {
-    maxPrintMatchesLength: 5,
+    maxPrintMatchesLength: 25,
 };
 
 // function processUserCommand(cmd) {
@@ -107,12 +107,22 @@ function clearSearchResults() {
 }
 
 function printResults(matchArray) {
-    document.getElementById("resultAmount").innerText = `Found ${matchArray.length} results`;
+    if (matchArray.length > settings.maxPrintMatchesLength) {
+        document.getElementById(
+            "resultAmount"
+        ).innerText = `Found ${matchArray.length} results, only showing first ${settings.maxPrintMatchesLength}`;
+        matchArray = matchArray.slice(0, settings.maxPrintMatchesLength);
+    } else {
+        document.getElementById("resultAmount").innerText = `Found ${matchArray.length} results`;
+    }
 
     var div = document.getElementById("results");
     matchArray.forEach((data) => {
         var showAll = document.createElement("div");
         showAll.classList.add("resultCard");
+
+        //Make it clickable with copy
+        showAll.onclick = copySolution(data.solution);
 
         //Title info
         var showTitle = document.createElement("pre");
@@ -192,6 +202,10 @@ function solutionInfoCount() {
     ).innerText = `There are currently ${amount} answers outs of ${cocAmount} (${((amount / cocAmount) * 100).toFixed(
         2
     )}%)`;
+}
+
+function copySolution(solutionText) {
+    navigator.clipboard.writeText(solutionText);
 }
 
 const masterFileRead = [
