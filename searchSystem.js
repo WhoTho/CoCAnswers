@@ -122,7 +122,7 @@ function printResults(matchArray) {
         showAll.classList.add("resultCard");
 
         //Make it clickable with copy
-        showAll.onclick = copySolution(data.solution);
+        showAll.setAttribute("onclick", `copySolution(${masterFileRead.indexOf(data)})`);
 
         //Title info
         var showTitle = document.createElement("pre");
@@ -204,8 +204,8 @@ function solutionInfoCount() {
     )}%)`;
 }
 
-function copySolution(solutionText) {
-    navigator.clipboard.writeText(solutionText);
+function copySolution(solutionIndex) {
+    navigator.clipboard.writeText(masterFileRead[solutionIndex].solution);
 }
 
 const masterFileRead = [
