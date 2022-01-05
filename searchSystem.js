@@ -1,7 +1,82 @@
-// const settings = {
-//     maxPrintMatchesLength: 5,
-// };
+const settings = {
+    maxPrintMatchesLength: 5,
+};
 
+// function processUserCommand(cmd) {
+//     try {
+//         const splitCmd = cmd.split(" ");
+//         if (splitCmd[0] === "search") {
+//             printMatchArray(splitCmd[1], splitCmd[2], filterBy(splitCmd[1], splitCmd.slice(3).join(" ")));
+//         } else if (cmd === "reload") {
+//             loadAnswerFile();
+//         } else if (cmd === "exit" || cmd === "quit") {
+//             process.exit(1);
+//         } else {
+//             console.log("Unknown command");
+//         }
+//         return;
+//     } catch (err) {
+//         console.error(err);
+//         return;
+//     }
+// }
+
+// function filterBy(mode, match) {
+//     let matchesList = [];
+//     if (mode === "author") {
+//         masterFileRead.forEach((e) => {
+//             if (e.author === match) matchesList.push(e);
+//         });
+//     } else if (mode === "title") {
+//         masterFileRead.forEach((e) => {
+//             if (e.title === match) matchesList.push(e);
+//         });
+//     } else if (mode === "testCases") {
+//         console.log("testCase filtering not working");
+//         // return
+//         // log("match", match);
+//         // if (!Array.isArray(eval(match))) {
+//         //     // REMOVE EVAL MAKE IT BETTER
+//         //     console.log(`Invalid match type (${typeof match}) with mode (testCases)`);
+//         //     return [];
+//         // }
+//         // const matchArray = Array.from(eval(match));
+//         // log("matchArray", matchArray);
+//         // masterFileRead.forEach((e) => {
+//         //     const testCases = e.testCases;
+//         //     if (matchArray.every((v) => testCases.includes(v))) matchesList.push(e);
+//         // });
+//     } else {
+//         console.log("Invalid filter type");
+//     }
+//     // console.log(matchesF);
+//     return matchesList;
+// }
+
+// function printMatchArray(search, logType, matches) {
+//     if (!["all", "testCases", "author", "title", "solution"].includes(logType)) {
+//         console.log("Invalid logging type");
+//         return;
+//     }
+//     console.log(`Matched ${search} ${matches.length} time(s) || Printing ${logType} information`);
+
+//     if (matches.length > settings.maxPrintMatchesLength) {
+//         console.log(`Showing first ${settings.maxPrintMatchesLength} matches`);
+//         matches = matches.slice(0, settings.maxPrintMatchesLength);
+//     }
+
+//     matches.forEach((e, i) => {
+//         console.log(`\n++++++++++++++\n${i + 1}.\n`);
+//         if (logType === "all") console.log(e);
+//         else if (logType === "testCases") {
+//             e.testCases.forEach((t) => {
+//                 console.log(`INPUT:\n${t[0]}\n`);
+//                 console.log(`OUTPUT:\n${t[1]}\n------\n`);
+//             });
+//         } else console.log(eval(`e.${logType}`));
+//     });
+//     console.log("\n++++++++++++++\n");
+// }
 
 function searchByAuthor(authorName, currentMatchArray) {
     return currentMatchArray.filter((e) => {
@@ -80,7 +155,6 @@ function printResults(matchArray) {
 
         div.appendChild(showAll);
     });
-    return;
 }
 
 async function submitSearch() {
@@ -108,6 +182,16 @@ async function submitSearch() {
     console.log("Got matches");
     console.log(currentMatches);
     printResults(currentMatches);
+}
+
+function solutionInfoCount() {
+    var amount = masterFileRead.length;
+    var cocAmount = 1496;
+    document.getElementById(
+        "answerCountInfo"
+    ).innerText = `There are currently ${amount} answers outs of ${cocAmount} (${((amount / cocAmount) * 100).toFixed(
+        2
+    )}%)`;
 }
 
 const masterFileRead = [
@@ -141,10 +225,10 @@ const masterFileRead = [
         title: "Almost anagrams",
         author: "Skywalker",
         testCases: [
-            ["ABC\nABCD", "1\n0"],
-            ["ABCD\nABC", "0\n1"],
-            ["CBA\nBCD", "1\n1"],
-            ["ABABCC\nABDCD", "2\n3"],
+            ["ABC\\nABCD", "1\\n0"],
+            ["ABCD\\nABC", "0\\n1"],
+            ["CBA\\nBCD", "1\\n1"],
+            ["ABABCC\\nABDCD", "2\\n3"],
         ],
         solution:
             "a=input()\nb=list(input())\nr=0\nfor c in sorted(a):\n    if c in b:b.remove(c)\n    else:r+=1\nprint(f'{len(b)}\\n{r}')",
@@ -153,11 +237,11 @@ const masterFileRead = [
         title: "Just sort",
         author: "SlobodanZivkovic",
         testCases: [
-            ["1\n1", "1"],
-            ["2\n3\n2", "2 3"],
-            ["2\n3\n4", "3 4"],
+            ["1\\n1", "1"],
+            ["2\\n3\\n2", "2 3"],
+            ["2\\n3\\n4", "3 4"],
             [
-                "50\n117\n433\n371\n115\n426\n309\n96\n272\n84\n326\n294\n101\n111\n467\n300\n34\n245\n278\n101\n203\n147\n76\n16\n122\n315\n87\n134\n492\n235\n0\n73\n172\n258\n179\n189\n415\n485\n287\n464\n2\n194\n323\n242\n235\n184\n33\n190\n278\n8\n465",
+                "50\\n117\\n433\\n371\\n115\\n426\\n309\\n96\\n272\\n84\\n326\\n294\\n101\\n111\\n467\\n300\\n34\\n245\\n278\\n101\\n203\\n147\\n76\\n16\\n122\\n315\\n87\\n134\\n492\\n235\\n0\\n73\\n172\\n258\\n179\\n189\\n415\\n485\\n287\\n464\\n2\\n194\\n323\\n242\\n235\\n184\\n33\\n190\\n278\\n8\\n465",
                 "0 2 8 16 33 34 73 76 84 87 96 101 101 111 115 117 122 134 147 172 179 184 189 190 194 203 235 235 242 245 258 272 278 278 287 294 300 309 315 323 326 371 415 426 433 464 465 467 485 492",
             ],
         ],
@@ -167,13 +251,13 @@ const masterFileRead = [
         title: "Reshape String",
         author: "Bryukh",
         testCases: [
-            ["Hello Perfect World\n5", "Hello\nPerfe\nctWor\nld"],
-            ["Coding Game!\n1", "C\no\nd\ni\nn\ng\nG\na\nm\ne\n!"],
-            ["One Two Six\n10", "OneTwoSix"],
-            ["Z\n9", "Z"],
+            ["Hello Perfect World\\n5", "Hello\\nPerfe\\nctWor\\nld"],
+            ["Coding Game!\\n1", "C\\no\\nd\\ni\\nn\\ng\\nG\\na\\nm\\ne\\n!"],
+            ["One Two Six\\n10", "OneTwoSix"],
+            ["Z\\n9", "Z"],
             [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget ligula interdum orci aliquam.\n9",
-                "Loremipsu\nmdolorsit\namet,cons\necteturad\nipiscinge\nlit.Praes\nentegetli\ngulainter\ndumorcial\niquam.",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget ligula interdum orci aliquam.\\n9",
+                "Loremipsu\\nmdolorsit\\namet,cons\\necteturad\\nipiscinge\\nlit.Praes\\nentegetli\\ngulainter\\ndumorcial\\niquam.",
             ],
             ["AaGpttaetdtoaahpcwelknre\\n4", "AaGp\\nttae\\ntdto\\naahp\\ncwel\\nknre"],
         ],
@@ -197,12 +281,12 @@ const masterFileRead = [
         title: "Diagonal Words",
         author: "Bryukh",
         testCases: [
-            ["4\nmooa\noano\notio\nioon", "main anti"],
-            ["3\nxoo\noxo\noxx", "xxx oxo"],
-            ["1\na", "a a"],
-            ["2\ncx\ncx", "cx xc"],
+            ["4\\nmooa\\noano\\notio\\nioon", "main anti"],
+            ["3\\nxoo\\noxo\\noxx", "xxx oxo"],
+            ["1\\na", "a a"],
+            ["2\\ncx\\ncx", "cx xc"],
             [
-                "10\nloremipsum\ndolorsitam\netconsecte\nturadipisc\ningelitnul\nlavenenati\nsnisinonmi\ndictumnece\nfficiturli\nberodapibu",
+                "10\\nloremipsum\\ndolorsitam\\netconsecte\\nturadipisc\\ningelitnul\\nlavenenati\\nsnisinonmi\\ndictumnece\\nfficiturli\\nberodapibu",
                 "localeoelu macpinscfb",
             ],
         ],
@@ -520,7 +604,20 @@ const masterFileRead = [
         solution:
             'n=int(input())\nfor i in range(n):\n    x,y=map(int,input().split())\n    if x==0 or y==0 or abs(x)==abs(y):print("undefined")\n    else:print([([0,1],[7,6]),([3,2],[4,5])][x<0][y<0][abs(x)<abs(y)])',
     },
-    { title: "L'horloge", author: "Azziliz", testCases: [["NO", "NO"]], solution: "no" },
+    {
+        title: "L'horloge",
+        author: "Azziliz",
+        testCases: [
+            ["03:00", "90"],
+            ["00:30", "165"],
+            ["06:40", "40"],
+            ["01:10", "25"],
+            ["11:36", "132"],
+            ["9:14", "167"],
+            ["06:00", "180"],
+        ],
+        solution: "NO",
+    },
     {
         title: "Hex ip address",
         author: "rnd495",
@@ -3046,17 +3143,269 @@ const masterFileRead = [
         solution: "NO",
     },
     {
-        title: "L'horloge",
-        author: "Azziliz",
+        title: "Increment until different",
+        author: "Lupilum",
         testCases: [
-            ["03:00", "90"],
-            ["00:30", "165"],
-            ["06:40", "40"],
-            ["01:10", "25"],
-            ["11:36", "132"],
-            ["9:14", "167"],
-            ["06:00", "180"],
+            ["7", "8"],
+            ["20", "31"],
+            ["797", "800"],
+            ["5514", "6000"],
+            ["256055", "311111"],
+            ["3", "4"],
+            ["56", "70"],
+            ["759", "800"],
+            ["76031", "82222"],
+            ["913015", "2222222"],
+            ["72819", "300000"],
+        ],
+        solution:
+            "m=n=int(input())\nwhile{*str(n)}&{*str(m)}!=set():n+=1\nprint(n)\n# n=m=gets.to_i\n# n+=1while n.digits&m.digits!=[]\n# p n",
+    },
+    {
+        title: "N-th number in array",
+        author: "_NikJ",
+        testCases: [
+            ["3", "2\n"],
+            ["55", "10\n"],
+            ["13", "3\n"],
+            ["51", "6\n"],
+            ["1714636915", "29395\n"],
+            ["100000000000000", "1749820\n"],
+        ],
+        solution: "d=int(input())\na=int((2*d)**.5-.5)\ng=int(d-a*-~a/2)\nprint((a,g)[g>0])",
+    },
+    {
+        title: "Average ASCII value of string",
+        author: "ash2620",
+        testCases: [
+            ["abc", "98"],
+            ["Coding", "99"],
+            ["Average", "99"],
+            ["bored", "104"],
+            ["a", "97"],
+        ],
+        solution: "s=input()\nprint(sum(map(ord,s))//len(s))\n# s=gets.chomp\n# p s.bytes.sum/s.size",
+    },
+    {
+        title: "Skyline",
+        author: "DaFrElUf",
+        testCases: [
+            ["1\n4 2 0", "##\n##\n##\n##"],
+            ["3\n3 1 1\n2 2 3\n3 2 0", "#......##\n#.##...##\n#.##...##"],
+            [
+                "5\n4 2 1\n5 3 2\n2 2 0\n4 1 1\n3 2 0",
+                "...###........\n##.###....#...\n##.###....#.##\n##.###..###.##\n##.###..###.##",
+            ],
+            [
+                "13\n2 1 0\n3 1 0\n4 1 0\n5 1 0\n6 3 0\n5 1 0\n4 2 0\n5 1 0\n6 3 0\n5 1 0\n4 1 0\n3 1 0\n2 1 0\n",
+                "....###....###....\n...#####..#####...\n..##############..\n.################.\n##################\n##################",
+            ],
+            [
+                "13\n11 1 0\n12 2 0\n11 1 2\n2 1 0\n4 1 0\n5 9 0\n4 1 3\n13 1 0\n14 1 2\n8 1 0\n9 2 0\n8 1 4\n1 29 0",
+                "......................#.......................................\n.....................##.......................................\n.##..................##.......................................\n####.................##.......................................\n####.................##.......................................\n####.................##...##..................................\n####.................##..####.................................\n####.................##..####.................................\n####.................##..####.................................\n####....#########....##..####.................................\n####...###########...##..####.................................\n####...###########...##..####.................................\n####..############...##..####.................................\n####..############...##..####....#############################",
+            ],
+        ],
+        solution:
+            't=[]\nb=[[*map(int,input().split())]for i in"A"*int(input())]\ny=max([x[0]for x in b])\nfor h,w,o in b:t+=["."*(y-h)+"#"*h]*w+["."*y]*o\nprint(*map("".join,zip(*t)),sep="\\n")',
+    },
+    {
+        title: "Bowling Round Score",
+        author: "JoshL",
+        testCases: [
+            ["2\nJosh 3 /\nJack - -", "Josh"],
+            ["3\nJosh 3 -\nJack 2 /\nJohn 2 6", "Jack"],
+            ["1\nJames X -", "James"],
+            ["4\nAnna 1 1\nBarney 2 2\nClaire 3 3\nDonald 4 4", "Donald"],
+            ["2\nAndrew X -\nBethany - -", "Andrew"],
+        ],
+        solution:
+            'print(sorted([10if b=="X"or c=="/"else int(((0,c)[c!="-"],b)[b!="-"]),a]for i in"A"*int(input())for a,b,c in[input().split()])[-1][1])',
+    },
+    {
+        title: "Reverse String Length Puzzle",
+        author: "JoshL",
+        testCases: [
+            ["Hello, world!", "6"],
+            ["Hello there, I am a string.", "13"],
+            ["Can you figure out the solution to this puzzle?", "23"],
+            ["You can do it! I believe in you!", "16"],
+        ],
+        solution: "print(len(input())//2)\n# p gets.size/2",
+    },
+    {
+        title: "Pi is a number",
+        author: "PacMann",
+        testCases: [
+            ["90", "P/2"],
+            ["-180", "P"],
+            ["-90", "3*P/2"],
+            ["45", "P/4"],
+            ["225", "5*P/4"],
+            ["-135", "5*P/4"],
+        ],
+        solution:
+            'x=int(input())\nif x<0:x+=360\nn,d=x//45,4\nif x%180<1:n,d=x//180,1\nelif x%90<1:n,d=x//90,2\nprint(("",f"{n}*")[n>1]+"P"+("",f"/{d}")[d>1])',
+    },
+    {
+        title: "Point in Triangle",
+        author: "Hyakumanten",
+        testCases: [
+            ["0 0\n2\n-340 495 -153 -910 835 -947\n-175 41 -421 -714 574 -645", "inside\noutside"],
+            [
+                "0 0\n4\n-330 -370 -309 -439 173 547\n-279 -829 -509 397 457 816\n331 430 943 853 -851 -942\n122 582 662 912 68 757",
+                "outside\ninside\ninside\noutside",
+            ],
+            ["10 -100\n2\n-508 80 850 -188 483 -326\n777 -974 -57 990 74 19", "inside\noutside"],
+            ["999 999\n3\n1 1 1 0 0 1\n2 0 0 2 999 998\n11 11 11 12 12 11", "outside\noutside\noutside"],
+        ],
+        solution:
+            'x,y=map(int,input().split())\nfor i in"A"*int(input()):\n a,b,c,d,e,f=map(int,input().split())\n A=(-d*e+b*(-c+e)+a*(d-f)+c*f)\n h=(b*e-a*f+(f-b)*x+(a-e)*y)/A\n j=(a*d-b*c+(b-d)*x+(c-a)*y)/A\n print(("out","in")[h>0<j and h+j<1]+"side")',
+    },
+    {
+        title: "The window",
+        author: "Onys",
+        testCases: [
+            ["3", "---------\n|...|...|\n|...|...|\n|...|...|\n|---+---|\n|...|...|\n|...|...|\n|...|...|\n---------"],
+            ["1", "-----\n|.|.|\n|-+-|\n|.|.|\n-----"],
+            [
+                "7",
+                "-----------------\n|.......|.......|\n|.......|.......|\n|.......|.......|\n|.......|.......|\n|.......|.......|\n|.......|.......|\n|.......|.......|\n|-------+-------|\n|.......|.......|\n|.......|.......|\n|.......|.......|\n|.......|.......|\n|.......|.......|\n|.......|.......|\n|.......|.......|\n-----------------",
+            ],
+            [
+                "10",
+                "-----------------------\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|----------+----------|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n|..........|..........|\n-----------------------",
+            ],
+        ],
+        solution:
+            "n=int(input())\nP=lambda s,m,f,r=1:exec('print(s+f*n+m+f*n+s);'*r)\nP(*\"---\")\nP(*\"||.\",n)\nP(*\"|+-\")\nP(*\"||.\",n)\nP(*\"---\")\n# n=gets.to_i\n# t=2*n+3\n# a=[('|'+'.'*n)*2+'|']*t\n# a[0]=a[-1]=\"-\"*t\n# a[n+1]='|'+'-'*n+'+'+'-'*n+'|'\n# puts a",
+    },
+    {
+        title: "Banner Puzzle",
+        author: "JoshL",
+        testCases: [
+            ["Hello world!", "****************\n* Hello world! *\n****************"],
+            ["Can you do it?", "******************\n* Can you do it? *\n******************"],
+            ["CodinGame is cool!", "**********************\n* CodinGame is cool! *\n**********************"],
+            ["1234567890", "**************\n* 1234567890 *\n**************"],
+        ],
+        solution:
+            'a=input()\nf="*"*(len(a)+4)\nprint(f,"* "+a+" *",f,sep="\\n")\n# a=gets.chomp\n# f=\'*\'.*a.size+4\n# puts [f,\'* \'+a+\' *\',f]',
+    },
+    {
+        title: "Maths Reverse Puzzle",
+        author: "JoshL",
+        testCases: [
+            ["64", "4032"],
+            ["128", "16256"],
+            ["1", "0"],
+            ["4096", "16773120"],
+        ],
+        solution: "a=int(input())\nprint(a*a-a)",
+    },
+    {
+        title: "Reverse Factorial + Division",
+        author: "JoshL",
+        testCases: [
+            ["6", "360"],
+            ["7", "2520"],
+            ["8", "20160"],
+            ["16", "10461394944000"],
+        ],
+        solution: "import math\nprint(math.factorial(int(input()))//2)",
+    },
+    {
+        title: "Username Validity",
+        author: "JoshL",
+        testCases: [
+            ["Username123", "VALID"],
+            ["123", "VALID"],
+            ["A1", "INVALID"],
+            ["abcdefghijklmnopqrstuvwxyz", "INVALID"],
+            ["abc", "VALID"],
+            ["1", "INVALID"],
+            ["_Josh_", "INVALID"],
+            ["HelloWorld", "VALID"],
+        ],
+        solution:
+            "import re\nu=input()\nprint((\"INVALID\",\"VALID\")[2<len(u)<21 and not re.search(r\"[^a-zA-Z0-9]\",u)])\n# u=gets\n# $><<(2<u.size&&u.size<21&&! ~/[^a-zA-Z0-9]/?'':'IN')+'VALID'",
+    },
+    {
+        title: "Shuffle the characters",
+        author: "Blubbor",
+        testCases: [
+            ["4\nabcd\n4 3 2 1", "dcba"],
+            ["6\nabcdef\n1 6 2 5 3 4", "afbecd"],
+            ["8\nabcd1234\n5 1 6 2 7 3 8 4", "1a2b3c4d"],
+            ["1\na\n1", "a"],
+            ["9\ndeellnow_\n8 3 5 4 9 1 7 6 2", "well_done"],
+        ],
+        solution:
+            "I=input\nI()\ns=I()\nfor c in I().split():print(end=s[int(c)-1])\n# _,s,*n=`dd`.split\n# n.map{$><<s[_1.to_i-1]}",
+    },
+    {
+        title: "Gift wrap recycling",
+        author: "Marqin",
+        testCases: [
+            ["30x30\n4\n4\n12x5x6\n8x2x14\n11x9x9\n11x22x11", "2"],
+            [
+                "34x40\n44\n747\n52x32x32\n72x60x78\n53x76x38\n83x39x23\n8x13x80\n54x43x12\n65x71x99\n24x41x87\n88x72x36\n37x35x34\n11x35x61\n32x39x38\n99x70x37\n99x46x7\n56x45x44\n34x70x45\n30x50x34\n79x94x71\n71x54x42\n13x88x83\n17x65x32\n72x34x22\n39x13x35\n48x18x78\n8x15x83\n37x2x43\n15x79x67\n76x31x40\n77x2x92\n26x1x69\n32x88x97\n62x41x31\n30x86x47\n6x47x58\n23x33x62\n79x4x46\n33x35x21\n42x43x81\n92x15x44\n3x75x63\n56x53x65\n57x29x95\n80x63x76\n54x36x65\n38x46x89\n72x49x83\n21x24x81\n88x18x8\n83x26x45\n53x28x62\n34x85x42\n53x48x77\n58x54x69\n62x75x60\n77x19x59\n38x78x68\n68x2x56\n67x76x10\n1x28x14\n96x45x41\n76x30x24\n67x9x29\n45x19x18\n30x64x13\n5x87x33\n45x56x32\n90x38x73\n12x12x7\n21x73x45\n24x21x82\n39x66x3\n52x67x87\n26x47x75\n73x81x65\n92x71x12\n84x56x49\n93x32x51\n97x20x68\n65x42x30\n34x46x4\n49x47x99\n53x65x5\n94x88x71\n15x42x80\n33x17x4\n58x26x36\n17x23x82\n11x27x48\n19x18x90\n40x37x67\n44x98x60\n39x11x79\n86x67x53\n22x55x2\n91x9x66\n94x10x17\n45x31x57\n44x22x81\n88x64x70\n26x82x81\n39x43x41\n77x75x59\n12x73x87\n46x60x50\n7x37x38\n46x28x30\n83x64x22\n73x55x91\n82x53x32\n6x57x79\n66x81x93\n73x44x64\n27x86x95\n38x54x67\n18x47x68\n34x10x71\n59x36x97\n70x99x26\n55x53x13\n29x99x42\n96x19x94\n92x93x9\n40x37x22\n5x70x55\n18x12x94\n54x33x75\n61x84x52\n75x80x3\n98x85x11\n90x92x10\n16x60x93\n31x74x11\n16x85x11\n62x69x20\n93x10x5\n9x91x55\n92x79x59\n37x50x91\n33x33x11\n18x68x32\n19x72x67\n68x23x27\n34x2x24\n7x22x39\n11x32x53\n49x22x97\n26x77x12\n81x56x58\n36x22x50\n6x39x90\n93x32x31\n47x96x56\n95x65x62\n38x29x6\n25x38x15\n26x89x35\n12x76x70\n41x20x12\n69x44x48\n68x47x71\n78x39x12\n12x54x47\n14x45x32\n5x46x63\n54x24x8\n22x52x71\n75x65x2\n87x99x12\n21x5x36\n28x35x55\n50x5x73\n95x38x16\n66x28x12\n40x17x38\n52x27x3\n52x17x87\n27x20x37\n23x53x13\n25x27x28\n6x1x48\n68x60x30\n72x81x71\n41x91x24\n72x39x3\n92x2x91\n73x74x62\n23x32x96\n52x3x89\n10x80x91\n40x12x91\n74x96x54\n1x83x51\n5x73x2\n20x58x4\n49x86x93\n32x15x50\n97x34x71\n28x86x74\n80x75x9\n64x50x43\n52x44x42\n15x9x44\n79x30x3\n65x85x54\n61x73x79\n73x92x1\n48x42x23\n33x96x37\n47x32x17\n12x63x83\n43x45x49\n60x82x55\n24x43x96\n95x45x18\n1x2x21\n51x6x37\n16x56x47\n59x30x24\n32x56x26\n65x21x47\n59x72x45\n89x38x15\n43x97x82\n43x87x59\n99x91x24\n25x85x88\n81x69x47\n7x17x36\n84x7x81\n27x2x95\n35x52x74\n32x56x90\n89x33x4\n71x68x67\n49x42x49\n32x90x59\n42x78x43\n33x90x68\n91x54x37\n13x23x48\n24x38x74\n77x3x69\n18x26x32\n43x66x57\n38x61x15\n6x33x83\n46x25x49\n81x5x63\n51x80x68\n73x70x57\n42x54x14\n7x30x19\n76x18x52\n9x17x47\n30x20x23\n71x69x28\n50x16x77\n53x7x62\n83x12x17\n7x60x78\n55x17x9\n27x74x93\n10x68x37\n16x43x32\n73x72x86\n88x22x95\n24x63x15\n94x72x88\n60x75x29\n13x60x7\n53x8x99\n19x35x47\n91x66x89\n29x56x4\n33x54x49\n63x78x33\n53x38x69\n36x1x62\n74x99x84\n13x30x96\n1x43x57\n20x47x57\n42x59x23\n94x79x23\n16x60x43\n54x82x76\n2x82x95\n53x7x22\n26x38x59\n54x31x30\n21x49x2\n71x95x63\n66x47x68\n70x65x91\n13x62x9\n42x46x46\n98x75x15\n9x68x8\n47x39x87\n97x81x41\n23x90x90\n96x85x29\n54x88x93\n30x25x56\n52x6x15\n85x95x54\n96x49x90\n87x10x71\n40x86x25\n55x52x50\n22x19x96\n13x4x61\n87x95x80\n60x87x14\n38x63x99\n35x7x48\n56x98x57\n75x92x14\n56x65x95\n74x68x95\n89x64x26\n98x61x96\n32x63x9\n21x95x40\n54x34x86\n54x3x17\n77x66x25\n97x86x58\n7x45x62\n66x38x90\n40x50x34\n92x45x3\n19x79x38\n26x23x97\n95x4x31\n37x89x81\n57x56x90\n11x57x2\n86x21x48\n53x18x58\n27x69x56\n89x12x5\n18x43x54\n92x92x56\n8x80x8\n40x37x21\n83x58x40\n15x84x49\n66x27x41\n70x24x19\n94x70x48\n56x54x78\n94x68x69\n85x84x56\n88x31x29\n37x45x56\n86x86x93\n31x68x99\n55x42x57\n34x89x4\n5x61x96\n30x95x44\n71x63x99\n27x51x53\n53x64x61\n32x65x1\n30x23x80\n54x31x41\n65x34x41\n52x83x33\n7x10x74\n71x65x37\n81x85x12\n19x43x85\n72x84x45\n53x13x28\n54x55x44\n98x54x70\n32x26x23\n33x86x57\n94x71x40\n64x45x86\n55x79x46\n54x19x13\n2x98x19\n23x10x87\n58x90x17\n22x86x42\n45x96x94\n5x87x88\n10x84x44\n22x44x23\n22x3x46\n4x87x85\n71x80x45\n16x47x59\n63x83x61\n11x56x75\n18x43x98\n64x32x41\n11x93x27\n76x85x35\n97x39x16\n1x70x30\n7x25x83\n85x80x44\n18x14x42\n51x10x60\n78x74x92\n54x7x91\n37x83x12\n30x47x80\n24x1x85\n78x12x43\n16x55x35\n17x17x81\n71x3x56\n46x85x43\n87x54x25\n77x34x51\n21x43x25\n49x73x17\n84x11x78\n47x60x3\n95x39x70\n76x72x21\n15x31x12\n60x13x73\n37x10x1\n83x44x94\n32x6x38\n83x33x55\n31x29x42\n61x82x20\n40x56x97\n78x24x14\n72x83x29\n73x99x66\n56x81x29\n89x51x27\n12x21x66\n30x80x93\n21x61x30\n43x7x2\n90x22x1\n91x40x51\n52x68x54\n74x53x36\n92x14x16\n5x60x4\n24x67x20\n57x11x79\n89x66x64\n57x92x69\n69x28x25\n49x17x86\n94x91x76\n17x61x36\n12x67x63\n13x55x52\n58x25x72\n90x26x84\n31x46x95\n54x3x15\n69x53x7\n30x18x43\n43x91x13\n21x41x64\n26x57x5\n93x86x89\n67x96x55\n29x59x51\n27x41x3\n53x55x25\n90x20x26\n18x91x6\n75x8x9\n7x39x61\n6x42x97\n71x19x59\n77x41x32\n32x54x20\n26x52x42\n32x97x75\n78x12x35\n65x73x39\n8x15x83\n23x46x52\n24x91x84\n18x72x92\n87x36x15\n28x98x83\n96x32x2\n69x49x53\n28x34x92\n39x81x43\n6x3x77\n94x65x10\n16x81x52\n87x31x25\n60x51x47\n83x89x48\n40x48x77\n19x56x58\n7x32x16\n69x73x28\n16x92x27\n56x87x72\n6x13x90\n47x85x32\n11x39x52\n49x55x20\n6x57x7\n59x8x48\n1x87x34\n58x34x96\n62x77x49\n16x28x70\n2x62x51\n95x30x38\n89x47x19\n36x64x18\n58x54x25\n32x9x48\n30x84x55\n96x99x2\n4x88x34\n3x43x24\n92x95x85\n53x58x30\n43x4x61\n7x86x69\n63x42x26\n97x79x96\n57x34x69\n41x98x72\n88x9x65\n3x7x1\n25x10x72\n28x17x60\n39x67x79\n72x46x19\n12x3x57\n35x55x11\n31x42x68\n32x64x66\n22x41x90\n15x56x9\n43x75x12\n64x61x23\n71x69x2\n2x70x49\n61x8x74\n85x88x24\n46x90x21\n76x8x87\n5x60x25\n40x51x18\n78x81x38\n52x50x95\n58x2x2\n47x84x92\n58x71x59\n92x64x52\n8x55x84\n36x5x45\n50x66x9\n71x14x51\n54x8x56\n28x74x64\n5x16x22\n15x11x6\n22x2x27\n72x50x47\n5x32x64\n61x21x90\n53x95x55\n64x43x94\n99x98x40\n6x8x26\n32x48x79\n70x57x78\n59x15x98\n79x39x71\n65x18x16\n42x65x16\n61x90x43\n21x27x67\n97x33x56\n72x40x48\n92x67x78\n75x96x40\n74x84x55\n8x32x60\n86x75x33\n7x94x37\n55x4x46\n65x24x65\n70x37x43\n29x69x90\n96x13x49\n51x79x69\n85x91x60\n4x94x73\n83x63x60\n31x38x19\n84x99x87\n35x51x90\n32x13x51\n94x85x81\n83x25x38\n76x65x98\n95x78x64\n9x96x6\n43x92x99\n47x55x20\n63x63x94\n93x8x2\n1x45x62\n56x22x90\n23x50x95\n5x61x66\n92x30x1\n25x47x80\n9x40x63\n2x86x97\n70x31x74\n89x48x20\n44x9x98\n64x97x49\n95x5x59\n7x30x82\n6x6x94\n99x44x10\n93x28x83\n22x80x26\n39x24x20\n78x17x36\n10x91x3\n99x60x5\n18x40x61\n26x38x91\n35x85x54\n47x66x99\n88x97x61\n23x24x22\n90x16x98\n4x25x25\n32x28x72\n3x48x81\n4x2x22\n19x44x34\n33x17x81\n74x63x58\n53x61x15\n93x33x11\n30x50x75\n34x38x76\n97x6x13\n95x95x72\n61x97x7\n73x12x29\n36x78x86\n68x65x49\n72x14x68\n95x70x56\n94x36x13\n72x30x42\n50x94x93\n74x49x57\n86x15x8\n32x40x91\n97x11x73\n11x17x79\n35x13x95\n49x64x24\n86x51x47\n1x11x48\n3x94x9\n84x68x50\n71x53x36\n14x29x33\n1x11x81\n28x19x27\n93x46x4\n18x67x83\n64x29x4\n67x94x73\n74x96x25\n44x96x79\n84x75x2\n88x36x93\n25x3x75\n50x18x67\n23x26x95\n14x44x85\n19x31x85\n8x66x80\n42x31x21\n19x1x69\n24x27x58\n41x52x26\n72x46x35\n70x1x5\n92x27x25\n52x95x18\n58x83x18\n94x46x66\n86x75x98\n32x56x54\n25x55x24\n35x92x83\n3x76x68\n85x27x38\n29x86x49\n10x77x52\n58x28x33\n86x13x59\n37x86x24\n39x61x81\n10x55x29\n27x85x76\n23x40x2\n9x19x34\n38x14x48\n26x86x70\n57x61x41\n56x34x72\n4x43x51\n71x29x96\n3x99x34\n85x1x21\n6x77x82\n88x94x16\n25x35x56\n54x63x85\n47x38x74\n58x35x59\n92x51x87\n52x27x94\n78x48x75\n2x94x36\n60x29x79\n88x27x24\n32x32x90\n28x76x87\n93x16x35",
+                "732",
+            ],
+            [
+                "43x45\n44\n258\n89x88x25\n9x18x49\n72x21x3\n36x9x51\n58x55x45\n35x46x91\n4x92x46\n94x2x12\n41x53x81\n63x20x2\n64x72x16\n52x28x73\n27x87x65\n25x86x50\n86x33x49\n77x74x37\n22x60x31\n60x64x1\n78x34x35\n7x83x29\n16x26x37\n13x65x1\n68x28x25\n17x43x81\n64x78x40\n68x36x18\n23x22x36\n7x68x61\n84x99x62\n83x61x86\n81x63x42\n19x93x88\n29x88x83\n6x84x43\n38x7x11\n68x73x92\n21x22x63\n39x42x26\n82x3x3\n5x55x53\n94x68x54\n90x68x96\n32x89x31\n46x53x72\n58x52x84\n18x16x45\n94x19x28\n44x38x1\n74x26x82\n51x52x32\n50x81x18\n7x67x58\n9x18x88\n60x17x6\n25x66x56\n45x21x94\n78x7x73\n24x48x63\n54x95x35\n75x63x29\n18x29x73\n27x69x37\n81x56x8\n84x65x15\n31x31x60\n53x77x50\n41x20x77\n62x87x32\n92x10x64\n37x54x37\n23x46x10\n86x68x14\n22x45x52\n74x3x7\n20x11x27\n51x21x18\n90x28x69\n84x94x66\n61x10x73\n88x91x46\n64x73x14\n85x47x59\n69x78x7\n43x93x44\n6x74x48\n91x64x72\n69x91x25\n12x62x44\n96x41x7\n57x20x34\n31x4x53\n37x40x82\n22x29x24\n79x52x61\n88x14x56\n80x5x35\n5x11x34\n12x41x82\n96x62x27\n31x78x89\n74x19x99\n94x94x22\n93x89x4\n83x58x1\n81x43x40\n37x68x13\n68x34x47\n27x72x57\n49x43x70\n34x57x24\n46x77x68\n34x22x25\n94x98x48\n11x4x99\n6x55x12\n80x35x36\n45x71x88\n9x18x54\n23x90x31\n81x59x9\n34x67x3\n70x58x52\n61x66x59\n83x1x52\n36x44x74\n69x82x70\n85x73x14\n34x2x73\n61x55x23\n83x81x63\n86x34x13\n74x39x82\n44x89x45\n60x98x39\n35x94x68\n6x89x99\n81x82x41\n92x50x11\n95x76x93\n2x57x3\n57x35x11\n92x28x16\n15x84x30\n95x55x19\n31x24x3\n73x27x20\n85x79x51\n93x49x76\n71x52x67\n18x71x62\n76x71x78\n53x85x54\n67x58x41\n95x78x75\n6x48x61\n60x32x86\n5x81x11\n50x25x83\n83x78x14\n97x1x70\n39x89x22\n53x87x21\n14x57x48\n14x86x35\n94x43x93\n18x88x42\n77x77x23\n53x85x49\n46x49x23\n8x56x67\n55x95x72\n95x12x72\n35x25x36\n8x54x9\n68x9x29\n10x92x66\n64x35x65\n49x66x94\n84x28x81\n88x23x43\n43x90x12\n60x21x58\n53x62x8\n30x19x67\n63x75x3\n28x63x58\n68x94x97\n10x21x61\n3x54x7\n42x19x80\n35x72x32\n23x95x6\n76x59x67\n81x12x64\n62x23x61\n5x7x84\n81x5x87\n84x56x88\n55x96x45\n13x40x91\n54x25x71\n26x92x57\n21x13x2\n51x67x42\n11x94x40\n33x32x55\n79x93x52\n59x23x30\n17x21x25\n85x84x41\n10x91x1\n71x32x37\n80x23x16\n45x19x47\n88x40x18\n71x10x95\n92x35x4\n81x37x31\n77x56x22\n18x53x48\n62x42x63\n78x33x49\n7x48x38\n49x10x54\n31x53x79\n32x88x43\n44x27x55\n45x16x79\n58x62x14\n34x45x35\n42x69x67\n37x56x95\n39x35x87\n62x33x15\n14x86x85\n97x63x60\n57x60x75\n6x10x25\n13x14x44\n88x9x14\n22x92x49\n73x48x49\n34x50x2\n82x41x75\n62x53x94\n68x92x99\n84x73x57\n9x43x28\n18x73x94\n75x88x4\n57x44x89\n84x99x14\n84x32x51\n63x96x78\n40x52x52\n49x40x8\n89x95x10\n79x29x37",
+                "181",
+            ],
+            ["31x34\n28\n1\n2x8x12", "0"],
         ],
         solution: "NO",
+    },
+    {
+        title: "Ostrich weight",
+        author: "Rafalon",
+        testCases: [
+            ["F\n100", "120"],
+            ["M\n120", "100"],
+            ["a\n50", "UNKNOWN"],
+            ["F\n101", "121"],
+        ],
+        solution: 'I=input\ng=I()\nw=int(I())\nI(int((w*1.2,w/1.2,0)["FM".find(g)])or"UNKNOWN")',
+    },
+    {
+        title: "Meaning of Life",
+        author: "Earthborne",
+        testCases: [
+            ["Math", "42"],
+            ["matH", "42"],
+            ["thma", "42"],
+            ["life", "32"],
+        ],
+        solution: "print(sum([ord(x)%32 for x in input()]))\n# p gets.bytes.sum{_1%32}",
+    },
+    {
+        title: "Hexagon pyramid",
+        author: "ndc",
+        testCases: [
+            ["1", " _ \n/ \\\n\\_/"],
+            ["2", " _   _ \n/ \\_/ \\\n\\_/ \\_/\n  \\_/"],
+            ["3", " _   _   _ \n/ \\_/ \\_/ \\\n\\_/ \\_/ \\_/\n  \\_/ \\_/\n    \\_/"],
+            [
+                "4",
+                " _   _   _   _ \n/ \\_/ \\_/ \\_/ \\\n\\_/ \\_/ \\_/ \\_/\n  \\_/ \\_/ \\_/\n    \\_/ \\_/\n      \\_/",
+            ],
+        ],
+        solution:
+            'n=int(input())\na=" "\nprint(a.join([" _ "]*n),"_".join(["/ \\\\"]*n),a.join(["\\\\_/"]*n),*[a*2*x+a.join(["\\\\_/"]*(n-x))for x in range(1,n)],sep="\\n")\n# n=gets.to_i\n# a=\' \'\n# puts [\' _ \']*n*a,[\'/ \\\\\']*n*\'_\',[\'\\\\_/\']*n*a,(1..n-1).map{a*2*_1+[\'\\\\_/\']*(n-_1)*a}',
+    },
+    {
+        title: "or bitwise operator",
+        author: "anath",
+        testCases: [
+            ["0001010\n0101010", "0101010\n"],
+            ["1\n1", "1"],
+            ["1000001010101010\n0010100000000000", "1010101010101010"],
+            ["00100001\n00000011", "00100011\n"],
+            ["000\n000", "000"],
+        ],
+        solution: 'for x,y in zip(input(),input()):print(end="10"[y<"1">x])',
     },
 ];

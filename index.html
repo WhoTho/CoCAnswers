@@ -7,10 +7,9 @@
     <body>
         <p>HEAVILY <strong>WIP</strong></p>
     </body>
-    <!-- <input type="text" id="userInput"> give me input</input>
-    <button onclick="test()">Submit small</button>
-    <textarea id="UserInputMultiLine" style="width:250px;height:150px;">yeah put in stuff</textarea>
-    <button onclick="testMulti()">Submit multiline</button> -->
+    <div id="siteInfo">
+        <p id="answerCountInfo"></p>
+    </div>
     <div class="mainInputs">
         <div id="authorInputDiv">
             <p class="inputLabel">Author:</p>
@@ -42,4 +41,6 @@
     </div>
 
     <script src="searchSystem.js"></script>
+
+    <body onLoad="solutionInfoCount()"></body>
 </html>
