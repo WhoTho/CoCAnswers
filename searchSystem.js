@@ -196,7 +196,7 @@ async function submitSearch() {
 
 function solutionInfoCount() {
     var amount = masterFileRead.length;
-    var cocAmount = 1496;
+    var cocAmount = 1499;
     document.getElementById(
         "answerCountInfo"
     ).innerText = `There are currently ${amount} answers outs of ${cocAmount} (${((amount / cocAmount) * 100).toFixed(
@@ -2342,7 +2342,7 @@ const masterFileRead = [
             ["4 7\n11\nHELLO WORLD", "GXWWFYIFRWT"],
         ],
         solution:
-            'I=input\na,b=map(int,I().split())\nI()\nm=I()\nA="ABCDEFGHIJKLMNOPQRSTUVWXYZ .,"*99\nI("".join(A[a*A.find(c)+b]for c in m))',
+            'I=input\na,b=map(int,I().split())\nI()\nm=I()\nA="ABCDEFGHIJKLMNOPQRSTUVWXYZ .,"*99\nI("".join(A[a*A.find(c)+b]for c in m))\n# a,b=gets.split.map(&:to_i)\n# gets\n# k=([*?A..?Z]*""+" .,")*99\n# $><<gets.chars.map{k[a*(k.index _1)+b]}*""',
     },
     {
         title: "The Elvita Network",
@@ -3421,5 +3421,250 @@ const masterFileRead = [
             ["000\n000", "000"],
         ],
         solution: 'for x,y in zip(input(),input()):print(end="10"[y<"1">x])',
+    },
+    {
+        title: "Divisibility by primes",
+        author: "Lupilum",
+        testCases: [
+            ["2\n10\n3 7\n998 575 987 459 54 21 63 758 132 395", "FFTFFTTFFF"],
+            [
+                "3\n100\n2 5 11\n932 77 369 157 320 158 875 22 443 620 590 698 464 853 406 917 255 770 557 642 423 573 644 389 746 470 71 113 450 767 564 603 660 956 31 247 295 667 179 633 236 335 998 61 831 520 896 790 456 271 65 22 618 810 81 399 936 880 834 799 434 794 34 667 81 164 766 749 487 502 133 680 841 502 361 1000 130 611 957 190 646 669 864 966 101 82 868 167 673 360 32 873 185 718 181 896 380 48 57 973",
+                "FFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+            ],
+            [
+                "4\n1000\n2 3 7 11\n420 957 452 898 250 465 396 213 266 15 192 121 845 675 208 454 871 74 881 286 349 246 516 965 644 485 655 722 319 951 946 947 260 701 1000 189 96 879 391 541 643 419 776 704 703 333 424 850 696 117 506 391 5 740 9 205 146 93 435 373 401 840 227 983 197 817 73 291 782 90 260 296 193 55 224 145 525 457 123 676 539 668 257 147 779 775 159 898 277 328 320 988 650 336 736 636 549 330 988 396 197 859 890 772 276 127 690 569 783 407 393 31 82 621 895 14 837 756 729 462 644 467 710 835 623 582 848 340 426 800 397 933 835 235 334 567 644 990 477 104 336 221 280 803 626 598 19 266 892 332 898 418 825 174 383 905 624 275 456 693 630 552 863 925 438 655 916 130 820 916 241 158 133 8 576 819 950 538 141 51 119 48 403 517 87 398 621 918 85 534 742 565 681 168 997 17 178 300 33 585 492 261 728 194 836 869 834 87 887 699 758 204 942 821 815 531 581 699 966 598 536 27 255 600 874 956 559 127 451 97 371 369 598 131 212 177 427 803 11 932 33 40 80 777 940 860 243 279 303 727 427 793 126 965 508 707 295 401 126 629 141 788 555 664 67 363 476 569 575 456 626 113 658 241 398 774 54 348 958 38 797 483 583 108 51 364 774 654 975 452 942 773 408 560 310 549 542 270 586 319 193 415 737 294 133 192 689 386 56 556 216 225 295 712 671 613 941 747 785 354 685 815 136 333 727 605 476 793 286 421 842 303 744 730 100 363 76 431 584 734 833 7 307 495 631 991 145 242 409 808 504 485 214 500 391 315 126 863 975 469 301 934 779 940 973 832 889 93 820 487 534 82 100 598 780 531 113 173 959 512 7 130 57 679 847 921 141 600 719 113 813 801 813 401 996 241 797 37 69 634 999 832 10 285 315 553 475 910 435 143 495 29 989 73 537 597 781 863 417 52 165 363 908 658 135 595 272 940 83 581 851 179 984 971 953 939 508 19 804 619 882 504 214 441 515 302 5 41 534 77 23 916 569 539 23 769 808 154 167 45 664 282 938 580 120 625 875 338 607 638 39 134 38 31 857 541 475 705 401 417 579 109 416 903 20 808 611 475 530 273 456 166 325 655 810 237 454 915 870 340 244 34 92 347 967 839 794 697 132 340 154 747 324 536 338 202 480 912 892 709 838 17 567 474 217 341 117 629 481 447 649 500 277 860 52 814 46 727 550 97 411 691 122 185 123 231 646 673 679 50 709 137 761 931 19 17 555 702 699 946 327 312 210 679 69 843 430 420 264 108 2 618 458 840 76 713 674 198 203 217 556 831 145 263 913 136 595 788 286 182 940 706 537 93 901 408 442 501 647 718 788 922 422 80 378 428 345 872 204 899 400 787 295 852 235 376 926 603 609 769 407 61 513 333 415 266 813 994 955 892 70 386 715 718 905 424 532 713 950 779 496 452 926 267 49 82 499 967 280 206 153 653 901 796 819 503 695 400 729 730 968 517 628 488 634 686 730 354 732 702 188 821 512 878 805 819 586 78 497 830 971 681 292 165 669 34 546 369 12 588 737 820 988 979 936 490 539 664 803 183 295 928 3 72 996 921 925 722 83 364 969 527 863 446 660 924 659 196 457 817 544 974 442 776 60 80 536 450 397 7 247 647 955 94 585 171 661 848 437 254 236 588 901 125 951 286 754 395 141 763 271 598 598 898 778 228 221 788 244 98 427 317 180 690 635 868 474 420 823 941 533 173 770 767 186 502 259 58 118 481 920 481 26 15 664 621 716 189 189 164 877 304 404 52 429 584 889 416 917 303 161 536 762 17 850 36 376 860 87 559 791 434 608 494 875 600 506 646 956 930 787 81 919 531 981 689 774 125 953 724 519 798 72 856 971 792 417 854 805 533 785 623 850 848 249 172 864 416 272 314 657 857 851 444 716 643 874 80 184 686 190 32 961 940 135 973 226 228 65 194 889 132 979 136 459 222 659 947 438 699 424 737 217 732 381 462 850 632 491 439 414 47 496 804 179 693 331 428 448 831 359 673 983 541 432 355 888 971 553 675 640 907 36 968 741 405 870 183 29 609 556 338 387 809 266 462 291 621 758 916 929 658 665 820 287 212 655 445 302 437 519 642 927 159 590 560 133 108 93 102 102 337 586 192 999 39 76 862 71 736 995 97 430 287 306 273 90 638 411 796 280 105 288 330 427 485 963 588 107 159 829 681 517 605 195 392 849 484 643 416 247 252 605 846 768 210 374 545 69 65",
+                "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+            ],
+            [
+                "3\n1000\n3 5 7\n740 820 879 732 361 440 612 246 154 736 664 661 692 454 619 567 742 245 306 881 721 982 236 443 746 182 730 803 3 273 865 454 881 364 70 969 479 766 88 69 893 321 872 824 275 227 33 537 932 573 508 211 741 216 180 138 732 232 566 814 895 598 990 529 838 772 304 813 203 884 755 10 270 377 154 909 40 89 100 212 213 599 907 926 855 695 429 818 617 297 242 495 701 634 303 574 210 997 804 984 343 381 873 174 837 720 916 29 633 648 281 479 832 289 47 548 637 265 49 112 2 772 785 393 443 781 752 759 976 342 803 745 614 234 887 616 324 299 188 534 705 521 220 300 157 750 325 364 317 98 761 25 633 240 372 861 373 770 245 330 781 325 752 644 502 29 501 113 504 468 308 60 129 621 616 809 19 407 731 484 91 280 720 519 816 116 76 665 866 859 914 844 267 650 962 100 297 377 272 758 992 31 708 657 862 740 811 220 805 949 302 470 301 851 493 499 119 756 706 798 637 887 344 36 537 360 434 84 917 647 331 242 70 710 110 612 856 47 529 274 645 663 391 615 796 902 764 859 503 431 1000 934 981 291 336 840 13 170 634 262 978 940 403 915 518 67 735 899 48 765 645 298 663 58 149 395 23 340 106 561 455 148 840 613 186 439 749 736 500 536 262 789 920 501 523 858 540 79 474 900 54 329 589 877 268 988 331 808 324 404 706 67 244 502 603 665 535 285 36 191 227 778 695 846 315 896 434 403 878 883 112 660 624 923 840 555 294 51 20 359 422 577 233 89 134 642 897 528 886 975 67 677 822 617 968 193 773 474 714 619 719 633 596 462 173 585 829 20 496 932 707 784 187 816 433 54 423 623 53 489 895 748 33 102 43 935 870 250 631 368 795 747 788 616 556 681 761 365 418 371 873 892 314 342 344 491 143 919 403 371 701 20 358 803 475 439 707 825 605 203 900 562 566 554 250 679 101 221 741 848 815 177 827 961 975 747 365 86 700 100 207 57 178 931 180 353 62 3 649 27 102 272 749 107 23 723 444 137 739 962 812 114 790 529 310 57 93 692 244 265 634 274 841 993 721 960 107 971 779 308 524 326 582 720 867 524 738 347 402 721 795 636 932 258 873 105 275 585 831 203 421 673 889 765 885 390 593 940 18 975 766 258 947 559 864 406 581 812 435 2 444 787 80 830 318 225 434 833 45 734 97 914 293 781 965 212 670 850 502 749 918 748 494 660 151 488 482 810 73 291 811 864 913 1000 158 258 314 943 820 659 959 161 501 862 731 234 796 673 247 166 77 465 936 10 762 605 529 571 632 956 876 166 744 525 303 838 991 738 473 302 846 900 10 601 328 830 315 822 142 662 865 86 206 108 410 325 611 943 312 565 565 648 881 28 886 203 534 72 575 237 770 724 596 754 336 919 664 712 925 224 813 192 193 851 785 221 630 644 266 949 807 732 132 457 994 978 485 328 157 338 107 30 626 925 441 741 405 153 340 551 308 459 907 750 896 501 941 177 80 370 336 879 199 449 500 382 368 28 370 562 890 181 52 657 472 652 127 206 41 293 861 607 95 412 613 36 423 934 47 125 333 457 681 262 324 133 212 659 174 794 652 739 991 601 356 489 674 857 144 695 464 850 753 225 316 188 525 540 513 912 243 959 350 707 772 347 273 185 375 242 99 407 442 530 173 262 678 905 398 154 216 300 24 61 341 99 46 95 173 32 379 89 418 756 505 787 219 608 370 192 790 122 656 417 949 167 606 673 394 166 871 670 914 998 271 546 833 549 291 63 849 787 782 6 313 351 591 894 404 51 945 990 472 325 773 214 794 391 465 179 834 224 89 53 249 609 549 423 900 588 791 984 726 600 557 498 500 516 930 577 181 611 41 737 132 658 486 778 593 489 86 356 405 654 486 737 259 321 688 587 326 450 561 525 315 207 770 107 555 11 618 319 231 226 712 288 881 424 644 661 847 752 831 529 753 557 996 963 560 863 752 421 451 230 334 934 953 697 914 593 416 833 732 467 273 458 448 659 757 203 733 526 226 545 625 239 206 406 239 838 914 881 252 634 860 836 274 71 58 582 637 106 258 682 856 841 171 575 516 438 190 255 957 881 652 661 598 207 943 417 341 463 920 919 196 864 467 255 501 59 829 702 625 857 39 758 573 690 50 843 631 149 353 565 189 642 129 685 45 213 339 770 120 432 609 47 850 792 278 127 264 983 681 768 492 803 52 379 631 846 928 164 86 816 489 909 688 155 319 322",
+                "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFTFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFTTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+            ],
+        ],
+        solution: 'I=input\nI()\nI()\np=eval(I().replace(" ","*"))\nfor a in I().split():print(end="TF"[int(a)%p>0])',
+    },
+    {
+        title: "Mini Brainf**k Interpreter",
+        author: "JoshL",
+        testCases: [
+            [
+                "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+++++++++++++++++++++++++++++.+++++++..+++.",
+                "Hello",
+            ],
+            [
+                "++++++++++++++++++++++++++++++++++++++++++++++++This is notation! ++++++++++++++++++++  ++++.++++++++++  ++++++++++++++++++ +++++. ",
+                "Hi",
+            ],
+            [
+                "+/+/+/++++++++++++++++++++++++++++++++\\++++++ds++++q++++++++d+++++++++++++++++++.++++/+++++++++++++++++++++++++.++++++++++/++++/+++/+++.",
+                "Hey",
+            ],
+            [
+                "+++++++++++++|++o+++++++++++++++++++++++++++++++++|+++++||++++++++++++++++++++++++++++++}++++|\\++.----------.",
+                "YO",
+            ],
+        ],
+        solution: 'v=0\nfor i in input():\n if i==".":print(end=chr(v))\n elif i in"+-":exec(f\'v{i}=1\')',
+    },
+    {
+        title: "Letter Buckets",
+        author: "Smyrna",
+        testCases: [
+            ["Banana", "B\naaa\nnn"],
+            ["Hungry?", "?\nH\ng\nn\nr\nu\ny"],
+            ["Hello world!", " \n!\nH\nd\ne\nlll\noo\nr\nw"],
+            ["Open the gates, please let me in!", "      \n!\n,\nO\naa\neeeeeee\ng\nh\ni\nll\nm\nnn\npp\nss\nttt"],
+            [
+                "And I was thinking to myself, 'This could be heaven or this could be hell'",
+                "              \n''\n,\nA\nI\nT\naa\nbb\ncc\nddd\neeeeee\nf\ng\nhhhhh\niiii\nk\nlllll\nm\nnnnn\noooo\nr\nssss\nttt\nuu\nv\nw\ny",
+            ],
+        ],
+        solution:
+            "s=input()\nfor c in sorted({*s}):print(c*s.count(c))\n# a=gets\n# a.chars.uniq.sort.map{puts _1*a.count(_1)}",
+    },
+    {
+        title: "Binary Buddies",
+        author: "pbsinclair42",
+        testCases: [
+            ["3", "5"],
+            ["13", "14"],
+            ["1", "2"],
+            ["63", "95"],
+            ["128", "256"],
+        ],
+        solution:
+            "n=\"0\"+f'{int(input()):b}'\nprint(int(n[::-1].replace(\"10\",\"01\",1)[::-1],2))\n# n='0'+gets.to_i.to_s(2)\n# p n.sub(/.*\\K01/,'10').to_i(2)",
+    },
+    {
+        title: "Headings",
+        author: "Uquu",
+        testCases: [
+            ["N\n90", "E"],
+            ["S\n-90", "E"],
+            ["N\n-180", "S"],
+            ["NW\n675", "W"],
+            ["N\n-360", "N"],
+        ],
+        solution: "a='N NE E SE S SW W NW'.split()\nprint(a[(a.index(input())+int(input())//45)%8])",
+    },
+    {
+        title: "Intersecting circles",
+        author: "an Anonymous CodinGamer",
+        testCases: [
+            ["3", "6"],
+            ["15", "210"],
+            ["1000001", "1000001000000"],
+            ["55", "2970"],
+        ],
+        solution: "x=int(input())\nprint(x*~-x)",
+    },
+    {
+        title: "What is N?",
+        author: "JoshL",
+        testCases: [
+            ["N+1=2", "1"],
+            ["N-1=2", "3"],
+            ["2N+1=3", "1"],
+            ["5N+6=31", "5"],
+            ["3N+3=8", "2"],
+            ["21N-2=135", "7"],
+        ],
+        solution:
+            'import re\nimport math\n*e,=map(int,re.findall(r"-?\\d+",input()))\nif len(e)==3:\n    print(math.ceil((e[2]-e[1])/e[0]))\nelse:\n    print(e[1]-e[0])\n# e=gets.chomp.scan(/-?\\d+/).map(&:to_i)\n# if e.size>2 then\n#     p ((e[2]-e[1])/e[0].to_f).ceil\n# else\n#     p e[1]-e[0]\n# end',
+    },
+    {
+        title: "Remaining Time",
+        author: "JoshL",
+        testCases: [
+            ["0:00 0:01", "0:01"],
+            ["0:55 1:00", "0:05"],
+            ["1:45 3:15", "1:30"],
+            ["0:00 0:00", "0:00"],
+        ],
+        solution:
+            'Remaining Time\nT=lambda x:int(x[0])*60+int(x[1])\nc,s=[T(x.split(":"))for x in input().split()]\ns-=c\nprint(f\'{s//60}:{s%60:02}\')\n# c,s=gets.split.map{a,b=_1.split(":");a.to_i*60+b.to_i}\n# s-=c\n# $><<"#{s/60}:%02d"%(s%60)',
+    },
+    {
+        title: "Sum the powers!!!!",
+        author: "an Anonymous CodinGamer",
+        testCases: [
+            ["2\n5", "31"],
+            ["3\n4", "40"],
+            ["10\n10", "1111111111"],
+            ["17\n4", "5220"],
+        ],
+        solution: "n=int(input())\nprint(n**~-int(input())//~-n)",
+    },
+    {
+        title: "Changing Digits",
+        author: "Myldero",
+        testCases: [
+            ["123", "2"],
+            ["2314", "3"],
+            ["1111", "0"],
+            ["33278110", "5"],
+            ["112233445566778899", "8"],
+            ["1111156546792222666666666878756217777777515555555597887811111155552669988888888877778785555521", "39"],
+            ["0100100001100101011011000110110001101111001000000101011101101111011100100110110001100100", "46"],
+        ],
+        solution:
+            "n=input()\nprint(sum(a!=b for a,b in zip(n,n[1:])))\n# n=gets\n# p (0..n.size-2).sum{n[_1]!=n[_1+1]?1:0}",
+    },
+    {
+        title: "Similar Words",
+        author: "IntrusivePenDesperateSword",
+        testCases: [
+            ["3\nBannaa\nFive\nBanana\nTree", "Banana"],
+            ["5\nPnsei\nEight\nWheel\nSpine\nGrass\nSkies", "Spine"],
+            ["5\nEadhpcp\nCheck\nCharred\nChapped\nKetchup\nChange", "Chapped"],
+            [
+                "15\nCcyeilb\nFifteen\nIsland\nBicycle\nCracked\nBite\nBickering\nStumped\nHedge\nAtmosphere\nIntroduction\nWishes\nCompressed\nUnderstand\nLactose\nSmell",
+                "Bicycle",
+            ],
+        ],
+        solution: "I=input\nn=int(I())\ns=sorted(I().lower())\nfor i in ‘a’*n:\n a=I()\n if sorted(a.lower())==s:I(a)",
+    },
+    {
+        title: "Pythagorean triples",
+        author: "yvesmocq",
+        testCases: [
+            ["5", "3 4"],
+            ["13", "5 12"],
+            ["50", "14 48\n30 40"],
+            ["27", "..."],
+            ["65", "16 63\n25 60\n33 56\n39 52"],
+        ],
+        solution:
+            'n=int(input())\nprint(*[f\'{i} {j}\'for i in range(n)for j in range(i,n)if n*n==i*i+j*j]or["..."],sep="\\n")',
+    },
+    {
+        title: "Game Money Converter",
+        author: "iArcadia",
+        testCases: [
+            ["0\n0\n204", "0G 2S 4B"],
+            ["0\n785\n0", "7G 85S 0B"],
+            ["664\n0\n0", "664G 0S 0B"],
+            ["105\n125\n1078", "106G 35S 78B"],
+            ["5483\n1650\n89121", "5508G 41S 21B"],
+        ],
+        solution: "I=input\nb=int(I())*10000+int(I())*100+int(I())\nprint(f'{b//10000}G {b//100%100}S {b%100}B')",
+    },
+    {
+        title: "Find the Sum!",
+        author: "swpnl7",
+        testCases: [
+            ["1+3+2", "1+2+3"],
+            ["9+8+7+6+5+4+3+2+1+0", "0+1+2+3+4+5+6+7+8+9"],
+            [
+                "3+2+3+3+2+2+1+2+1+2+3+1+2+3+2+3+2+1+2+2+1+1+2+2+3+2+1+3+1+1+3+2+2+2+2+3+3+2+2+3+3+1+1+2+3+3+2+3+3+3\n",
+                "1+1+1+1+1+1+1+1+1+1+1+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+3+3+3+3+3+3+3+3+3+3+3+3+3+3+3+3+3+3",
+            ],
+            ["3", "3"],
+            ["1+1+1+1+1", "1+1+1+1+1"],
+        ],
+        solution: "print(*sorted(input().split('+')),sep='+')",
+    },
+    {
+        title: "Probaception",
+        author: "Steuh",
+        testCases: [
+            ["4\n10 25 50 50", "75"],
+            ["5\n15 25 50 15 25", "0"],
+            ["4\n100 100 100 100", "100"],
+            ["10\n10 5 20 15 20 25 25 40 25 5", "30"],
+            ["4\n1 1 1 1", "0"],
+        ],
+        solution: "input()\n*v,=map(int,input().split())\na=len(v)\nprint(100*sum(i==100*v.count(i)//a for i in v)//a)",
+    },
+    {
+        title: "sum & difference",
+        author: "masterboda",
+        testCases: [
+            ["92\n16", "38\n54"],
+            ["49\n-19", "15\n34"],
+            ["49\n15", "17\n32"],
+            ["-68\n92", "-80\n12"],
+            ["-29\n-3", "-16\n-13"],
+        ],
+        solution: "s=int(input())\nd=(s+int(input()))//2\nfor i in sorted([s-d,d]):print(i)",
+    },
+    {
+        title: "Ordinal Numbers",
+        author: "Myldero",
+        testCases: [
+            ["1", "1st"],
+            ["2", "2nd"],
+            ["3", "3rd"],
+            ["11", "11th"],
+            ["20", "20th"],
+            ["103", "103rd"],
+            ["112", "112th"],
+            [
+                "27312832179387219837219837128937218937128936213562613528173621873621783612321632512",
+                "27312832179387219837219837128937218937128936213562613528173621873621783612321632512th",
+            ],
+            ["999999999999", "999999999999th"],
+        ],
+        solution:
+            'n=int(input())\nprint(str(n)+["th","st","nd","rd"][(n%10*(n%10<=3),0)[n//10%10==1]])\n# n=gets.to_i\n# $><<$_+%w(th st nd rd)[n/10%10==1||n%10>3?0:n%10]',
     },
 ];
