@@ -85,17 +85,16 @@ function printResults(matchArray) {
         showAll.appendChild(createBoldAndText("AUTHOR", data.author));
 
         //Solution label
-        showAll.appendChild(createBoldAndText("SOLUTIONS", ""));
+        var cocSolutions = data.solutions;
+        var solutionNoneText = "";
+
+        showAll.appendChild(createBoldAndText("SOLUTIONS", cocSolutions === [] ? "No solution avalible" : ""));
 
         //Solution info
-        var showSolution = document.createElement("div");
-
-        var cocSolutions = data.solutions;
-
         if (cocSolutions === []) {
-            showSolution.classList.add("resultSolutionsNull");
-            showSolution.innerText = "No solution avalible";
+            solutionNoneText = "No solution avalible";
         } else {
+            var showSolution = document.createElement("div");
             showSolution.classList.add("resultAllSolutions");
             //For each solution
             cocSolutions.forEach((sol) => {
@@ -118,13 +117,7 @@ function printResults(matchArray) {
             });
         }
 
-        // var showSolution = document.createElement("div");
-        // showSolution.classList.add("resultValueSolution");
-        // showSolution.innerText = data.solution;
-
-        // showSolution.appendChild(showSolutionLabelBolded);
-        // showSolution.appendChild(showSolution);
-
+        showAll.appendChild(createBoldAndText("SOLUTIONS", solutionNoneText));
         showAll.appendChild(showSolution);
 
         div.appendChild(showAll);
@@ -154,7 +147,7 @@ async function submitSearch() {
     }
 
     console.log("Got matches");
-    console.log(currentMatches);
+    //console.log(currentMatches);
     printResults(currentMatches);
 }
 
@@ -169,7 +162,7 @@ function solutionInfoCount() {
 }
 
 function copySolution(masterIndex, solutionIndex) {
-    navigator.clipboard.writeText(masterFileRead[masterIndex].solutions[solutionIndex]);
+    navigator.clipboard.writeText(masterFileRead[masterIndex].solutions[solutionIndex].solution);
 }
 
 const masterFileRead = [
