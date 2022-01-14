@@ -39,7 +39,7 @@ function createBoldAndText(boldedText, regularText, paramsIn = {}) {
     };
 
     //Main holder
-    var showText = document.createElement("div");
+    var showText = document.createElement("pre");
     showText.classList.add(params.mainClass);
 
     //Info
@@ -84,18 +84,19 @@ function printResults(matchArray) {
         //Author info
         showAll.appendChild(createBoldAndText("AUTHOR", data.author));
 
+        //Solution label
+        showAll.appendChild(createBoldAndText("SOLUTIONS", ""));
+
         //Solution info
-        var showSolution = document.createElement("pre");
-        showSolution.classList.add("resultSolution");
+        var showSolution = document.createElement("div");
 
         var cocSolutions = data.solutions;
 
-        var showSolutionInfo = document.createElement("div");
-
         if (cocSolutions === []) {
-            showSolutionInfo.classList.add("resultSolutionsNull");
-            showSolutionInfo.innerText = "No solution avalible";
+            showSolution.classList.add("resultSolutionsNull");
+            showSolution.innerText = "No solution avalible";
         } else {
+            showSolution.classList.add("resultAllSolutions");
             //For each solution
             cocSolutions.forEach((sol) => {
                 //Create solution card
@@ -111,21 +112,19 @@ function printResults(matchArray) {
                 //Add info
                 solutionInfoCard.appendChild(createBoldAndText("Language", sol.lang));
                 solutionInfoCard.appendChild(createBoldAndText("Characters", sol.chars));
-                solutionInfoCard.appendChild(createBoldAndText("Solution", sol.lang, { afterBoldText: "<br>" }));
+                solutionInfoCard.appendChild(createBoldAndText("Solution", sol.solution, { afterBoldText: "<br>" }));
 
-                showSolutionInfo.appendChild(solutionInfoCard);
+                showSolution.appendChild(solutionInfoCard);
             });
         }
+        showSolution.appendChild(showSolution);
 
-        showSolution.appendChild(createBoldAndText("SOLUTIONS", "", { afterBoldText: "<br>" }));
-        showSolution.appendChild(showSolutionInfo);
-
-        // var showSolutionInfo = document.createElement("div");
-        // showSolutionInfo.classList.add("resultValueSolution");
-        // showSolutionInfo.innerText = data.solution;
+        // var showSolution = document.createElement("div");
+        // showSolution.classList.add("resultValueSolution");
+        // showSolution.innerText = data.solution;
 
         // showSolution.appendChild(showSolutionLabelBolded);
-        // showSolution.appendChild(showSolutionInfo);
+        // showSolution.appendChild(showSolution);
 
         showAll.appendChild(showSolution);
 
