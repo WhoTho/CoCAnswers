@@ -88,10 +88,8 @@ function printResults(matchArray) {
         var cocSolutions = data.solutions;
         var solutionNoneText = "";
 
-        showAll.appendChild(createBoldAndText("SOLUTIONS", cocSolutions === [] ? "No solution avalible" : ""));
-
         //Solution info
-        if (cocSolutions === []) {
+        if (cocSolutions.length === 0) {
             solutionNoneText = "No solution avalible";
         } else {
             var showSolution = document.createElement("div");
