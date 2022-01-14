@@ -106,7 +106,7 @@ function printResults(matchArray) {
                 //Make clickable
                 solutionInfoCard.setAttribute(
                     "onclick",
-                    `copySolution(${(masterFileRead.indexOf(data), data.solutions.indexOf(sol))})`
+                    `copySolution(${masterFileRead.indexOf(data)}, ${data.solutions.indexOf(sol)})`
                 );
 
                 //Add info
@@ -117,7 +117,6 @@ function printResults(matchArray) {
                 showSolution.appendChild(solutionInfoCard);
             });
         }
-        showSolution.appendChild(showSolution);
 
         // var showSolution = document.createElement("div");
         // showSolution.classList.add("resultValueSolution");
