@@ -86,11 +86,10 @@ function printResults(matchArray) {
 
         //Solution label
         var cocSolutions = data.solutions;
-        var solutionNoneText = "";
 
         //Solution info
         if (cocSolutions.length === 0) {
-            solutionNoneText = "No solution avalible";
+            showAll.appendChild(createBoldAndText("SOLUTIONS", "No solution avalible"));
         } else {
             var showSolution = document.createElement("div");
             showSolution.classList.add("resultAllSolutions");
@@ -113,10 +112,10 @@ function printResults(matchArray) {
 
                 showSolution.appendChild(solutionInfoCard);
             });
-        }
 
-        showAll.appendChild(createBoldAndText("SOLUTIONS", solutionNoneText));
-        showAll.appendChild(showSolution);
+            showAll.appendChild(createBoldAndText("SOLUTIONS", ""));
+            showAll.appendChild(showSolution);
+        }
 
         div.appendChild(showAll);
     });
