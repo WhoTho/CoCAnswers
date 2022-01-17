@@ -43,14 +43,14 @@ function createBoldAndText(boldedText, regularText, paramsIn = {}) {
     showText.classList.add(params.mainClass);
 
     //Info
-    if (boldedLabel !== "") {
+    if (boldedText !== "") {
         var boldedLabel = document.createElement("span");
         boldedLabel.classList.add(params.boldClass);
         boldedLabel.innerHTML = `<strong>${boldedText}: </strong>${params.afterBoldText}`;
         showText.appendChild(boldedLabel);
     }
 
-    if (textLabel !== "") {
+    if (regularText !== "") {
         var textLabel = document.createElement("span");
         textLabel.classList.add(params.textClass);
         textLabel.innerText = regularText;
