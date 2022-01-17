@@ -149,18 +149,20 @@ async function submitSearch() {
 }
 
 function solutionInfoCount() {
-    var amount = 0;
+    var hasSolution = 0;
+    var cocAmount = 0;
 
     masterFileRead.forEach((e) => {
-        if (e.solutions.length !== 0) amount++;
+        if (e.solutions.length !== 0) hasSolution++;
+        cocAmount++;
     });
 
-    var cocAmount = 1509;
     document.getElementById(
         "answerCountInfo"
-    ).innerText = `There are currently ${amount} answers outs of ${cocAmount} (${((amount / cocAmount) * 100).toFixed(
-        2
-    )}%)`;
+    ).innerText = `There are currently ${hasSolution} answers outs of ${cocAmount} (${(
+        (hasSolution / cocAmount) *
+        100
+    ).toFixed(2)}%)`;
 }
 
 function copySolution(masterIndex, solutionIndex) {
