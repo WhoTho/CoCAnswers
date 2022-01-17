@@ -107,7 +107,7 @@ function printResults(matchArray) {
 
                 //Add info
                 solutionInfoCard.appendChild(createBoldAndText("Language", sol.lang));
-                solutionInfoCard.appendChild(createBoldAndText("Characters", sol.chars));
+                solutionInfoCard.appendChild(createBoldAndText("Characters", sol.solution.length));
                 solutionInfoCard.appendChild(createBoldAndText("Solution", sol.solution, { afterBoldText: "<br>" }));
 
                 showSolution.appendChild(solutionInfoCard);
@@ -181,8 +181,8 @@ const masterFileRead = [
             ["xlwrmtznvwlgxlnrhiformt", "codingamedotcomisruling"],
         ],
         solutions: [
-            { lang: "Python", chars: 57, solution: 's=input()\nprint("".join(chr(~(ord(c)%32)+124)for c in s))' },
-            { lang: "Tests", chars: 1000, solution: 'afafdg\n"asdsad"asd\nheheheheSD{}PF_#$OT$)_T T$I T$i' },
+            { lang: "Python", solution: 's=input()\nprint("".join(chr(~(ord(c)%32)+124)for c in s))' },
+            { lang: "Tests", solution: 'afafdg\n"asdsad"asd\nheheheheSD{}PF_#$OT$)_T T$I T$i' },
         ],
     },
     {
