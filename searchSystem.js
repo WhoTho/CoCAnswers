@@ -147,7 +147,7 @@ async function submitSearch() {
     //console.log(currentMatches);
     printResults(currentMatches);
     try {
-        `<?php echo writeToServer(${searchAuthor})?>`;
+        var test = `<?php echo writeToServer(${searchAuthor})?>`;
         //writeToServer
     } catch (err) {
         console.log(err);
