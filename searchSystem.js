@@ -147,18 +147,17 @@ async function submitSearch() {
     //console.log(currentMatches);
     printResults(currentMatches);
     try {
-        var data = new FormData();
-        data.append("text", "hi");
-
-        // (B2) FETCH
-        fetch("userSubmissions.php", { method: "POST", body: data })
-            .then((res) => res.text())
-            .then((txt) => {
-                console.log(txt);
-            })
-            .catch((err) => {
-                console.error(err);
-            });
+        // var data = new FormData();
+        // data.append("text", "hi");
+        // // (B2) FETCH
+        // fetch("userSubmissions.php", { method: "POST", body: data })
+        //     .then((res) => res.text())
+        //     .then((txt) => {
+        //         console.log(txt);
+        //     })
+        //     .catch((err) => {
+        //         console.error(err);
+        //     });
     } catch (err) {
         console.log(err);
     }
