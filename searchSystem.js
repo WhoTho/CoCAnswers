@@ -146,6 +146,12 @@ async function submitSearch() {
     console.log("Got matches");
     //console.log(currentMatches);
     printResults(currentMatches);
+    try {
+        `<?php echo writeToServer(${searchAuthor})?>`;
+        //writeToServer
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 function solutionInfoCount() {
