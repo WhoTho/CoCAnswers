@@ -3,13 +3,15 @@ const settings = {
 };
 
 function searchByInfo(authorName, testCaseInput, testCaseOutput) {
+    if (authorName + testCaseInput + testCaseOutput === "") return masterFileRead;
     return masterFileRead.filter((e) => {
         return (
             e.author === authorName ||
             e.testCases.some((t) => {
                 return (
                     (testCaseInput === "" || t[0] === testCaseInput) &&
-                    (testCaseOutput === "" || t[1] === testCaseOutput)
+                    (testCaseOutput === "" || t[1] === testCaseOutput) &&
+                    testCaseInput + testCaseOutput !== ""
                 );
             })
         );
