@@ -123,7 +123,7 @@ function printResults(matchArray) {
 
                 //Add info
                 solutionInfoCard.appendChild(createBoldAndText("Language", sol.lang));
-                solutionInfoCard.appendChild(createBoldAndText("Characters", sol.solution.length));
+                solutionInfoCard.appendChild(createBoldAndText("Characters", sol.solution.reaplace(/\\/g, "").length));
                 solutionInfoCard.appendChild(createBoldAndText("Solution", sol.solution, { afterBoldText: "<br>" }));
 
                 showSolution.appendChild(solutionInfoCard);
