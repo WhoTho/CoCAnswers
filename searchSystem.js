@@ -2,6 +2,20 @@ const settings = {
     maxPrintMatchesLength: 25,
 };
 
+function searchByInfo(authorName, testCaseInput, testCaseOutput) {
+    return masterFileRead.filter((e) => {
+        return (
+            e.author === authorName ||
+            e.testCases.some((t) => {
+                return (
+                    (testCaseInput === "" || t[0] === testCaseInput) &&
+                    (testCaseOutput === "" || t[1] === testCaseOutput)
+                );
+            })
+        );
+    });
+}
+
 function searchByAuthor(authorName, currentMatchArray) {
     return currentMatchArray.filter((e) => {
         return e.author === authorName;
@@ -131,36 +145,21 @@ async function submitSearch() {
     var searchTestCaseInput = document.getElementById("testCaseInputInput").value;
     var searchTestCaseOutput = document.getElementById("testCaseOutputInput").value;
 
-    var currentMatches = masterFileRead;
+    var currentMatches = searchByInfo(searchAuthor, searchTestCaseInput, searchTestCaseOutput);
 
-    if (searchAuthor !== "") {
-        console.log(`search author: ${searchAuthor}`);
-        currentMatches = searchByAuthor(searchAuthor, currentMatches);
-    }
-    if (searchTestCaseInput !== "" && searchTestCaseOutput !== "") {
-        console.log(`Testcase input: ${searchTestCaseInput}`);
-        console.log(`Testcase output: ${searchTestCaseOutput}`);
-        currentMatches = searchByTestCase(searchTestCaseInput, searchTestCaseOutput, currentMatches);
-    }
+    // if (searchAuthor !== "") {
+    //     console.log(`search author: ${searchAuthor}`);
+    //     currentMatches = searchByAuthor(searchAuthor, currentMatches);
+    // }
+    // if (searchTestCaseInput !== "" && searchTestCaseOutput !== "") {
+    //     console.log(`Testcase input: ${searchTestCaseInput}`);
+    //     console.log(`Testcase output: ${searchTestCaseOutput}`);
+    //     currentMatches = searchByTestCase(searchTestCaseInput, searchTestCaseOutput, currentMatches);
+    // }
 
     console.log("Got matches");
     //console.log(currentMatches);
     printResults(currentMatches);
-    try {
-        // var data = new FormData();
-        // data.append("text", "hi");
-        // // (B2) FETCH
-        // fetch("userSubmissions.php", { method: "POST", body: data })
-        //     .then((res) => res.text())
-        //     .then((txt) => {
-        //         console.log(txt);
-        //     })
-        //     .catch((err) => {
-        //         console.error(err);
-        //     });
-    } catch (err) {
-        console.log(err);
-    }
 }
 
 function solutionInfoCount() {
