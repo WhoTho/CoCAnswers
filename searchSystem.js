@@ -110,16 +110,13 @@ function printResults(matchArray) {
             var showSolution = document.createElement("div");
             showSolution.classList.add("resultAllSolutions");
             //For each solution
-            cocSolutions.forEach((sol) => {
+            cocSolutions.forEach((sol, indexSol) => {
                 //Create solution card
                 var solutionInfoCard = document.createElement("div");
                 solutionInfoCard.classList.add("resultInfoSolution");
 
                 //Make clickable
-                solutionInfoCard.setAttribute(
-                    "onclick",
-                    `copySolution(${masterFileRead.indexOf(data)}, ${data.solutions.indexOf(sol)})`
-                );
+                solutionInfoCard.setAttribute("onclick", `copySolution(${masterFileRead.indexOf(data)}, ${indexSol})`);
 
                 //Add info
                 solutionInfoCard.appendChild(createBoldAndText("Language", sol.lang));
