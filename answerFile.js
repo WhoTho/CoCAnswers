@@ -41,7 +41,7 @@ const masterFileRead = [
             {
                 lang: "Python",
                 solution:
-                    "a=input()\nb=list(input())\nr=0\nfor c in sorted(a):\n    if c in b:b.remove(c)\n    else:r+=1\nprint(f'{len(b)}\n{r}')",
+                    "a=input()\nb=list(input())\nr=0\nfor c in sorted(a):\n    if c in b:b.remove(c)\n    else:r+=1\nprint(f'{len(b)}\\n{r}')",
             },
         ],
     },
@@ -57,7 +57,7 @@ const masterFileRead = [
                 "0 2 8 16 33 34 73 76 84 87 96 101 101 111 115 117 122 134 147 172 179 184 189 190 194 203 235 235 242 245 258 272 278 278 287 294 300 309 315 323 326 371 415 426 433 464 465 467 485 492",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'print(*sorted(int(input())for i in"A"*int(input())))' }],
     },
     {
         title: "Reshape String",
@@ -73,7 +73,12 @@ const masterFileRead = [
             ],
             ["AaGpttaetdtoaahpcwelknre\n4", "AaGp\nttae\ntdto\naahp\ncwel\nknre"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 's=input().replace(" ","")\nn=int(input())\nfor i in range(0,len(s),n):print(s[i:i+n])',
+            },
+        ],
     },
     {
         title: "Even Digits",
@@ -87,7 +92,7 @@ const masterFileRead = [
             ["0", "0"],
             ["4294967295", "18"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "print(sum(x for x in map(int,input())if x&1^1))" }],
     },
     {
         title: "Diagonal Words",
@@ -102,7 +107,12 @@ const masterFileRead = [
                 "localeoelu macpinscfb",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 'n=int(input())\ng=h=""\nfor x in range(n):\n l=input()\n g+=l[x]\n h+=l[~x]\nprint(g,h)',
+            },
+        ],
     },
     {
         title: "Average speed",
@@ -114,7 +124,7 @@ const masterFileRead = [
             ["504 840", "630"],
             ["1000 250", "400"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "a,b=map(int,input().split())\nprint(2*a*b//(a+b))" }],
     },
     {
         title: "ASCII Decoder",
@@ -128,7 +138,13 @@ const masterFileRead = [
             ],
             ["073032064109032055051051116", "I @m 733t"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    's=input()\nif len(s)%3:input("Error")\nfor x in range(0,len(s),3):print(end=chr(int(s[x:x+3])))',
+            },
+        ],
     },
     {
         title: "Suite de Syracuse",
@@ -140,7 +156,12 @@ const masterFileRead = [
             ["42", "42 21 64 32 16 8 4 2 1"],
             ["85", "85 256 128 64 32 16 8 4 2 1"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "n=int(input())\nl=[n]\nwhile n!=1:\n if n%2:n=n*3+1\n else:n//=2\n l+=[n]\nprint(*l)",
+            },
+        ],
     },
     {
         title: "Outer Ring",
@@ -159,7 +180,13 @@ const masterFileRead = [
                 "-152",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nb=[[*map(int,input().split())]for i in"A"*n]\nprint(sum(b[r][c] for r in range(n) for c in range(n)if not r or not c or r==n-1 or c==n-1))',
+            },
+        ],
     },
     {
         title: "Lucky Tickets",
@@ -176,7 +203,13 @@ const masterFileRead = [
                 "true\ntrue\ntrue\ntrue\ntrue\ntrue\ntrue\ntrue\nfalse\ntrue",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nfor i in"A"*n:t=input();print(str(sum(map(int,t[:3]))==sum(map(int,t[3:]))).lower())',
+            },
+        ],
     },
     {
         title: "Midpoint",
@@ -188,7 +221,12 @@ const masterFileRead = [
             ["-99 0\n-2 -10", "-50.5 -5"],
             ["-99 -99\n99 99", "0 0"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "I=lambda:map(int,input().split())\na,b=I()\nc,d=I()\nprint(f'{(a+c)/2:g} {(b+d)/2:g}')",
+            },
+        ],
     },
     {
         title: "Word shuffling",
@@ -199,7 +237,13 @@ const masterFileRead = [
             ["3\nThat's a very large word\nS\nd", "TSdhat's a very large word"],
             ["2\nW31rD w0r&\n'é²", "W'3é1²rD w0r&"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nw=[]\na=""\nm=0\nfor i in"A"*n:\n word=input()\n w+=[word]\n m=max(m,len(word))\nfor i in range(m):\n for word in w:\n  if i<len(word):\n   a+=word[i]\nprint(a)',
+            },
+        ],
     },
     {
         title: "GCD",
@@ -212,7 +256,7 @@ const masterFileRead = [
             ["104711 104717", "1"],
             ["98304 65536", "32768"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "import math\nprint(math.gcd(int(input()),int(input())))" }],
     },
     {
         title: "Double Letters",
@@ -227,7 +271,7 @@ const masterFileRead = [
                 "41",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "s=input().lower()\nprint(sum(x==y for x,y in zip(s,s[1:])))" }],
     },
     {
         title: "The Fastest",
@@ -245,7 +289,9 @@ const masterFileRead = [
                 "02:07:12",
             ],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: 'print(min([input()for i in"A"*int(input())],key=lambda x:x.split(":")))' },
+        ],
     },
     {
         title: "T'as la bracket ouverte !",
@@ -256,7 +302,13 @@ const masterFileRead = [
             ["(([))]", "false"],
             ["(({([({{[{()}]}})])}))(()[{}])", "true"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'import re\ns=input()\nwhile s!=(s:=re.sub(r"\\(\\)|\\[\\]|{}","",s)):pass\nprint(("false","true")[s==""])',
+            },
+        ],
     },
     {
         title: "Counting Nucleotides",
@@ -270,7 +322,7 @@ const masterFileRead = [
                 "93 166 174 177",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'a=input()\nprint(*map(a.count,"ACGT"))' }],
     },
     {
         title: "HexaFun",
@@ -283,7 +335,7 @@ const masterFileRead = [
             ["7F9C5", "522693"],
             ["83DF47", "8642375"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "print(int(input(),16))" }],
     },
     {
         title: "Les premiers",
@@ -294,7 +346,12 @@ const masterFileRead = [
             ["30", "1\n2\n3\n5\n7\n11\n13\n17\n19\n23\n29"],
             ["1", "1"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "n=int(input())\nfor x in range(1,n+1):\n    if all(x%i for i in range(2,x)):print(x)",
+            },
+        ],
     },
     {
         title: "Run length encoding",
@@ -305,7 +362,12 @@ const masterFileRead = [
             ["ZzzzzZzZZZzzzzzzzzzzzzzZZZZZZZZ", "1Z4z1Z1z3Z13z8Z"],
             ["abcdefghijklmnopqrstuvwxyz", "1a1b1c1d1e1f1g1h1i1j1k1l1m1n1o1p1q1r1s1t1u1v1w1x1y1z"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "import re\nfor c,a in re.findall(r\"((.)\\2*)\",input()):print(end=f'{len(c)}{a}')",
+            },
+        ],
     },
     {
         title: "des Chiffres et des Lettres",
@@ -324,7 +386,13 @@ const masterFileRead = [
                 "centcentcentcentcentcentsciessciessciessciessciessciessixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixsixgaresgaresgaresgaresgaresgares",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'import re\nl=re.findall(r"\\d+|\\D+",input())\nfor a,s in zip(l[::2],l[1::2]):print(end=s*int(a))',
+            },
+        ],
     },
     {
         title: "Factorial",
@@ -335,7 +403,7 @@ const masterFileRead = [
             ["32", "2631308369"],
             ["0", "0"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'print(str(eval("*".join(map(str,range(1,int(input())+1)))))[:10])' }],
     },
     {
         title: "Inventaire",
@@ -346,7 +414,13 @@ const masterFileRead = [
             ["2\n4500 530 250 643 1.2\n1000 245 60 297 0.3", "true\nfalse"],
             ["2\n2000 145 60 91 0.3\n1000 245 60 297 0.3", "true\nfalse"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "import math\nfor i in\"A\"*int(input()):\n t=input().split(' ')\n l,a,b,s=map(int,t[:-1])\n e=float(t[-1])\n S=((a/2)*(a/2)-(b/2)*(b/2))*math.pi/e*l/1000000\n print(str(S<=s+1 and S>=s-1).lower())",
+            },
+        ],
     },
     {
         title: "L System",
@@ -363,7 +437,13 @@ const masterFileRead = [
                 "X\nF[+X]F[-X]+X\nFF[+F[+X]F[-X]+X]FF[-F[+X]F[-X]+X]+F[+X]F[-X]+X\nFFFF[+FF[+F[+X]F[-X]+X]FF[-F[+X]F[-X]+X]+F[+X]F[-X]+X]FFFF[-FF[+F[+X]F[-X]+X]FF[-F[+X]F[-X]+X]+F[+X]F[-X]+X]+FF[+F[+X]F[-X]+X]FF[-F[+X]F[-X]+X]+F[+X]F[-X]+X",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "nrules=int(input())\nnite=int(input())\nx=input()\nr={}\nfor i in range(nrules):\n a,b=input().split(' ')\n r[a]=b\nfor i in range(nite):\n print(x)\n nx=''\n for c in x:\n  if c in r:nx+=r[c]\n  else:nx+=c\n x=nx",
+            },
+        ],
     },
     {
         title: "Logic Analayzer",
@@ -374,7 +454,7 @@ const masterFileRead = [
             ["1", "100"],
             ["9", "8100"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "print(f'{int(input())**2}00')" }],
     },
     {
         title: "Le chemin de dominos",
@@ -407,7 +487,13 @@ const masterFileRead = [
                 "1\n4\n2\nundefined\n4\n5\n0\n4\nundefined\n1\n3\n7\n7\n4\nundefined\n1\n4\n0\n6\n0\nundefined\n7\n2\n7\n0\n2\n5\n6\n5\nundefined\n2\n2\nundefined\n1\n7\n3\nundefined\n1\n2\nundefined\n0\n6\n1\n5\n2\nundefined\nundefined\n1\n4\n5",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nfor i in range(n):\n    x,y=map(int,input().split())\n    if x==0 or y==0 or abs(x)==abs(y):print("undefined")\n    else:print([([0,1],[7,6]),([3,2],[4,5])][x<0][y<0][abs(x)<abs(y)])',
+            },
+        ],
     },
     {
         title: "L'horloge",
@@ -432,7 +518,7 @@ const masterFileRead = [
             ["000.010.100.001", "000A6401"],
             ["0.0.0.0", "00000000"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "print(\"\".join(f'{int(w):02X}'for w in input().split('.')))" }],
     },
     {
         title: "Lowest Common Multiple",
@@ -444,7 +530,12 @@ const masterFileRead = [
             ["3\n15 3 5", "15"],
             ["2\n5 6", "30"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "import math\ninput()\nt=1\nfor x in map(int,input().split()):t*=x//math.gcd(t,x)\nprint(t)",
+            },
+        ],
     },
     {
         title: "Odd-appearing number.",
@@ -455,7 +546,7 @@ const masterFileRead = [
             ["3\n1 2 1", "2"],
             ["10\n1 3 2 4 5 4 2 3 1", "5"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "input()\nt=input().split()\nprint(min(t,key=t.count))" }],
     },
     {
         title: "Bitcount",
@@ -466,7 +557,7 @@ const masterFileRead = [
             ["5\n5099\n14039\n95\n6001\n6948", "9\n10\n6\n8\n6"],
             ["4\n255\n65535\n4294967295\n18446744073709551615", "8\n16\n32\n64"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "exec('print(bin(int(input())).count(\"1\"));'*int(input()))" }],
     },
     {
         title: "Simple cypher",
@@ -479,7 +570,12 @@ const masterFileRead = [
             ["10", "01"],
             ["101010", "010101"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 's=input()+"|"\nprint("".join(b+a for a,b in zip(s[::2],s[1::2])).replace("|",""))',
+            },
+        ],
     },
     {
         title: "Trouver la base",
@@ -492,7 +588,13 @@ const masterFileRead = [
             ["1578\n1578", "10"],
             ["124\n42", "false"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'a=int(input())\nb=input()\nfor x in range(max(map(int,b))+1,10):\n    if int(b,x)==a:input(x)\nprint("false")',
+            },
+        ],
     },
     {
         title: "Find the Largest Prime",
@@ -503,7 +605,12 @@ const masterFileRead = [
             ["4\n2\n4\n6\n8", "2"],
             ["4\n9\n11\n7\n3", "11"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "print(max([*map(int,open(0))][1:],key=lambda x:(all(x%i for i in range(2,x)),x)))",
+            },
+        ],
     },
     {
         title: "Expressions parenthésées",
@@ -514,7 +621,13 @@ const masterFileRead = [
             ["{C{}[{[a]}RqhL]{y2}}", "true"],
             ["{([{(O)}]){}[([]Lql[2])]", "false"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'import re\ns=re.sub(r"[^\\(\\)\\[\\]{}]","",input())\nwhile s!=(s:=re.sub(r"\\(\\)|\\[\\]|{}","",s)):pass\nprint(str(len(s)<1).lower())',
+            },
+        ],
     },
     {
         title: "Print the pattern",
@@ -525,7 +638,12 @@ const masterFileRead = [
             ["1", "1"],
             ["3", "123\n+12\n++1"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 't=int(input())\nfor x in range(t):print("+"*x+"".join(map(str,range(1,t-x+1))))',
+            },
+        ],
     },
     {
         title: "ASCII Art",
@@ -546,7 +664,13 @@ const masterFileRead = [
                 ".........\\\\\\///\n......../ _  _ \\\n......(| (.)(.) |)\n.---.OOOo--()--oOOO.---\n|                      |\n|     Coding Game!     |\n|                      |\n'---.oooO--------------'\n.....(   )   Oooo\n......\\ (    (   )\n.......\\_)    ) /\n....---------(_/---",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'r,c=input().split(",")\nm=input().split(",")\nl=max(map(len,m))\nfor s in m:print(f\'{c*int(r)}{s:{c}^{l}}\'.rstrip(c))',
+            },
+        ],
     },
     {
         title: "Recherche dichotomique",
@@ -562,7 +686,13 @@ const masterFileRead = [
                 "34 73 81 99 96",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "x=int(input())\nn=int(input())\n*l,=map(int,input().split())\ns,e=0,n-1\nm=(s+e)//2\nr=[l[m]]\nwhile l[m]!=x:\n    if l[m]>x:e=m-1\n    else:s=m+1\n    m=(s+e)//2\n    r+=[l[m]]\nprint(*r)",
+            },
+        ],
     },
     {
         title: "Conversion",
@@ -579,7 +709,7 @@ const masterFileRead = [
                 "abcdefghijklmnopqrstuvwxyz0123456789",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'print("".join(chr(int(x,16))for x in input().split()))' }],
     },
     {
         title: "2D Pyramids",
@@ -591,7 +721,7 @@ const masterFileRead = [
             ["12345", "156 99"],
             ["0", "0 0"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "n=int(input())\nh=int((-1+(1+n*8)**.5)/2)\nprint(h,n-(h*-~h)//2)" }],
     },
     {
         title: "Résistance - Niveau 1",
@@ -607,7 +737,7 @@ const masterFileRead = [
                 "6",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'print(open(0).read().count("|")//2)' }],
     },
     {
         title: "Missing Digit",
@@ -621,7 +751,7 @@ const masterFileRead = [
                 "1\n2\n8\n9\n0\n6\n2\n6\n4\n0",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'for x in"A"*int(input()):print(45-sum(map(int,input())))' }],
     },
     {
         title: "Seulement un",
@@ -632,7 +762,7 @@ const masterFileRead = [
             ["7", "true"],
             ["31", "true"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'print(str(bin(int(input())).count("0")==1).lower())' }],
     },
     {
         title: "Convert RGB to CMYK",
@@ -643,7 +773,13 @@ const masterFileRead = [
             ["100 250 40", "60 0 84 2"],
             ["1 2 3", "67 33 0 99"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "l=[int(x)/255 for x in input().split()]\nk=1-max(l)\nprint(*[round((1-x-k)/(1-k)*100 if k-1 else 0) for x in l],round(k*100))",
+            },
+        ],
     },
     {
         title: "CharCode Encoder",
@@ -665,7 +801,7 @@ const masterFileRead = [
             ["1\n256", "9"],
             ["3\n0\n128\n56", "1\n8\n6"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "exec('print(len(bin(int(input())))-2);'*int(input()))" }],
     },
     {
         title: "Checksum",
@@ -676,7 +812,13 @@ const masterFileRead = [
             ["112\n10\n633064316e3636346d3336", "c0d1n664m3"],
             ["4\n26\n446561746820476f6473206f6e6c7920656174206170706c657301", "ERROR"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'k=int(input())\ninput()\np=input()\n*l,c=[int(x+y,16)for x,y in zip(p[::2],p[1::2])]\nif sum(l)%k==c:print("".join(map(chr,l)))\nelse:print("ERROR")',
+            },
+        ],
     },
     {
         title: "Phone Screener",
@@ -690,7 +832,13 @@ const masterFileRead = [
                 "accept Dilbert\naccept Wally\naccept 67884\nreject Bob\nreject Pointy-haired-boss\nreject Marketing\nreject 67899",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'K=dict()\nfor i in"A"*int(input()):\n    L=input().split()\n    K[L[0]]=L[1]\nB=[input()for i in"A"*int(input())]\nfor i in"A"*int(input()):\n    n=input()\n    print(("accept","reject")[any(n.startswith(b)for b in B)],K[n]if n in K else n)',
+            },
+        ],
     },
     {
         title: "Queens",
@@ -713,7 +861,13 @@ const masterFileRead = [
                 "........\n........\n........\n........\n........\n........\n........\n....P...",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "b=[[*input()]for x in range(8)]\nr=[[\"P\"]*8for x in range(8)]\nfor y in range(8):\n for x in range(8):\n  if b[y][x]!='Q':continue\n  for i in range(8):\n   r[max(0,y-i)][x]='.'\n   r[min(7,y+i)][x]='.'\n   r[y][max(0,x-i)]='.'\n   r[y][min(7,x+i)]='.'\n   if y-i>=0:\n    if x-i>=0:r[y-i][x-i]='.'\n    if x+i<8:r[y-i][x+i]='.'\n   if y+i<8:\n    if x-i>=0:r[y+i][x-i]='.'\n    if x+i<8:r[y+i][x+i]='.'\nprint(\"\\n\".join(map(\"\".join,r)))",
+            },
+        ],
     },
     {
         title: "Partial Binary",
@@ -724,7 +878,7 @@ const masterFileRead = [
             ["5\n512\n256\n128\n64\n32", "0\n0\n0\n0\n0"],
             ["4\n8965214\n4482607\n143\n127", "576606\n288303\n15\n63"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'for i in"A"*int(input()):print(int(bin(int(input()))[3:],2))' }],
     },
     {
         title: "Pyramids",
@@ -736,7 +890,7 @@ const masterFileRead = [
             ["6", "6\n66\n666\n6666\n66666\n666666"],
             ["9", "9\n99\n999\n9999\n99999\n999999\n9999999\n99999999\n999999999"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "n=input()\nfor x in range(int(n)):print(n*-~x)" }],
     },
     {
         title: "Not quite sudoku",
@@ -747,7 +901,7 @@ const masterFileRead = [
             ["318?92657", "4"],
             ["1234?6789", "5"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'print(*({*"123456789?"}-{*input()}))' }],
     },
     {
         title: "Cycle encoding",
@@ -759,7 +913,13 @@ const masterFileRead = [
             ["a", "1 1"],
             ["totototo", "2 4"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "s=input()\nfor x in range(1,len(s)+1):\n    r=s[:x]\n    l=len(s)//x\n    if s==r*l:print(x,l);E",
+            },
+        ],
     },
     {
         title: "Easy math",
@@ -771,7 +931,7 @@ const masterFileRead = [
             ["2 9", "-711"],
             ["5 5", "010"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "a,b=map(int,input().split())\nprint(f'{a-b}{a+b}')" }],
     },
     {
         title: "Sudoku",
@@ -806,7 +966,13 @@ const masterFileRead = [
                 "true",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'b=[input().replace(" ","")for i in"A"*9]\nc={*"123456789"}\nT=lambda x:all({*l}^c==set()for l in x)\nh=T(b)\nv=T(zip(*b))\ns=T("".join(l[x:x+3]for l in b[y:y+3])for x in range(0,9,3)for y in range(0,9,3))\nprint(str(h&v&s).lower())',
+            },
+        ],
     },
     {
         title: "Angles",
@@ -818,7 +984,7 @@ const masterFileRead = [
             ["90 89", "1"],
             ["100 70", "10"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "print(180-int(input())-int(input()))" }],
     },
     {
         title: "Second degré",
@@ -842,7 +1008,13 @@ const masterFileRead = [
                 "affine(-20)=102\naffine(-19)=97\naffine(-18)=92\naffine(-17)=87\naffine(-16)=82\naffine(-15)=77\naffine(-14)=72\naffine(-13)=67\naffine(-12)=62\naffine(-11)=57\naffine(-10)=52\naffine(-9)=47\naffine(-8)=42\naffine(-7)=37\naffine(-6)=32\naffine(-5)=27\naffine(-4)=22\naffine(-3)=17\naffine(-2)=12\naffine(-1)=7\naffine(0)=2\naffine(1)=-3\naffine(2)=-8\naffine(3)=-13\naffine(4)=-18\naffine(5)=-23\naffine(6)=-28\naffine(7)=-33\naffine(8)=-38\naffine(9)=-43\naffine(10)=-48\naffine(11)=-53\naffine(12)=-58\naffine(13)=-63\naffine(14)=-68\naffine(15)=-73\naffine(16)=-78\naffine(17)=-83\naffine(18)=-88\naffine(19)=-93\naffine(20)=-98",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'import re\nf,e=input().split("=")\ne=e.replace("²","**2")\ne=re.sub(r"(\\d)x",r"\\1*x",e)\nfor x in range(*map(eval,(input()+"+1").split())):\n    v=eval(e.replace("x",f\'({x})\'))\n    print(f\'{f[:-2]}{x})={v}\')',
+            },
+        ],
     },
     {
         title: "Traveled Distance - Unit Conversion",
@@ -853,7 +1025,9 @@ const masterFileRead = [
             ["5\n55 5\n13 10\n11 10\n100 100\n100 100000", "165\n78\n66\n6000\n6000000"],
             ["1\n0 60", "0"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: 'for i in"A"*int(input()):print(int(eval(input().replace(" ","*"))*.6))' },
+        ],
     },
     {
         title: "Vowels in each word",
@@ -868,7 +1042,7 @@ const masterFileRead = [
                 "1 1 1 1 1 1 1 2 2 2 3 2 0 3 0 0 2 3 3",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'print(*[sum(map(w.count,"aeiouAEIUO"))for w in input().split()])' }],
     },
     {
         title: "Min prime de N",
@@ -897,7 +1071,9 @@ const masterFileRead = [
             ],
             ["2\n42", "42"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: "n=int(input())\ns=input()\nprint(s[:~(n%2):2]+s[-1]*(n%2)+s[~(n%2)::-2])" },
+        ],
     },
     {
         title: "Range sum",
@@ -911,7 +1087,13 @@ const masterFileRead = [
                 "0\n1\n1\n1\n2\n2\n0\n0\n1\n1\n2",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'T=lambda:[*map(int,input().split())]\nT()\nv=T()\nfor i in"A"*T()[0]:\n s,e=T()\n print(sum(v[s:e+1]))',
+            },
+        ],
     },
     {
         title: "Burrows-Wheeler",
@@ -925,7 +1107,13 @@ const masterFileRead = [
                 "4HHHAEUBWREUOSRBRDHNAANTTAELOOOTLIEYYTUAATAEUNCYGSOROOESLA",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "s=input()\nt=sorted(s[i:]+s[:i]for i in range(len(s)))\nprint(f'{t.index(s)+1}{\"\".join(r[-1]for r in t)}')",
+            },
+        ],
     },
     {
         title: "Prime Power Sequence Term",
@@ -937,7 +1125,7 @@ const masterFileRead = [
             ["32768", "65536"],
             ["819628286980801", "25408476896404831"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "n=int(input())\np=2\nwhile n%p:p+=1\nprint(n*p)" }],
     },
     {
         title: "Unfair Acceleration",
@@ -948,7 +1136,9 @@ const masterFileRead = [
             ["1000\n42\n37", "223"],
             ["10000\n630\n703", "1968"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: "I=input\nd=int(I())\ns,l=sorted([int(I()),int(I())])\nI(int(d-s*s*d/l**2))" },
+        ],
     },
     {
         title: "Add space between each pair of letters",
@@ -963,7 +1153,9 @@ const masterFileRead = [
             ["19-2000", "19-2000"],
             ["(0|)!|\\|64/\\/\\3 RU135", "(0|)!|\\|64/\\/\\3 R U135"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: 'import re\nprint(re.sub(r"((?<=[a-zA-z]))([a-zA-z])",r"\\1 \\2",input()))' },
+        ],
     },
     {
         title: "Reverse Pyramids",
@@ -974,7 +1166,7 @@ const masterFileRead = [
             ["5", "55555\n5555\n555\n55\n5"],
             ["7", "7777777\n777777\n77777\n7777\n777\n77\n7"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "n=input()\nfor x in range(1,int(n)+1)[::-1]:print(n*x)" }],
     },
     {
         title: "Wartime Cryptography",
@@ -991,7 +1183,12 @@ const masterFileRead = [
                 "im being attacked on all flanks",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 'al="zyxwvutsrqponmlkjihgfedcba "\nfor i in"A"*int(input()):print(end=al[int(input())])',
+            },
+        ],
     },
     {
         title: "XOR 'em all",
@@ -1002,7 +1199,7 @@ const masterFileRead = [
             ["12\n1 1 1 1 1 1 1 1 1 1 1 1", "0"],
             ["24\n0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1", "1"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "print(input().count(“1”)%2)" }],
     },
     {
         title: "Hydrocarbons",
@@ -1016,7 +1213,13 @@ const masterFileRead = [
             ["11\n  H\n  |\nH-C-H\n  |\nH-C-H\n  |\nH-C-H\n  |\nH-C-H\n  |\n  H", "butane"],
             ["1\nH-H-H", "NONE"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'c=h=0\nfor i in"A"*int(input())\n l=input()\n c+=l.count(\'C\')\n h+=l.count(\'H\')\nif c==0 or ((c+1)*2)!=h:print("NONE")\nelse:print(["methane","ethane","propane","butane","pentane"][c-1])',
+            },
+        ],
     },
     {
         title: "Modular Sum",
@@ -1029,7 +1232,7 @@ const masterFileRead = [
             ["7\n1893 5039 4231 7735", "12"],
             ["14\n3 8 4", "15"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "m=int(input())\nprint(sum([int(x)%m for x in input().split()]))" }],
     },
     {
         title: "Shifty Strings",
@@ -1050,7 +1253,12 @@ const masterFileRead = [
                 "Arturia Pendragon\nnArturia Pendrago\nonArturia Pendrag\ngonArturia Pendra\nagonArturia Pendr\nragonArturia Pend\ndragonArturia Pen\nndragonArturia Pe\nendragonArturia P\nPendragonArturia \n PendragonArturia\na PendragonArturi\nia PendragonArtur\nria PendragonArtu\nuria PendragonArt\nturia PendragonAr\nrturia PendragonA\nArturia Pendragon",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "s=input()\nn=s\ni=0\nprint(n)\nwhile s!=(n:=s[(i:=i-1):]+s[:i]):print(n)\nprint(s)",
+            },
+        ],
     },
     {
         title: "Histogram",
@@ -1070,7 +1278,12 @@ const masterFileRead = [
                 "1:***\n2:***\n3:***\n4:****\n5:***\n6:******\n7:******\n8:****\n9:*",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "input()\nl=input()\nfor i in range(1,10):print(f'{i}:{\"*\"*l.count(str(i))}')",
+            },
+        ],
     },
     {
         title: "Digital root",
@@ -1085,7 +1298,7 @@ const masterFileRead = [
             ["1850", "5"],
             ["7645", "4"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "n=int(input())\nwhile n>9:n=sum(map(int,str(n)))\nprint(n)" }],
     },
     {
         title: "Pascal's Triangle",
@@ -1098,7 +1311,13 @@ const masterFileRead = [
             ["12", "1 12 66 220 495 792 924 792 495 220 66 12 1"],
             ["17", "1 17 136 680 2380 6188 12376 19448 24310 24310 19448 12376 6188 2380 680 136 17 1"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "a=[1]\nfor i in range(int(input())):\n b=[1]\n for j in range(i):b+=a[j]+a[j+1],\n a=b+[1]\nprint(*a)",
+            },
+        ],
     },
     {
         title: "Fair workloads",
@@ -1112,7 +1331,13 @@ const masterFileRead = [
                 "2",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'import numpy\nI=input\nn=int(I())\nI()\nw=[[*map(int,I().split())]for i in"A"*n]\nI(w.index(min(w,key=numpy.var))+1)',
+            },
+        ],
     },
     {
         title: "Generalized FizzBuzz",
@@ -1129,7 +1354,13 @@ const masterFileRead = [
                 "1\n2\n3\n4\n5\nBizz\n7\nBazz\n9\n10\n11\nBizz\n13\n14\n15\nBazz\n17\nBizz\n19\n20",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n,m=map(int,input().split())\nl=[input().split()for i in"A"*m]\nfor i in range(1,n+1):print("".join([p[1]for p in l if i%int(p[0])<1])or i)',
+            },
+        ],
     },
     {
         title: "MakePalindrome",
@@ -1141,7 +1372,13 @@ const masterFileRead = [
             ["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaaaaaaaaaaaaaaaa", "16"],
             ["abbabbabbabbabbabbabbabba", "12"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    's=input()\nfor x in range(len(s)):\n    t=s[:x]+"|"+s[x:]\n    if all(a==b or"|"in a+b for a,b in zip(t,t[::-1])):print(x);exit(0)\nprint(-1)',
+            },
+        ],
     },
     {
         title: "Amaze Maze",
@@ -1158,7 +1395,13 @@ const masterFileRead = [
                 "7777777777777\n7666666666667\n7655555555567\n7654444444567\n7654333334567\n7654322234567\n7654321234567\n7654322234567\n7654333334567\n7654444444567\n7655555555567\n7666666666667\n7777777777777",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nG=lambda o:exec(f\'for x in range(n-1)[::{o}]:t=range(n-x,n+1);print(*t[::-1],*[n-x]*((n-x)*2-3),*t,sep="")\')\nG(1)\nt=range(1,n+1)\nprint(*t[::-1],*t[1:],sep="")\nG(-1)',
+            },
+        ],
     },
     {
         title: "MakePalindrome2",
@@ -1174,7 +1417,7 @@ const masterFileRead = [
             ["CCBBaabb33!!??", "!3?BCabbaCB?3!"],
             ["bbbaaacc", "imp"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'input()\nprint(int("".join(sorted(input()[::2])[::-1])))' }],
     },
     {
         title: "Le plus grande nombre, niveau 1",
@@ -1201,7 +1444,13 @@ const masterFileRead = [
                 "Le Mans\nNewcastle upon Tyne\nMarrakech\nSydney\nLe Mans\nVienna\nNewcastle upon Tyne\nSydney\nMarrakech\nNewcastle upon Tyne\nVienna\nMarrakech\nVienna\nLe Mans\nNewcastle upon Tyne\nSydney\nLe Mans\nMarrakech\nVienna\nSydney",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nd={}\nfor x in"A"*n:\n    t=input()\n    d[t.lower().replace(" ","")]=t\nm=int(input())\nfor x in"A"*m:print(d[input().lower().replace(" ","")])',
+            },
+        ],
     },
     {
         title: "Ace of base",
@@ -1212,7 +1461,13 @@ const masterFileRead = [
             ["10\n20\n6\n1 9 1 2 0 1", "1 3 18 0 1"],
             ["10\n60\n8\n3 1 4 1 5 9 6 5", "2 25 26 39 25"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "i=int(input())\nt=int(input())\ninput()\no=0\nfor c in map(int,input().split()):o=o*i+c\nl=[]\nwhile o:\n    o,r=divmod(o,t)\n    l+=[r]\nprint(*l[::-1])",
+            },
+        ],
     },
     {
         title: "Happy Number",
