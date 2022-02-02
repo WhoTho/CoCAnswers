@@ -26,7 +26,7 @@ const masterFileRead = [
             ["1020304050", "1"],
             ["1000600007000000", "6"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'import re\nprint(max([*map(len,re.findall(r"0+",input()))]or[0]))' }],
     },
     {
         title: "Almost anagrams",
@@ -37,7 +37,13 @@ const masterFileRead = [
             ["CBA\nBCD", "1\n1"],
             ["ABABCC\nABDCD", "2\n3"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "a=input()\nb=list(input())\nr=0\nfor c in sorted(a):\n    if c in b:b.remove(c)\n    else:r+=1\nprint(f'{len(b)}\n{r}')",
+            },
+        ],
     },
     {
         title: "Just sort",

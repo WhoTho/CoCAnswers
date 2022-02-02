@@ -18,20 +18,6 @@ function searchByInfo(authorName, testCaseInput, testCaseOutput) {
     });
 }
 
-function searchByAuthor(authorName, currentMatchArray) {
-    return currentMatchArray.filter((e) => {
-        return e.author === authorName;
-    });
-}
-
-function searchByTestCase(testCaseInput, testCaseOutput, currentMatchArray) {
-    return currentMatchArray.filter((e) => {
-        return e.testCases.some((t) => {
-            return t[0] === testCaseInput && t[1] === testCaseOutput;
-        });
-    });
-}
-
 function clearSearchResults() {
     try {
         var div = document.getElementById("results");
@@ -91,9 +77,6 @@ function printResults(matchArray) {
         var showAll = document.createElement("div");
         showAll.classList.add("resultCard");
 
-        //Make it clickable with copy
-        //showAll.setAttribute("onclick", `copySolution(${masterFileRead.indexOf(data)})`);
-
         //Title info
         showAll.appendChild(createBoldAndText("TITLE", data.title));
 
@@ -135,9 +118,7 @@ function printResults(matchArray) {
 }
 
 async function submitSearch() {
-    console.log("startting search");
     await clearSearchResults();
-    console.log("clearned results");
 
     var searchAuthor = document.getElementById("authorInput").value;
 
@@ -146,18 +127,6 @@ async function submitSearch() {
 
     var currentMatches = searchByInfo(searchAuthor, searchTestCaseInput, searchTestCaseOutput);
 
-    // if (searchAuthor !== "") {
-    //     console.log(`search author: ${searchAuthor}`);
-    //     currentMatches = searchByAuthor(searchAuthor, currentMatches);
-    // }
-    // if (searchTestCaseInput !== "" && searchTestCaseOutput !== "") {
-    //     console.log(`Testcase input: ${searchTestCaseInput}`);
-    //     console.log(`Testcase output: ${searchTestCaseOutput}`);
-    //     currentMatches = searchByTestCase(searchTestCaseInput, searchTestCaseOutput, currentMatches);
-    // }
-
-    console.log("Got matches");
-    //console.log(currentMatches);
     printResults(currentMatches);
 }
 
