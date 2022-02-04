@@ -15890,7 +15890,9 @@ const masterFileRead = [
             ["16\nF 2", "1"],
             ["10\n1478 100", "78"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "b=gets.to_i\nn,m=gets.split\n$><<(n.to_i(b)%m.to_i(b)).to_s(b).upcase" },
+        ],
     },
     {
         title: "Hangman",
@@ -17119,7 +17121,18 @@ const masterFileRead = [
             ["4\n5\n5\n5\n5", "6"],
             ["1\n2\n1\n2\n1", "4"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'l=[input()for i in"A"*5]\nt=0\nfor x in range(5):\n for y in range(x+1,5):\n  t+=l[x]==l[y]\nprint(t)',
+            },
+            {
+                lang: "Python",
+                solution:
+                    "a=[]\nfor i in range(5):\n card = int(input())\n a.append(card)\nb=0\nc=[]\nfor i in a:\n if a.count(i)>1 and i not in c:b+=sum(range(1,a.count(i)));c.append(i)\nprint(b)",
+            },
+        ],
     },
     {
         title: "Drying cucumber",
