@@ -32,6 +32,13 @@ function clearSearchResults() {
     }
 }
 
+function clearSearchQuery() {
+    document.getElementById("authorInput").value = "";
+    document.getElementById("testCaseInputInput").value = "";
+    document.getElementById("testCaseOutputInput").value = "";
+    return;
+}
+
 function createBoldAndText(boldedText, regularText, paramsIn = {}) {
     var params = {
         afterBoldText: paramsIn.afterBoldText ?? "",

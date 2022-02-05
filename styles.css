@@ -14,11 +14,18 @@
     border: 2px solid #000000;
     padding: 15px;
     margin: 10px;
-    /* margin-bottom: 10px;
-    width: 95%; */
+}
+
+.resultInfoSolution:hover {
+    cursor: pointer;
+    filter: saturate(5);
 }
 
 .multiLineInput {
     width: 100%;
     height: 200px;
+}
+
+#submitButton, #clearButton {
+    padding: 10px;
 }
