@@ -18162,7 +18162,10 @@ const masterFileRead = [
             ["8 123456", "987655"],
             ["10000 10000", "100000010"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: "a,b=map(int,input().split())\nprint(a*b+(len(str(a)+str(b))))" },
+            { lang: "Ruby", solution: "a,b=gets.split.map(&:to_i)\np a*b+(a.to_s+b.to_s).size" },
+        ],
     },
     {
         title: "Triangle Comparison",
@@ -19833,7 +19836,13 @@ const masterFileRead = [
                 ".......#..#....\n......###.##...\n.....#######...\n..#.#########..\n.#############.\n###############",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'w=int(input())\nl=[int(input())for i in"A"*w]\nt=max(l)\nfor x in range(t):\n print("".join(".#"[l[y]>=(t-x)]for y in range(w)))',
+            },
+        ],
     },
     {
         title: "DNA double helix repair",
@@ -22326,7 +22335,18 @@ const masterFileRead = [
                 "192715009",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n = int(input())\nt=[0,0,1]\nl=[int(input())for i in"A"*n]\nfor x in"A"*max(l):\n t+=[sum(t[-3:])]\na=sum(t[x-1]for x in l)\nprint(a%(10**9+7))',
+            },
+            {
+                lang: "Ruby",
+                solution:
+                    "n = gets.to_i\nd = []\nn.times do\n    d << gets.to_i\nend\nr = [0,0,1]\n(d.max+1).times do |i|\n    r << r[-2]+r[-1]+r[-3]\nend\np d.map{|v| r[v-1]}.sum % 1000000007",
+            },
+        ],
     },
     {
         title: "Marble Game Replay",
@@ -25048,7 +25068,14 @@ const masterFileRead = [
             ["536576656E", "7"],
             ["6E496E45", "9"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: 'p ("ZEONTWTHFOFISISEEINI"=~/#{[gets].pack("H*").upcase[..1]}/)/2' },
+            {
+                lang: "Python",
+                solution:
+                    "d = {'zero':0,'one':1,'two':2,'three':3,'four':4,'five':5,'six':6,'seven':7,'eight':8,'nine':9}\nn = input()\ns = ''\nfor i in range(0,len(n),2):\n s+=chr(int(n[i:i+2],16))\nprint(d[s.lower()])",
+            },
+        ],
     },
     {
         title: "Messy triangles 2",
@@ -25301,7 +25328,10 @@ const masterFileRead = [
             ["Maximise", "2381115027544802"],
             ["(2*24)^7", "288065849228392"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "gets\np (0..7).sum{92**_1*($_[~_1].ord-35)}" },
+            { lang: "Python", solution: "s=input()\nprint(sum((ord(c)-35)*92**(7-i)for i,c in enumerate(s)))" },
+        ],
     },
     {
         title: "Vending Machine Filling",
@@ -25390,7 +25420,10 @@ const masterFileRead = [
             ["54\n76\n65", "7408"],
             ["86\n81\n89", "14361"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: "n=int(input())\nd=int(input())\nw=int(input())\nprint((n-1)*d+(n-2)*w)" },
+            { lang: "Python", solution: "n,d,w=map(int,open(0))\nprint(~-n*d+(n-2)*w)" },
+        ],
     },
     {
         title: "Equations",
@@ -25474,7 +25507,10 @@ const masterFileRead = [
                 "131352469878\n186097888081\n86208184065\n111757863925\n13410879651\n35890697160\n198052983765\n362007321495\n378784588920\n",
             ],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "gets.to_i.times{n=gets.to_i;p n*-~n/2}" },
+            { lang: "Ruby", solution: "gets\n$<.map{n=_1.to_i;p n*-~n/2}" },
+        ],
     },
     {
         title: "Powerbyte v2",
@@ -25505,6 +25541,119 @@ const masterFileRead = [
                 "F,AY,RE,D,is,An,H4,x,0R\n0R,H4,RE,D,An,is,AY,x,F",
                 "'0R' 0 8\n'H4' 1 6\n'An' 4 5\n'is' 5 4\n'AY' 6 1\n'F' 8 0",
             ],
+        ],
+        solutions: [
+            {
+                lang: "Ruby",
+                solution:
+                    "a,b=$<.map{_1.chomp.split ?,}\ni=0;b.map{|e|d=a.index e;puts\"'#{e}' #{i} #{d}\"if i!=d;i+=1}",
+            },
+            {
+                lang: "Ruby",
+                solution:
+                    "m,a=*$<.map{_1.chomp.split ?,}\ni=0\na.map{|x|puts\"'#{x}' #{i} #{m.index(x)}\"if x!=m[i];i+=1}",
+            },
+            {
+                lang: "Python",
+                solution:
+                    "a=0\nm=input().split(',')\nfor i in input().split(','):\n if i!=m[a]:print(\"'\"+i+\"'\",a,m.index(i))\n a+=1",
+            },
+        ],
+    },
+    {
+        title: "S(cr|k)ewed, part 1",
+        author: "thomas.schuerger",
+        testCases: [
+            ["0100101101110100", "0100"],
+            ["01101110001100010000101100011", "ERROR"],
+            ["1101110110101111101110111110101111011100", "001111110"],
+            ["1100110011001111001111001100110000110011", "EMPTY"],
+            ["000101001001000101011001001010010101", "00100001011000"],
+            [
+                "010101101010100101010101000101001001000010101001010101010100101010011010101010101011010101010101001010101010100010101010101001010101",
+                "0001111000000010111000000111011111110000001111111111110000",
+            ],
+            [
+                "1100111000001101001001110101101111001110011011011011011100011000111110110010101000001001111011010001010110111011100101010011100100110001111001110101011000000100100110100101001000001100101000110110101010000110001011101111001110000010111111011100100001001101101100000000111010110000110101100111111111011101010101110100101110110100000111011100110001011101000010001101011001110101100010010011110101011011001100010110011001000000010000001000110010000111101110000111001010011110000101001110010001110110111101011011011011110101101110101000011100111100100101110101011100101111010110000010111110000111100100101111011001110000110010101100010101100000011001011110100101111110011111000100101111000011111000010010011010010011011110011001001000110011100010101110000000011001111001100101111010100100010100011000000001011000101001110100010001011101010111111101000000010010110100101000101100011001000011001110111000010111010101010101011001111100001110001000111111111111000100011110100101110111001100011011000101100010",
+                "101000110101001111110100001110001001000010101100111011110111110100111001000000011000000100100011000010010100110110110100100010010100111101000001001110101010110001010011001001101011001010111110101010011100001001110000000000101110101100000000010110011000010011",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Boxed in",
+        author: "DJJ05",
+        testCases: [
+            ["4\n4", "****\n*  *\n*  *\n****"],
+            [
+                "12\n12",
+                "************\n*          *\n*          *\n*          *\n*          *\n*          *\n*          *\n*          *\n*          *\n*          *\n*          *\n************",
+            ],
+            ["5\n3", "*****\n*   *\n*****"],
+            ["6\n12", "******\n*    *\n*    *\n*    *\n*    *\n*    *\n*    *\n*    *\n*    *\n*    *\n*    *\n******"],
+            ["4\n2", "****\n****"],
+            ["6\n1", "******"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "CSV data analyzer",
+        author: "grebu",
+        testCases: [
+            [
+                "Action\n7\nTimestamp,Action,UserID\n19:47:27,Search,12015\n19:47:27,Search,88888\n19:47:28,Booking,12015\n19:47:28,Search,88888\n19:47:29,Ticketing,12345\n19:47:30,Cancellation,12015",
+                "Search",
+            ],
+            [
+                "Type\n7\nName,Type\nLemon,Fruit\nCarrot,Vegetable\nBanana,Fruit\nStrawberry,Fruit\nKiwi,Fruit\nSpinach,Vegetable\n\n",
+                "Fruit",
+            ],
+            ["Color\n7\nColor\nGreen\nYellow\nGreen\nBlue\nOrange\nRed", "Green"],
+            ["Weather\n5\nWeather,Country\nCloudy,France\nSunny,Spain\nSunny,Spain\nRainy,UK", "Sunny"],
+            [
+                "State\n129\nLatD,LatM,LatS,NS,LonD,LonM,LonS,EW,City,State\n41,5,59,N,80,39,0,W,Youngstown,OH\n42,52,48,N,97,23,23,W,Yankton,SD\n46,35,59,N,120,30,36,W,Yakima,WA\n42,16,12,N,71,48,0,W,Worcester,MA\n43,37,48,N,89,46,11,W,WisconsinDells,WI\n36,5,59,N,80,15,0,W,Winston-Salem,NC\n49,52,48,N,97,9,0,W,Winnipeg,MB\n39,11,23,N,78,9,36,W,Winchester,VA\n34,14,24,N,77,55,11,W,Wilmington,NC\n39,45,0,N,75,33,0,W,Wilmington,DE\n48,9,0,N,103,37,12,W,Williston,ND\n41,15,0,N,77,0,0,W,Williamsport,PA\n37,40,48,N,82,16,47,W,Williamson,WV\n33,54,0,N,98,29,23,W,WichitaFalls,TX\n37,41,23,N,97,20,23,W,Wichita,KS\n40,4,11,N,80,43,12,W,Wheeling,WV\n26,43,11,N,80,3,0,W,WestPalmBeach,FL\n47,25,11,N,120,19,11,W,Wenatchee,WA\n41,25,11,N,122,23,23,W,Weed,CA\n31,13,11,N,82,20,59,W,Waycross,GA\n44,57,35,N,89,38,23,W,Wausau,WI\n42,21,36,N,87,49,48,W,Waukegan,IL\n44,54,0,N,97,6,36,W,Watertown,SD\n43,58,47,N,75,55,11,W,Watertown,NY\n42,30,0,N,92,20,23,W,Waterloo,IA\n41,32,59,N,73,3,0,W,Waterbury,CT\n38,53,23,N,77,1,47,W,Washington,DC\n41,50,59,N,79,8,23,W,Warren,PA\n46,4,11,N,118,19,48,W,WallaWalla,WA\n31,32,59,N,97,8,23,W,Waco,TX\n38,40,48,N,87,31,47,W,Vincennes,IN\n28,48,35,N,97,0,36,W,Victoria,TX\n32,20,59,N,90,52,47,W,Vicksburg,MS\n49,16,12,N,123,7,12,W,Vancouver,BC\n46,55,11,N,98,0,36,W,ValleyCity,ND\n30,49,47,N,83,16,47,W,Valdosta,GA\n43,6,36,N,75,13,48,W,Utica,NY\n39,54,0,N,79,43,48,W,Uniontown,PA\n32,20,59,N,95,18,0,W,Tyler,TX\n42,33,36,N,114,28,12,W,TwinFalls,ID\n33,12,35,N,87,34,11,W,Tuscaloosa,AL\n34,15,35,N,88,42,35,W,Tupelo,MS\n36,9,35,N,95,54,36,W,Tulsa,OK\n32,13,12,N,110,58,12,W,Tucson,AZ\n37,10,11,N,104,30,36,W,Trinidad,CO\n40,13,47,N,74,46,11,W,Trenton,NJ\n44,45,35,N,85,37,47,W,TraverseCity,MI\n43,39,0,N,79,22,47,W,Toronto,ON\n39,2,59,N,95,40,11,W,Topeka,KS\n41,39,0,N,83,32,24,W,Toledo,OH\n33,25,48,N,94,3,0,W,Texarkana,TX\n39,28,12,N,87,24,36,W,TerreHaute,IN\n27,57,0,N,82,26,59,W,Tampa,FL\n30,27,0,N,84,16,47,W,Tallahassee,FL\n47,14,24,N,122,25,48,W,Tacoma,WA\n43,2,59,N,76,9,0,W,Syracuse,NY\n32,35,59,N,82,20,23,W,Swainsboro,GA\n33,55,11,N,80,20,59,W,Sumter,SC\n40,59,24,N,75,11,24,W,Stroudsburg,PA\n37,57,35,N,121,17,24,W,Stockton,CA\n44,31,12,N,89,34,11,W,StevensPoint,WI\n40,21,36,N,80,37,12,W,Steubenville,OH\n40,37,11,N,103,13,12,W,Sterling,CO\n38,9,0,N,79,4,11,W,Staunton,VA\n39,55,11,N,83,48,35,W,Springfield,OH\n37,13,12,N,93,17,24,W,Springfield,MO\n42,5,59,N,72,35,23,W,Springfield,MA\n39,47,59,N,89,39,0,W,Springfield,IL\n47,40,11,N,117,24,36,W,Spokane,WA\n41,40,48,N,86,15,0,W,SouthBend,IN\n43,32,24,N,96,43,48,W,SiouxFalls,SD\n42,29,24,N,96,23,23,W,SiouxCity,IA\n32,30,35,N,93,45,0,W,Shreveport,LA\n33,38,23,N,96,36,36,W,Sherman,TX\n44,47,59,N,106,57,35,W,Sheridan,WY\n35,13,47,N,96,40,48,W,Seminole,OK\n32,25,11,N,87,1,11,W,Selma,AL\n38,42,35,N,93,13,48,W,Sedalia,MO\n47,35,59,N,122,19,48,W,Seattle,WA\n41,24,35,N,75,40,11,W,Scranton,PA\n41,52,11,N,103,39,36,W,Scottsbluff,NB\n42,49,11,N,73,56,59,W,Schenectady,NY\n32,4,48,N,81,5,23,W,Savannah,GA\n46,29,24,N,84,20,59,W,SaultSainteMarie,MI\n27,20,24,N,82,31,47,W,Sarasota,FL\n38,26,23,N,122,43,12,W,SantaRosa,CA\n35,40,48,N,105,56,59,W,SantaFe,NM\n34,25,11,N,119,41,59,W,SantaBarbara,CA\n33,45,35,N,117,52,12,W,SantaAna,CA\n37,20,24,N,121,52,47,W,SanJose,CA\n37,46,47,N,122,25,11,W,SanFrancisco,CA\n41,27,0,N,82,42,35,W,Sandusky,OH\n32,42,35,N,117,9,0,W,SanDiego,CA\n34,6,36,N,117,18,35,W,SanBernardino,CA\n29,25,12,N,98,30,0,W,SanAntonio,TX\n31,27,35,N,100,26,24,W,SanAngelo,TX\n40,45,35,N,111,52,47,W,SaltLakeCity,UT\n38,22,11,N,75,35,59,W,Salisbury,MD\n36,40,11,N,121,39,0,W,Salinas,CA\n38,50,24,N,97,36,36,W,Salina,KS\n38,31,47,N,106,0,0,W,Salida,CO\n44,56,23,N,123,1,47,W,Salem,OR\n44,57,0,N,93,5,59,W,SaintPaul,MN\n38,37,11,N,90,11,24,W,SaintLouis,MO\n39,46,12,N,94,50,23,W,SaintJoseph,MO\n42,5,59,N,86,28,48,W,SaintJoseph,MI\n44,25,11,N,72,1,11,W,SaintJohnsbury,VT\n45,34,11,N,94,10,11,W,SaintCloud,MN\n29,53,23,N,81,19,11,W,SaintAugustine,FL\n43,25,48,N,83,56,24,W,Saginaw,MI\n38,35,24,N,121,29,23,W,Sacramento,CA\n43,36,36,N,72,58,12,W,Rutland,VT\n33,24,0,N,104,31,47,W,Roswell,NM\n35,56,23,N,77,48,0,W,RockyMount,NC\n41,35,24,N,109,13,48,W,RockSprings,WY\n42,16,12,N,89,5,59,W,Rockford,IL\n43,9,35,N,77,36,36,W,Rochester,NY\n44,1,12,N,92,27,35,W,Rochester,MN\n37,16,12,N,79,56,24,W,Roanoke,VA\n37,32,24,N,77,26,59,W,Richmond,VA\n39,49,48,N,84,53,23,W,Richmond,IN\n38,46,12,N,112,5,23,W,Richfield,UT\n45,38,23,N,89,25,11,W,Rhinelander,WI\n39,31,12,N,119,48,35,W,Reno,NV\n50,25,11,N,104,39,0,W,Regina,SA\n40,10,48,N,122,14,23,W,RedBluff,CA\n40,19,48,N,75,55,48,W,Reading,PA\n41,9,35,N,81,14,23,W,Ravenna,OH",
+                "CA",
+            ],
+        ],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'column = input()\nfile_size = int(input())\ncol = input().split(",").index(column)\nl=[]\nfor i in range(file_size-1):\n l+=[input().split(",")[col]]\nprint(max(l,key=l.count))',
+            },
+        ],
+    },
+    {
+        title: "Lines on a Circle!",
+        author: "Hyperbola",
+        testCases: [
+            ["4\n10\n5", "no\n20"],
+            ["15\n40\n3", "no\n275\n"],
+            ["20\n1000\n18\n", "no\n2420"],
+            ["100\n99999\n7\n", "yes\n34650"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Domino Cipher (Encryption)",
+        author: "Schwase",
+        testCases: [
+            ["Hello World\nHeloWrd", "elooW rWdoH"],
+            ["CodinGames\nCIoldLGiuanmAsyet", "IlLuminAty"],
+            ["GoOdBye Cruel cRuEl WORLD\nGCWR", "CoOdBye Wruel cGuEl ROGLD"],
+            ["vex nymph quick big\niovtxehknqbdpcwyurm", "the quick brown dog"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Tricky Math",
+        author: "ProCrazyCoder",
+        testCases: [
+            ["1\n3", "54"],
+            ["1\n9", "405"],
+            ["7\n9", "216"],
+            ["4\n4", "36"],
+            ["2\n5", "126"],
         ],
         solutions: [],
     },
