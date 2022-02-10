@@ -21348,7 +21348,13 @@ const masterFileRead = [
             ["1862", "838"],
             ["16384", "0"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: "import math\nn=int(input())\nprint(n-(2**int(math.log2(n))))" },
+            { lang: "Python", solution: "n,x=int(input()),2\nwhile x<n:x*=2\nprint((n-x//2,0)[n==x])" },
+            { lang: "Python", solution: 'print(int(bin(int(input()))[3:]or"0",2))' },
+            { lang: "Ruby", solution: "p gets.to_i.to_s(2)[1..].to_i(2)" },
+            { lang: "Ruby", solution: "n=gets.to_i\np n-2**Math.log2(n).to_i" },
+        ],
     },
     {
         title: "Prime At",
@@ -25287,7 +25293,13 @@ const masterFileRead = [
             ],
             ["6", "123456123456123456123456123456123456"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: 'n=int(input())\nprint("".join(map(str,range(1,n+1)))*n)' },
+            {
+                lang: "Python",
+                solution: "n=int(input())\ns=''\nfor i in range(n):\n for j in range(1,n+1):\n  s+=str(j)\nprint(s)",
+            },
+        ],
     },
     {
         title: "Abecedarian Words",
