@@ -22743,7 +22743,18 @@ const masterFileRead = [
                 "Incorrect:2",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nl=b=t=0\nfor i in range(n):\n v,c=input().split()\n if l!=0 and v!=l and c!=b:t+=1\n l=v;b=c\nprint(("Inc","C")[t<1]+"orrect"+f\':{t}\'*(t>0))',
+            },
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nok=1\np=[None,None]\nidx=0\nfor i in range(n):\n inputs = input().split()\n v = int(inputs[0])\n c = inputs[1]\n if i:\n  ms=p[0]==v or p[1]==c\n  ok &= ms\n  if not ms:\n   idx+=1\n p=[v,c]\nprint(["Correct",f"Incorrect:{idx}"][1-ok])',
+            },
+        ],
     },
     {
         title: "Alphabets Printer",
@@ -25323,6 +25334,21 @@ const masterFileRead = [
                 solution:
                     "d = {'zero':0,'one':1,'two':2,'three':3,'four':4,'five':5,'six':6,'seven':7,'eight':8,'nine':9}\nn = input()\ns = ''\nfor i in range(0,len(n),2):\n s+=chr(int(n[i:i+2],16))\nprint(d[s.lower()])",
             },
+            {
+                lang: "Python",
+                solution:
+                    'print({"one":1,"two":2,"three":3,"four":4,"five":5,"six":6,"seven":7,"eight":8,"nine":9,"zero":0}[bytearray.fromhex(input()).decode().lower()])',
+            },
+            {
+                lang: "Python",
+                solution:
+                    "res=bytes.fromhex(input()).decode(\"ASCII\").lower()\nres = res.replace('one', '1').replace('two', '2').replace('three', '3').replace('four', \n'4').replace('five', '5').replace('six', '6').replace('seven', '7').replace('eight', '8').replace('nine',\n '9').replace('zero', '0')\nprint(res)",
+            },
+            {
+                lang: "Ruby",
+                solution:
+                    "p %w(ZERO ONE TWO THREE FOUR FIVE SIX SEVEN EIGHT NINE TEN).index(gets.chomp.gsub(/../){$&.hex.chr}.upcase)",
+            },
         ],
     },
     {
@@ -25908,6 +25934,165 @@ const masterFileRead = [
             ["7\n9", "216"],
             ["4\n4", "36"],
             ["2\n5", "126"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Biased Hurdle Race",
+        author: "Ben-D-Anderson",
+        testCases: [
+            ["2\n=====|==|====|====\n==|====|=|==|=====", "1"],
+            [
+                "8\n====|==|=|=|======\n===|=|==|==|=|====\n====|===|=|=======\n===|==|=|=|=|=====\n====|==|==========\n====|=============\n====|=====|=|=====\n=|=|=|==|==|=|====",
+                "6",
+            ],
+            [
+                "5\n====|===||==|=====\n==||==||=|=|||====\n===|=====|======|=\n====|======|||====\n===||||=|||=||=|==",
+                "4",
+            ],
+            ["3\n=|||=||=\n===||||=\n=|====|=", "2"],
+            ["5\n==||==|=|==||===\n=|====|===|===|=\n===||==|===||===\n=||==||======||=\n=||||=|=|===|===", "3"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "KNOTS not NOTS",
+        author: "C_breeze",
+        testCases: [
+            ["NOTKNOTONKN", "2"],
+            ["KnoTnotKNoT", "2"],
+            ["KN0TNOTKN0TONKN0T", "1"],
+            ["NOTNOTNOTK", "1"],
+            ["NKOTNKOTKNOTNOTO", "2"],
+            ["tooooknootnoknoooonotonkoookno", "2"],
+            ["KNOTONKNOTON", "4"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Funky Monkey Friday",
+        author: "TryhardestIsBad",
+        testCases: [
+            ["3\nmonday\n2", "monkey monkey monkey"],
+            ["4\nwednesday\n8", "MONKEY MONKEY MONKEY MONKEY"],
+            ["2\nfriday\n1", "funky monkey friday funky monkey friday"],
+            ["3\nfriday\n7", "FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY"],
+            [
+                "15\nfriday\n7.777",
+                "FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY FUNKY MONKEY FRIDAY",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Check If It Is A Straight Line",
+        author: "Elena.",
+        testCases: [
+            ["5\n0 0\n1 1\n2 2\n3 3\n4 4", "diagonal"],
+            ["10\n1 1\n2 2\n3 4\n4 4\n5 5\n6 6\n7 7\n8 8\n9 9\n10 10", "3 4"],
+            ["2\n-12 0\n0 0", "horizontal"],
+            ["4\n0 0\n0 1\n0 2\n0 3", "vertical"],
+            ["8\n0 0\n1 0\n2 0\n3 0\n4 0\n5 0\n6 0\n7 0", "horizontal"],
+            ["3\n12 0\n-1 0\n13 0", "horizontal"],
+            ["5\n-12 0\n0 1\n12 2\n24 3\n36 4", "diagonal"],
+            ["4\n0 0\n1 3\n12 4\n9 2", "12 4"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Canned cat food",
+        author: "slogslog",
+        testCases: [
+            ["22\n10\n4", "2 1"],
+            ["24\n12\n8", "2 0"],
+            ["17\n8\n4", "2 1"],
+            ["9\n12\n9", "0 1"],
+            ["8\n12\n9", "0 1"],
+            ["1\n12\n4", "0 1"],
+            ["0\n20\n5", "0 0"],
+            ["1337\n42\n4", "31 9"],
+            ["400\n31\n7", "12 4"],
+            ["13\n2\n1", "6 1"],
+            ["12\n2\n1", "6 0"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Count the magic numbers",
+        author: "CrystallineCore",
+        testCases: [
+            ["20 30", "4"],
+            ["200 366", "43"],
+            ["560 561", "1"],
+            ["11 4999", "1373"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Sort on Mod N",
+        author: "Noremac11400",
+        testCases: [
+            ["2\n9 8 7 6 5 4 3 2 1", "9 2 7 4 5 6 3 8 1\n"],
+            ["1\n1 2 3 4 5 6 7 8 9", "1 2 3 4 5 6 7 8 9"],
+            ["5\n15 25 10 30 5 0", "0 5 10 15 25 30"],
+            ["3\n-3 -12 5 15 10 -2 3", "-12 -3 5 3 10 -2 15"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "It makes a sound",
+        author: "Blokops",
+        testCases: [
+            ["3\nDEB\ntreble", "D - -\n     \n- - B\n     \n- - -\n     \n- E -"],
+            [
+                "7\nGABCDEF\nbass",
+                "- - - - - - F\n          E  \n- - - - D - -\n      C      \n- - B - - - -\n  A          \nG - - - - - -",
+            ],
+            [
+                "8\nDEADFACE\ntreble",
+                "D - - D - - - -\n            C  \n- - - - - - - -\n    A     A    \n- - - - - - - -\n        F      \n- E - - - - - E",
+            ],
+            [
+                "10\nFFGGBBEEDD\ntreble",
+                "- - - - - - - - D D\n                   \n- - - - B B - - - -\n                   \n- - G G - - - - - -\nF F                \n- - - - - - E E - -\n\n",
+            ],
+            [
+                "23\nBBCDDCBAGGABBAABBCDDCBA\nbass",
+                "- - - - - - - - - - - - - - - - - - - - - - -\n                                             \n- - - D D - - - - - - - - - - - - - D D - - -\n    C     C                       C     C    \nB B - - - - B - - - - B B - - B B - - - - B -\n              A     A     A A               A\n- - - - - - - - G G - - - - - - - - - - - - -",
+            ],
+        ],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'I=input\nn=int(I())\nm=I()\nc=I()[0]=="t"\nl="FE"*(1-c)+"DCBAG"+"FE"*c\nfor i in range(7):\n print(*[("- "[i%2],m[x])[l[i]==m[x]]for x in range(n)])',
+            },
+            {
+                lang: "Python",
+                solution:
+                    "a='FEDCBAGFE'\nb='- '\nI=input\nm=int(I())\nn=I()\nt=2*(I()[0]=='t')\nfor i in range(7):\n o=[]\n for j in range(m):o+=[b[i%2],n[j]][n[j]==a[i+t]]\n print(*o)",
+            },
+            {
+                lang: "Ruby",
+                solution:
+                    'n=gets.to_i\nm=gets.chomp\nc=gets[0]=="t"?1:0\nl="FE"*(1-c)+"DCBAG"+"FE"*c\nputs (0..6).map{|i|(0..n-1).map{(l[i]==m[_1])&&m[_1]||\'- \'[i%2]}*\' \'}',
+            },
+        ],
+    },
+    {
+        title: "Print prime sequence",
+        author: "HideLord",
+        testCases: [
+            ["3", "22333"],
+            ["5", "2233355555"],
+            [
+                "18",
+                "223335555577777771111111111111111111111131313131313131313131313131717171717171717171717171717171717",
+            ],
+            [
+                "46",
+                "22333555557777777111111111111111111111113131313131313131313131313171717171717171717171717171717171719191919191919191919191919191919191919232323232323232323232323232323232323232323232329292929292929292929292929292929292929292929292929292929293131313131313131313131313131313131313131313131313131313131313137373737373737373737373737373737373737373737373737373737373737373737373737414141414141414141414141414141414141414141414141414141414141414141414141414141414143434343434343434343434343434343434343434343434343434343434343434343434343434343434343",
+            ],
         ],
         solutions: [],
     },
