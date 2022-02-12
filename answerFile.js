@@ -12547,7 +12547,10 @@ const masterFileRead = [
             ["4\n40 51 72 8", "80"],
             ["9\n33 30 31 22 4 45 46 67 66", "71"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "gets\na=gets.split.map &:to_i\np a.max+a.min" },
+            { lang: "Python", solution: "I=input\nI()\na=[*map(int,I().split())]\nI(min(a)+max(a))" },
+        ],
     },
     {
         title: "Left",
@@ -21403,7 +21406,7 @@ const masterFileRead = [
             ["scientific fact: /*2/2=1 */ 2/2=0!", "3"],
             ["not very long string /* with condition 45<46*/, it's right!", "0"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Ruby", solution: 'p gets.gsub(/\\/\\*.*\\*\\/|\\D/,"").size' }],
     },
     {
         title: "Finding Variable Name Conventions",
@@ -23247,7 +23250,13 @@ const masterFileRead = [
                 "[a] [d] [k] [o] [r] [v]",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "print(*[f'[{x}]' for x in sorted({*\"qwertyuiopasdfghjklzxcvbnm\"}^{*(filter(str.isalpha,input()+input()+input()))})])",
+            },
+        ],
     },
     {
         title: "Coding game level up",
