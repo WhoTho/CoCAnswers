@@ -9577,7 +9577,10 @@ const masterFileRead = [
                 "578745 344932 338847 583391 765136 515422 422893 255015 953966 484546 508427 780690 223562 225705 495680 230190 297962 728866 788768 383348 508369 139182 512753 500730 16331 51285 502338 525903 337180 671898 323966 225727 419717 226049 549749 461006 12479 817055 499036 529357 14596 458655 132132 699819 714396 99662 832558 25226 123837 733203 651772 104910 842570 985430 373669 332604 791446 918325 264787 86079 787699 666656 103983 377330 349477 940228 791565 751650 404159 332442 81429 268208 56834 419277 613983 256125 457555 732870 873228 873813 466431 169329 522114 214208 160699 351063 695278 204944 59618 837391 317408 149773 479214 12207 563287 833498 385574 693078 903920 23080",
             ],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "n,*v=`dd`.split\n$><<v.rotate(1)*' '" },
+            { lang: "Python", solution: "input()\nv=input().split()\nprint(*v[1:],v[0])" },
+        ],
     },
     {
         title: "Closest power of 2",
@@ -9599,7 +9602,13 @@ const masterFileRead = [
             ["LH\n3\nLHLHH\nHHLLL\nLLHLL", "HLHHH"],
             ["IC\n4\nIIIIICIICC\nCIIICICCCC\nICICCCCCCI\nICICCICICI", "CIIICICIII"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    's=input()\nn=int(input())\nl=input()\nfor x in"A"*~-n:l=[s[x!=y]for x,y in zip(l,input())]\nprint(*l,sep="")',
+            },
+        ],
     },
     {
         title: "The Shortest Maze & Path",
@@ -9611,7 +9620,28 @@ const masterFileRead = [
             ["#####\n#.###\n#..##\n##..#\n#####", "DRDR"],
             ["#####\n#..##\n##.##\n#...#\n#####", "RDDR"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Ruby",
+                solution:
+                    "l=[*$<]\nf=->(x,y,a){return $><<a if a.size==4;f[x,y+1,a+'D']if l[y+1][x]=='.';f[x+1,y,a+'R']if l[y][x+1]=='.'}\nf[1,1,a=\"\"]",
+            },
+            {
+                lang: "Ruby",
+                solution:
+                    "b=`dd`.split*''\n\"DDRR DRRD RRDD RDDR RDRD DRDR\".split.map{g=6;$><<_1 if _1.chars.map{|a|b[g+=(a==\"D\"?5:1)]}*''=='....'}",
+            },
+            {
+                lang: "Ruby",
+                solution:
+                    "l=`dd`.split*''\nf=->(i,a){return $><<a if a.size>3;f[i+5,a+'D']if l[i+5]=='.';f[i+1,a+'R']if l[i+1]=='.'}\nf[6,\"\"]",
+            },
+            {
+                lang: "Python",
+                solution:
+                    'b="".join(input()for i in"A"*5)\nfor x in "DDRR DRRD RRDD RDDR RDRD DRDR".split():\n p=""\n a=6\n for i in x:\n  a+=1+4*(i=="D")\n  p+=b[a]\n if p=="....":input(x)',
+            },
+        ],
     },
     {
         title: "Screen dimensions",
@@ -9622,7 +9652,13 @@ const masterFileRead = [
             ["11\n12.9:9", "9.02 x 6.29"],
             ["7.3\n4.2:3", "5.94 x 4.24"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "d=float(input())\nl,w=map(float,input().split(\":\"))\na=d/(l*l+w*w)**.5\nprint(f'{l*a:.2f} x {w*a:.2f}')",
+            },
+        ],
     },
     {
         title: "Running Mean",
@@ -9633,7 +9669,13 @@ const masterFileRead = [
             ["15\n1\n5 4 1 3 2 3 4 2 6 1 3 7 8 5 6", "5.0 4.0 1.0 3.0 2.0 3.0 4.0 2.0 6.0 1.0 3.0 7.0 8.0 5.0 6.0"],
             ["15\n15\n5 6 8 9 4 2 4 4 7 9 6 6 5 3 5", "5.5"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "l=int(input())\nw=int(input())\n*a,=map(int,input().split())\nprint(*[f'{sum(a[i:i+w])/w:.1f}' for i in range(l-w+1)])",
+            },
+        ],
     },
     {
         title: "FizzBuzz, compact edition",
@@ -9656,7 +9698,13 @@ const masterFileRead = [
             ["4 4 13", "1-3\nFizzBuzz\n5-7\nFizzBuzz\n9-11\nFizzBuzz\n13\n"],
             ["5 30 20", "1-4\nFizz\n6-9\nFizz\n11-14\nFizz\n16-19\nFizz\n"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'f,b,n=map(int,input().split())\ni=1\nwhile i<=n:\n if (i%b)*(i%f)!=0:\n  s=i\n  i=min(i//b*b+b-1,i//f*f+f-1,n)\n  print(str(s)+f\'-{i}\'*(i!=s))\n else:print("Fizz"*(i%f<1)+"Buzz"*(i%b<1))\n i+=1',
+            },
+        ],
     },
     {
         title: "Initials",
@@ -9674,7 +9722,13 @@ const masterFileRead = [
             ],
             ["2\nDrew Dressington\nSiri Sirloin", "D.D.\nS.S."],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'import re\nfor i in"A"*int(input()):\n s=input()\n print(*re.findall(r"\\b[A-Z](?!r\\b|rs\\b|s\\b|ord\\b|ady\\b|ir\\b|A\\b|LB\\b|D\\b|hD\\b|nr\\b)",s),"",sep=".")',
+            },
+        ],
     },
     {
         title: "Squares of odd numbers",
@@ -9693,7 +9747,12 @@ const masterFileRead = [
             ["16\n0 -1 -1 -1 -1 0 0 0 0 0 0 0 0 1 1 1", "1"],
             ["10\n-2 -3 -4 -5 1 -6 -5 -4 -3 -2", "25 9 1"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "input()\nprint(*sorted({int(x)**2 for x in input().split()if int(x)%2})[::-1])",
+            },
+        ],
     },
     {
         title: "Iwakuni City Guide",
@@ -16457,7 +16516,10 @@ const masterFileRead = [
             ["9879777\n9999", "31436856"],
             ["126781000230\n84251512000\n", "29998930368768000"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "p (gets.to_i**0.5).ceil*gets.to_i" },
+            { lang: "Python", solution: "I=input\nI(int(int(I())**.5+.9)*int(I()))" },
+        ],
     },
     {
         title: "Cipher square",
@@ -18424,7 +18486,28 @@ const masterFileRead = [
             ["4 2 3\n20 15 10", "5:1"],
             ["12 16 20\n12 15 9", "4:3"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'import math\na=sorted(map(int,input().split()))[0]\nb=sorted(map(int,input().split()))[0]\ng=math.gcd(a,b)\nprint(*sorted([b//g,a//g])[::-1],sep=":")',
+            },
+            {
+                lang: "Python",
+                solution:
+                    'a=0\nb=0\nx=input().split()\nfor i in x:a+=int(i)\ny=input().split()\nfor i in y:b+=int(i)\nz=math.gcd(a,b)\nif b>=a:print(str(int(b/z))+":"+str(int(a/z)))\nelse:print(str(int(a/z))+":"+str(int(b/z)))',
+            },
+            {
+                lang: "Python",
+                solution:
+                    "a=sum(map(int,input().split()))\nb=sum(map(int,input().split()))\nx=y=99999\nfor i in range(1,max(a,b)+1):\n if a%i==0 and b%i==0 :x=a//i;y=b//i\nprint(str(max(x,y))+':'+str(min(x,y)))",
+            },
+            {
+                lang: "Python",
+                solution:
+                    'import math\nG=lambda:min(map(int,input().split()))\na=G()\nb=G()\ng=math.gcd(a,b)\nprint(*sorted([a//g,b//g])[::-1],sep=":")',
+            },
+        ],
     },
     {
         title: "Greatest Common Divisor of n integers",
@@ -26101,6 +26184,195 @@ const masterFileRead = [
             [
                 "46",
                 "22333555557777777111111111111111111111113131313131313131313131313171717171717171717171717171717171719191919191919191919191919191919191919232323232323232323232323232323232323232323232329292929292929292929292929292929292929292929292929292929293131313131313131313131313131313131313131313131313131313131313137373737373737373737373737373737373737373737373737373737373737373737373737414141414141414141414141414141414141414141414141414141414141414141414141414141414143434343434343434343434343434343434343434343434343434343434343434343434343434343434343",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "The gcd of the array",
+        author: "rafaelcs",
+        testCases: [
+            ["2\n2 2\n4 4", "2"],
+            ["3\n5 7\n8 9\n12 34", "1"],
+            ["1\n60 60", "60"],
+            ["1\n1 1000000000000000", "1"],
+            ["2\n18 18\n6 6", "6"],
+            ["3\n10000 1000000000000000\n10000 100000000000000\n999 1000000000000000", "1"],
+            [
+                "100\n5 5\n10 10\n15 15\n20 20\n25 25\n30 30\n35 35\n40 40\n45 45\n50 50\n55 55\n60 60\n65 65\n70 70\n75 75\n80 80\n85 85\n90 90\n95 95\n100 100\n105 105\n110 110\n115 115\n120 120\n125 125\n130 130\n135 135\n140 140\n145 145\n150 150\n155 155\n160 160\n165 165\n170 170\n175 175\n180 180\n185 185\n190 190\n195 195\n200 200\n205 205\n210 210\n215 215\n220 220\n225 225\n230 230\n235 235\n240 240\n245 245\n250 250\n255 255\n260 260\n265 265\n270 270\n275 275\n280 280\n285 285\n290 290\n295 295\n300 300\n305 305\n310 310\n315 315\n320 320\n325 325\n330 330\n335 335\n340 340\n345 345\n350 350\n355 355\n360 360\n365 365\n370 370\n375 375\n380 380\n385 385\n390 390\n395 395\n400 400\n405 405\n410 410\n415 415\n420 420\n425 425\n430 430\n435 435\n440 440\n445 445\n450 450\n455 455\n460 460\n465 465\n470 470\n475 475\n480 480\n485 485\n490 490\n495 495\n500 500\n",
+                "5",
+            ],
+            [
+                "100\n123 123000\n246 246000\n369 369000\n492 492000\n615 615000\n738 738000\n861 861000\n984 984000\n1107 1107000\n1230 1230000\n1353 1353000\n1476 1476000\n1599 1599000\n1722 1722000\n1845 1845000\n1968 1968000\n2091 2091000\n2214 2214000\n2337 2337000\n2460 2460000\n2583 2583000\n2706 2706000\n2829 2829000\n2952 2952000\n3075 3075000\n3198 3198000\n3321 3321000\n3444 3444000\n3567 3567000\n3690 3690000\n3813 3813000\n3936 3936000\n4059 4059000\n4182 4182000\n4305 4305000\n4428 4428000\n4551 4551000\n4674 4674000\n4797 4797000\n4920 4920000\n5043 5043000\n5166 5166000\n5289 5289000\n5412 5412000\n5535 5535000\n5658 5658000\n5781 5781000\n5904 5904000\n6027 6027000\n6150 6150000\n6273 6273000\n6396 6396000\n6519 6519000\n6642 6642000\n6765 6765000\n6888 6888000\n7011 7011000\n7134 7134000\n7257 7257000\n7380 7380000\n7503 7503000\n7626 7626000\n7749 7749000\n7872 7872000\n7995 7995000\n8118 8118000\n8241 8241000\n8364 8364000\n8487 8487000\n8610 8610000\n8733 8733000\n8856 8856000\n8979 8979000\n9102 9102000\n9225 9225000\n9348 9348000\n9471 9471000\n9594 9594000\n9717 9717000\n9840 9840000\n9963 9963000\n10086 10086000\n10209 10209000\n10332 10332000\n10455 10455000\n10578 10578000\n10701 10701000\n10824 10824000\n10947 10947000\n11070 11070000\n11193 11193000\n11316 11316000\n11439 11439000\n11562 11562000\n11685 11685000\n11808 11808000\n11931 11931000\n12054 12054000\n12177 12177000\n12300 12300000\n",
+                "1",
+            ],
+        ],
+        solutions: [
+            { lang: "Ruby", solution: "a=0\ngets.to_i.times{l,r=gets.split;a=a.gcd(l<r ? 1:l.to_i)}\np a" },
+            { lang: "Ruby", solution: "a=(1..gets.to_i).map{l,r=gets.split;l<r ? 1:l.to_i}\np a.inject{_1.gcd _2}" },
+            { lang: "Ruby", solution: "a=0\n[*$<][1..].map{l,r=_1.split;a=a.gcd(l<r ? 1:l.to_i)}\np a" },
+            { lang: "Ruby", solution: "a=0\ngets\n$<.map{l,r=_1.split;a=a.gcd(l<r ? 1:l.to_i)}\np a" },
+        ],
+    },
+    {
+        title: "Operations to Reach Goal Number",
+        author: "Pollard_Rho_Algorithm",
+        testCases: [
+            ["5\n0", "4"],
+            ["2\n2", "1"],
+            ["60\n1", "30"],
+            ["200000\n10", "206"],
+            ["1000000000\n20", "978"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "How long does it take?",
+        author: "iamstupid",
+        testCases: [
+            ["1\n01:45:00", "01:45:00"],
+            ["2\n01:01:01\n02:02:02", "00:40:41"],
+            ["3\n12:34:56\n79:30:12\n34:57:18", "08:17:15"],
+            ["4\n00:00:10\n00:00:09\n00:00:08\n00:00:07", "00:00:02"],
+            [
+                "9\n59:59:59\n49:49:49\n39:39:39\n29:29:29\n19:19:19\n09:09:09\n33:33:33\n22:22:22\n11:11:11\n",
+                "02:22:36",
+            ],
+            [
+                "10\n00:00:04\n00:00:04\n00:00:04\n00:00:04\n00:00:04\n00:00:04\n00:00:04\n00:00:04\n00:00:04\n00:00:04",
+                "00:00:00",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Domino Cipher (Decryption)",
+        author: "Schwase",
+        testCases: [
+            ["dHrrW eWorl\ndlroWeH", "Hello World"],
+            ["IlLuminAty\nCIoldLGiuanmAsyet", "CodinGames"],
+            ["CoOdBye Wruel cGuEl ROGLD\nGCWR", "GoOdBye Cruel cRuEl WORLD"],
+            ["vex nymph quick big\nmruywcpdbqnkhextvoi", "the quick brown dog"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Readability",
+        author: "YS_Yousef",
+        testCases: [
+            [
+                "Would you like them here or there? I would not like them here or there. I would not like them anywhere.",
+                "Grade 2",
+            ],
+            ["Congratulations! Today is your day. You're off to Great Places! You're off and away!", "Grade 3"],
+            [
+                "In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.",
+                "Grade 7",
+            ],
+            [
+                "A large class of computational problems involve the determination of properties of graphs, digraphs, integers, arrays of integers, finite families of finite sets, boolean formulas and elements of other countable domains.",
+                "Grade 16+",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Rotate characters in a string",
+        author: "Yoftahie",
+        testCases: [
+            ["19\nabcdefgh", "habcdefg"],
+            ["7919\nI am a sentence", "eI am a sentenc"],
+            ["6353\npeople", "epeopl"],
+            [
+                "5333\nA very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence",
+                "eA very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentence A very long sentenc",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Twinkle Twinkle Little Star",
+        author: "VisionaryM",
+        testCases: [
+            ["3", "*\n *\n  *"],
+            ["6", "     *\n    *\n   *\n  *\n *\n*"],
+            [
+                "16",
+                "               *\n              *\n             *\n            *\n           *\n          *\n         *\n        *\n       *\n      *\n     *\n    *\n   *\n  *\n *\n*",
+            ],
+            [
+                "25",
+                "*\n *\n  *\n   *\n    *\n     *\n      *\n       *\n        *\n         *\n          *\n           *\n            *\n             *\n              *\n               *\n                *\n                 *\n                  *\n                   *\n                    *\n                     *\n                      *\n                       *\n                        *",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "More or Less?",
+        author: "Telokis",
+        testCases: [
+            ["3\n2\n4", "3"],
+            ["3\n1\n2", "-2"],
+            ["3\n5\n1", "-9"],
+            ["4\n2\n6", "12"],
+            ["121\n214\n573", "-480"],
+            ["0\n0\n0", "0"],
+            ["1000\n1000\n1000", "3000"],
+            ["998\n999\n997", "-998"],
+            ["1\n22\n333", "-312"],
+            ["285\n1\n9", "-295"],
+            ["4\n468\n962", "1434"],
+        ],
+        solutions: [
+            { lang: "Python", solution: "a,b,c=map(int,open(0))\nprint(a*(-(a%2)|1)+b*(-(b%2)|1)+c*(-(c%2)|1))" },
+            {
+                lang: "Python",
+                solution:
+                    "a = int(input())\nb = int(input())\nc = int(input())\nt=0\nz=[a,b,c]\nfor i in range(3):\n if z[i]%2==0:\n  t+=z[i]\n else:t-=z[i]\nprint(t)",
+            },
+            {
+                lang: "Python",
+                solution:
+                    "a=int(input())\nb=int(input())\nc=int(input())\nl=[a,b,c]\ns=0\nfor i in l:\n if i%2==0:\n  s+=i\n else:\n  s-=i\nprint(s)",
+            },
+        ],
+    },
+    {
+        title: "Hospital Emergency",
+        author: "Blabbage",
+        testCases: [
+            ["0 0\n1\n3 4", "distance: 5.0"],
+            ["0 0\n3\n6 8 Emergency\n0 1\n0 0", "distance: 10.0"],
+            ["0 0\n3\n0 0\n19 16 Alarm\n4 5", "distance: 24.8"],
+            ["7 7\n4\n1 1\n2 2\n8 8\n7 7", "distance: 0.0"],
+            [
+                "65536 65536\n10\n17 17\n9 9\n107000 200000\n19750 1\n5 2000000000\n2000000000 2000000000\n2000000000 2000000000\n2000000000 1999999999\n2000000000 1\n2000000000 0",
+                "distance: 79944.9",
+            ],
+            ["10 10\n5\n1 1 1\n100 100 Priority\n11 12 Alarm\n4 8 Alarm\n17 17 Emergency\n", "distance: 2.2"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Text Align",
+        author: "Alonehoc",
+        testCases: [
+            [
+                "30\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "Lorem  ipsum  dolor  sit amet,\nconsectetur  adipiscing  elit,\nsed    do    eiusmod    tempor\nincididunt ut labore et dolore\nmagna aliqua. Ut enim ad minim\nveniam,      quis      nostrud\nexercitation  ullamco  laboris\nnisi  ut aliquip ex ea commodo\nconsequat.   Duis  aute  irure\ndolor   in   reprehenderit  in\nvoluptate  velit  esse  cillum\ndolore    eu    fugiat   nulla\npariatur.    Excepteur    sint\noccaecat     cupidatat     non\nproident,  sunt  in  culpa qui\nofficia  deserunt  mollit anim\nid est laborum.",
+            ],
+            [
+                "21\nSpreading spaces as evenly as possible with larger spaces coming first. No spaces at the end of a line.",
+                "Spreading  spaces  as\nevenly   as  possible\nwith   larger  spaces\ncoming    first.   No\nspaces  at the end of\na line.",
+            ],
+            ["17\nabc def ghi jkl mno p q r stuv wxy z", "abc  def  ghi jkl\nmno  p  q  r stuv\nwxy z"],
+            [
+                "10\nThere will always be at least two words in a row, except the last.",
+                "There will\nalways  be\nat   least\ntwo  words\nin  a row,\nexcept the\nlast.",
+            ],
+            [
+                "27\nThe quick brown fox jumps verylongword1 verylongword2 over the lazy dog the quick brown fox jumps verylongword1 verylongword2 over the lazy dog.",
+                "The  quick  brown fox jumps\nverylongword1 verylongword2\nover the lazy dog the quick\nbrown       fox       jumps\nverylongword1 verylongword2\nover the lazy dog.",
             ],
         ],
         solutions: [],
