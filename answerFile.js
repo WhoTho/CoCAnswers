@@ -9780,7 +9780,18 @@ const masterFileRead = [
                 "station whiteSnakeShrine kintaikyoBridge",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'l=[]\nfor i in"A"*int(input()):\n p,x,y=input().split()\n l+=[(0, p,int(x),int(y))]\nl.sort(key=lambda x:x[1]!="station")\nsx,sy=l[0][2:4]\no=[]\nwhile l:\n p,*l=sorted(l,key=lambda w:(sx-w[2])**2+(sy-w[3])**2)\n _,n,sx,sy=p\n o+=[n]\nprint(*o)',
+            },
+            {
+                lang: "Python",
+                solution:
+                    "l=[]\nfor i in 'A'*int(input()):p,x,y=input().split();l+=[(0,p,int(x),int(y))]\nl.sort(key=lambda x:x[1]!='station')\nsx,sy=l[0][2:4]\no=[]\nwhile l:p,*l=sorted(l,key=lambda w:(sx-w[2])**2+(sy-w[3])**2);_,n,sx,sy=p;o+=[n]\nprint(*o)",
+            },
+        ],
     },
     {
         title: "The Stenographer's Exam",
@@ -9797,7 +9808,13 @@ const masterFileRead = [
             ],
             ["I WANT THE TRUTH. YOU CAN'T HANDLE THE TRUTH\n1\ni want the truth. you can't handle the truth", "pass"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'k=input().lower()\nfor i in"A"*int(input()):\n print("fpaaisls"[sum(x==y for x,y in zip(k,input().lower()))/len(k)>=.9::2])',
+            },
+        ],
     },
     {
         title: "DRY (Don't Repeat Yourself)",
@@ -9813,7 +9830,13 @@ const masterFileRead = [
                 "lollolpwnzlollolpwnzlollolcrap*(5+10/30)",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "t=input()\nl=len(t)\nfor x in range(l):\n w=t[:x+1]\n k=len(w)\n d=l//k\n s=l%k\n if w*d+w[:s]==t:input(w+(f'*({d}+{s}/{k})',f'*{d}')[s<1])",
+            },
+        ],
     },
     {
         title: "Shopping Time",
@@ -9830,7 +9853,13 @@ const masterFileRead = [
                 "true\n125",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'm=int(input())\nl=input().split(",")\nd=dict(input().split(",")for i in"A"*int(input()))\na=sum(int(d[x])for x in l)-m\nprint(str(a<1).lower())\nprint(abs(a))',
+            },
+        ],
     },
     {
         title: "Change Channels",
@@ -9850,7 +9879,12 @@ const masterFileRead = [
                 "5\n10\n31\n44\n30\n3\n39\n6\n6\n14\n36\n15\n42\n42\n11\n11\n1\n27\n2\n12\n5\n45\n41\n38\n27\n39\n16\n4\n23\n40\n34\n9\n7\n46\n40\n5\n1\n25\n24\n2\n16\n17\n37\n45\n49\n24\n48\n39\n16\n31\n12\n18\n13\n18\n2\n34\n9\n21\n35\n2\n46\n34\n19\n37\n47\n14\n28\n15\n41\n50\n21\n47\n3\n8\n45\n15\n42\n7\n15\n25\n47\n19\n35\n39\n29\n32\n38\n28\n28\n17\n32\n19\n14\n29\n21\n2\n26\n13\n10\n9",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 'for i in"A"*int(input()):\n a,b=sorted(map(int,input().split()))\n print(min(b-a,100+a-b))',
+            },
+        ],
     },
     {
         title: "Highly Composite Number",
@@ -9864,7 +9898,13 @@ const masterFileRead = [
             ["900", "840 32"],
             ["3960", "2520 48"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "n=int(input())\nt=[sum(x%i==0 for i in range(1,x))for x in range(1,n+1)]\nm=max(t)\nprint(t.index(m)+1,m+1)",
+            },
+        ],
     },
     {
         title: "Splat",
@@ -9875,7 +9915,7 @@ const masterFileRead = [
             ["20\n100", "5\n100"],
             ["19\n371", "9\n171"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "I=input\nv=int(I())\nt=round((int(I())/4.9)**.5)\nprint(t)\nI(v*t)" }],
     },
     {
         title: "Word Pyramid",
@@ -9912,7 +9952,10 @@ const masterFileRead = [
             ["123\n15", "7"],
             ["9223372036854775807\n515648", "1"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "p gets.to_i**gets.to_i%10" },
+            { lang: "Python", solution: "print((int(input())%10)**int(input())%10)" },
+        ],
     },
     {
         title: "Sum Of Cubes",
@@ -9923,7 +9966,13 @@ const masterFileRead = [
             ["1729", "4"],
             ["8890", "15"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "def s(k,a):\n a+=k**3\n if a>=n:return a==n\n return sum(s(i,a)for i in range(k+1,100))\nn=int(input())\nprint(s(0,0))",
+            },
+        ],
     },
     {
         title: "censor this. easy",
@@ -9943,7 +9992,13 @@ const masterFileRead = [
                 "Living valley had silent eat merits esteem bed. In l**t an or went wise as left.\nVisited civilly am demesne so colonel he calling. So unreserved do interested increasing sentiments.\nVanity day giving points within six n*t law. Few impression difficulty his use h*s comparison decisively.",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'input()\nl=input().lower().split()\nfor i in"A"*int(input()):\n print(*[(w,w[0]+"*"*(len(w)-2)+w[-1])[w.lower()in l]for w in input().split()])',
+            },
+        ],
     },
     {
         title: "A beef",
@@ -9958,7 +10013,7 @@ const masterFileRead = [
             ["Be.", "25"],
             ["Bac!", "33"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "t=0\nfor x in input():\n try:t+=int(x,16)\n except:pass\nprint(t)" }],
     },
     {
         title: "Pendulum sort",
@@ -9996,7 +10051,13 @@ const masterFileRead = [
             ["alpha pha habe betic", "alphabetic"],
             ["CL laS ash O oF f CO od dE e", "Clash of Code"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "s=input().split()\nfor w in range(len(s)-1,0,-1):\n for x in range(min(len(s[w]),len(s[w-1])),0,-1):\n  if s[w-1][-x:].lower()==s[w][:x].lower():\n   s[w-1]=s[w-1][:-x]+s[w]\n   del s[w]\n   break\nprint(*s)",
+            },
+        ],
     },
     {
         title: "Reverse guess",
@@ -10011,7 +10072,12 @@ const masterFileRead = [
             ["50", "75"],
             ["100", "150"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "n=gets.to_i\nm=1-n%2*2\ng=n/2\np m*g*g-m*(g-m)**2+g+~n%2" },
+            { lang: "Ruby", solution: "n=gets.to_i\na=1-n%2*2\np (0..n-1).sum{a=-a;a*_1}+n" },
+            { lang: "Python", solution: "n=int(input())\ng=n//2\nprint((g*g+g-(g-1)**2+1,(g+1)**2-g*g+g)[n%2])" },
+            { lang: "Python", solution: "n=int(input())\nm=1-n%2*2\ng=n//2\nprint(m*g*g-m*(g-m)**2+g+~n%2)" },
+        ],
     },
     {
         title: "Three of a Kind Marbles",
@@ -10037,7 +10103,23 @@ const masterFileRead = [
             ["20 17\n1\n23 42", "flee"],
             ["54389 20\n1\n63987 18", "flee"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'h,d=map(int,input().split())\nn=int(input())\nl=[[*map(int,input().split())]for i in"A"*n]\nwhile l:\n l[0][0]-=d\n if l[0][0]<=0:_,*l=l\n for o in l:h-=o[1]\nprint(("flee","fight")[h>0])',
+            },
+            {
+                lang: "Python",
+                solution:
+                    'h,d=map(int,input().split())\nt=0\nfor o in [input().split()for i in"A"*int(input())]:\n t+=-int(o[0])//d*-1\n h-=int(o[1])*t\nprint(("flee","fight")[h>0])',
+            },
+            {
+                lang: "Python",
+                solution:
+                    'i,_,*g=[[*map(int,x.split())]for x in open(0)]\nh,d=i\nt=0\nfor o in g:\n t+=-int(o[0])//d*-1\n h-=int(o[1])*t\nprint(("flee","fight")[h>0])',
+            },
+        ],
     },
     {
         title: "Sequence Tracker",
@@ -10049,7 +10131,7 @@ const masterFileRead = [
             ["99861 799", "98262"],
             ["804180 71203", "661773"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "l,n=map(int,input().split())\nn*=2\nprint((l-n-1,n-l)[n>l])" }],
     },
     {
         title: "Cipher",
@@ -10061,7 +10143,13 @@ const masterFileRead = [
             ["9\n8\n39 18 42 22 28 5 19 25 28\nYOUTUBER", "PEWDIEPIE"],
             ["9 \n4\n45 26 15 34 27 29 12 26 27\nXMEN", "WOLVERINE"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'a="ABCDEFGHIJKLMNOPQRSTUVWXYZ"*9\ninput()\ninput()\nm=map(int,input().split())\n*k,=input()[::-1]*99\nfor c in m:\n print(end=a[c-a.find(k.pop())])',
+            },
+        ],
     },
     {
         title: "Primorial / Primorial",
@@ -10072,7 +10160,13 @@ const masterFileRead = [
             ["123\n101", "135745657"],
             ["988\n946", "813835565706097817"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "x=int(input())\ny=int(input())\nt=1\nfor n in range(y+1,x+1):\n if all(n%i for i in range(2,n)):t*=n\nprint(t)",
+            },
+        ],
     },
     {
         title: "Average vs Median",
@@ -10083,7 +10177,12 @@ const masterFileRead = [
             ["322 548 -50 529 1009 -78 -3", "322"],
             ["-120 -20 899 114 975 -42 728 572 449 600 941 738 654", "600"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "*l,=map(int,input().split())\nt=len(l)\nprint((-sum(l)//t*-1,sorted(l)[t//2])[t%2])",
+            },
+        ],
     },
     {
         title: "Pattern Time",
@@ -10101,7 +10200,15 @@ const masterFileRead = [
             ],
             ["1212112121121211212112121", "12121"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 'import re\ns=input()\nx=1\nwhile 1:\n p=s[:x]\n if re.match(f"^({p})+$",s):input(p)\n x+=1',
+            },
+            { lang: "Python", solution: "s=input()\nx=1\nwhile 1:\n p=s[:x]\n if s in p*99:input(p)\n x+=1" },
+            { lang: "Python", solution: "s=input()\nx=1\nfor x in range(1,len(s)):\n p=s[:x]\n if s in p*99:input(p)" },
+            { lang: "Ruby", solution: "s=gets.chomp\n(0..99).map{a=s[.._1];a*99=~/#{s}/&&($><<a;e)}" },
+        ],
     },
     {
         title: "Smallest Number",
@@ -10116,7 +10223,13 @@ const masterFileRead = [
             ["4", "4"],
             ["18", "29"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nd=[]\nfor i in range(9,1,-1):\n while n%i<1:\n  d+=[i]\n  n//=i\nprint(*d[::-1]*(n==1)or"Impossible",sep="")',
+            },
+        ],
     },
     {
         title: "Add & Multiply",
@@ -10128,7 +10241,10 @@ const masterFileRead = [
             ["136475", "26"],
             ["392854761 2839416 4732 84920", "546480"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "p gets.split.map{_1.chars.sum &:to_i}.reduce:*" },
+            { lang: "Python", solution: "o=1\nfor i in input().split():o*=sum(map(int,i))\nprint(o)" },
+        ],
     },
     {
         title: "Will it make it?",
@@ -10140,7 +10256,10 @@ const masterFileRead = [
             ["3027.0\n6053.0", "true"],
             ["50.0\n100.0", "false"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "puts gets.to_f*2>gets.to_f" },
+            { lang: "Python", solution: "print(str(float(input())*2>float(input())).lower())" },
+        ],
     },
     {
         title: "Bus terminus",
@@ -10157,7 +10276,18 @@ const masterFileRead = [
                 "19",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "n=int(input())\nG=lambda:[*map(int,input().split())]\ns=G()\np=G()\nt=x=0\nfor i in range(n):\n for j in range(s[i]):\n  t+=p[x]>=n-i\n  x+=1\nprint(t)",
+            },
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nG=lambda:[*map(int,input().split())]\ns=G()\np=G()[::-1]\nt=x=0\nfor i in range(n):\n t+=sum(p.pop()>=n-i for j in"A"*s[i])\nprint(t)',
+            },
+        ],
     },
     {
         title: "Floyd's triangle",
@@ -10171,7 +10301,13 @@ const masterFileRead = [
             ],
             ["2", "1\n2 3"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "t=1\nn=int(input())\nfor y in range(n):\n o=[]\n for x in range(y+1):\n  o+=[t]\n  t+=1\n print(*o)",
+            },
+        ],
     },
     {
         title: "Division of Goods",
@@ -10190,7 +10326,13 @@ const masterFileRead = [
                 "999 999 1 2 999 3 2 3 2 1 999 8 2 9 7777777 | 1 7777777 2 | 7777777 999 2 4 2 3 1",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\n*s,=map(int,input().split())\nL=X=Y=9**9\nfor y in range(n):\n for x in range(n-y):\n  a=sum(s[:y])\n  b=sum(s[y:x+y])\n  c=sum(s[x+y:])\n  l=max(a,b,c)-min(a,b,c)\n  if l<L:L,X,Y=l,x,y\ng=["|"]\nprint(*(s[:Y]+g+s[Y:X+Y]+g+s[X+Y:]))',
+            },
+        ],
     },
     {
         title: "Restricted Digit Sum",
@@ -10203,7 +10345,13 @@ const masterFileRead = [
             ["20 90", "99999999711111111111"],
             ["80 719", "99999999999999999999999999999999999999999999999999999999999999999999999999999998"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'd,s=map(int,input().split())\nn=[1]*d\ni=0\nfor x in range(s-d):\n if n[i]>8:i+=1\n n[i]+=1\nprint(*n,sep="")',
+            },
+        ],
     },
     {
         title: "Pizza Time",
@@ -26374,6 +26522,64 @@ const masterFileRead = [
                 "27\nThe quick brown fox jumps verylongword1 verylongword2 over the lazy dog the quick brown fox jumps verylongword1 verylongword2 over the lazy dog.",
                 "The  quick  brown fox jumps\nverylongword1 verylongword2\nover the lazy dog the quick\nbrown       fox       jumps\nverylongword1 verylongword2\nover the lazy dog.",
             ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Square of (Sum of numbers)",
+        author: "GANZX",
+        testCases: [
+            ["5\n1\n2\n3\n4\n5", "225"],
+            ["3\n1\n3\n5\n", "81"],
+            ["5\n2\n4\n6\n8\n10", "900"],
+            ["7\n1\n7\n14\n21\n28\n35\n42", "21904"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Have Fun !",
+        author: "scouipouprono",
+        testCases: [
+            ["8", "48"],
+            ["800", "638400"],
+            ["100", "9800"],
+            ["7", "35"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Draw the Perfect Square Number",
+        author: "VisionaryM",
+        testCases: [
+            ["5\n12\n8\n21\n25\n16", "4"],
+            ["2\n11\n5", "0"],
+            ["6\n2\n32\n5\n15\n3\n64", "8"],
+            ["5\n4\n63\n23\n21\n2", "2"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Driving Game",
+        author: "i_am_noob_abc",
+        testCases: [
+            ["6\n|## |\n|# #|\n|## |\n|# #|\n| ##|\n| ^ |", "L\nR\nR\nL\nR"],
+            ["10\n|## |\n|## |\n|# #|\n| ##|\n|# #|\n| ##|\n| ##|\n|# #|\n|## |\n|  ^|", "S\nL\nL\nS\nR\nL\nR\nR\nS"],
+            ["10\n|# #|\n|# #|\n| ##|\n|# #|\n|## |\n| ##|\n| ##|\n| ##|\n|# #|\n|^  |", "R\nL\nS\nS\nBOOM"],
+            [
+                "15\n|# #|\n|## |\n|# #|\n|# #|\n|## |\n|# #|\n|# #|\n|## |\n|# #|\n| ##|\n|# #|\n|# #|\n|# #|\n|## |\n| ^ |",
+                "R\nL\nS\nS\nL\nR\nR\nL\nS\nR\nL\nS\nR\nL",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "ALPHABETA",
+        author: "sphrM",
+        testCases: [
+            ["ABcdE", "bcDEf"],
+            ["dooR", "EPPs"],
+            ["Hi", "iJ"],
+            ["hoLz", "IPmA"],
         ],
         solutions: [],
     },
