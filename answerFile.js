@@ -2288,6 +2288,8 @@ const masterFileRead = [
                 lang: "Python",
                 solution: "n=int(input())+1\nwhile True:\n if all(n%i for i in range(2,n))&(n>1):input(n)\n n+=1",
             },
+            { lang: "Ruby", solution: 'require"prime"\nx=gets.to_i\nx.prime?&&(p x;e)while x+=1' },
+            { lang: "Ruby", solution: "require'prime'\np (gets.to_i+1..).find &:prime?" },
         ],
     },
     {
@@ -10364,7 +10366,18 @@ const masterFileRead = [
             ["3 2\n20000\n1\n20000", "1 40000"],
             ["11 6\n777\n777\n99999\n777\n777\n99907\n99908\n1\n1\n99908\n99907", "777 399632"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n,k=map(int,input().split())\na=[int(input())for A in"A"*n]\nl=m=0\nfor i in"A"*n:\n t=sum(a[:k])\n y=min(a[k:])\n if t-y>m-l:l,m=y,t\n a=a[1:]+a[:1]\nprint(l,m)',
+            },
+            {
+                lang: "Python",
+                solution:
+                    'n,k=map(int,input().split())\na=[int(input())for A in"A"*n]*9\nl=m=0\nfor i in range(n):\n t=sum(a[i:k+i])\n y=min(a[k+i:n+i])\n if t-y>m-l:l,m=y,t\nprint(l,m)',
+            },
+        ],
     },
     {
         title: "Tower of Ascension",
@@ -10380,7 +10393,13 @@ const masterFileRead = [
             ["100\n101 102", "0"],
             ["999\n2 4", "0"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "n=int(input()) \np,q=map(int,input().split())\nx=n//p\nwhile -~x*((n-x*p)%q):x-=1\nprint((x+(n-x*p)//q,0)[x<0])",
+            },
+        ],
     },
     {
         title: "Spiralia",
@@ -18447,7 +18466,19 @@ const masterFileRead = [
             ["Jesus?", "1"],
             ["Comment by Andriamanitra: Needs more test cases for reverse mode", "12"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Ruby",
+                solution: 's=gets.chomp.gsub(/[^a-zA-Z]/,"")\np (s.size-s.scan(/[aeiouAEIOU]/).size*2).abs',
+            },
+            { lang: "Ruby", solution: "s=gets\np (s.scan(/[a-zA-Z]/).size-s.count('aeiouAEIOU')*2).abs" },
+            { lang: "Ruby", solution: "s=gets.upcase\np (s.scan(/[A-Z]/).size-s.count('AEIOU')*2).abs" },
+            {
+                lang: "Python",
+                solution:
+                    "s=input()\nv=[i for i in s if i.lower() in 'aeiou']\nc=[i for i in s if i not in v and i.isalpha()]\nprint(abs(len(c)-len(v)))",
+            },
+        ],
     },
     {
         title: "Auto Rotation",
@@ -26499,7 +26530,13 @@ const masterFileRead = [
             ],
             ["10 10\n5\n1 1 1\n100 100 Priority\n11 12 Alarm\n4 8 Alarm\n17 17 Emergency\n", "distance: 2.2"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "x,y=map(int,input().split())\nn=int(input())\ne=[]\nfor i in\"A\"*n:\n a=input().split()\n e+=[[len(a)<3,((x-int(a[0]))**2+(y-int(a[1]))**2)**0.5]]\nprint('distance:',round(min(e)[1],1))",
+            },
+        ],
     },
     {
         title: "Text Align",
