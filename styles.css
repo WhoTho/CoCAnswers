@@ -27,6 +27,11 @@
     height: 200px;
 }
 
-#submitButton, #clearButton {
+#submitButton,
+#clearButton {
     padding: 10px;
+}
+
+.textLabelText {
+    white-space: pre-wrap;
 }
