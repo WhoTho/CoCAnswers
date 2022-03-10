@@ -28112,4 +28112,181 @@ const masterFileRead = [
         ],
         solutions: [],
     },
+    {
+        title: "Broken encryption device",
+        author: "Chris27",
+        testCases: [
+            ["521534\nHello, world!", "EHLOL OWLDR"],
+            ["44231\nWhat a ##  wonderful day!", "THAW NWOA FERD ALDU AWHY"],
+            [
+                "9324165978\nThe meeting will start at 15:30, 20 minutes away from the airport. Discretion is ensured.",
+                "MHTEEEINT LWGISLART 1ATT35200 UIMNETAWS RYAFMOHET PIARRODIT ECSRITNIO SESNRUDTE",
+            ],
+            ["9324165978\nOops", "SOOPOOSOP"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Horizontal Pyramid",
+        author: "CenterScreen",
+        testCases: [
+            ["3", "1\n21\n321\n21\n1"],
+            ["6", "1\n21\n321\n4321\n54321\n654321\n54321\n4321\n321\n21\n1"],
+            ["1", "1"],
+            [
+                "9",
+                "1\n21\n321\n4321\n54321\n654321\n7654321\n87654321\n987654321\n87654321\n7654321\n654321\n54321\n4321\n321\n21\n1",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Algebra",
+        author: "PaarthThePro",
+        testCases: [
+            ["a + 1\n1\na = 1", "2"],
+            ["a + b - 1\n2\na = 1\nb = 2", "2"],
+            ["a + b - c + d + e\n5\na = 1\nb = 2\nc = 3\nd = 4\ne = 5", "9"],
+            ["2a + 1\n1\na = 1", "3"],
+            ["3a - 7 + 2 - 6d + 3c\n4\na = 1\nb = 2\nc = 3\nd = 4", "-17"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "King's generosity",
+        author: "VilBoub_junior",
+        testCases: [
+            ["3\n15", "True"],
+            ["120\n12000", "13"],
+            ["12\n4094", "11"],
+            ["0\n0", "True"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Let's Burn a Disc!",
+        author: "One-Six",
+        testCases: [
+            ["#\n_\n1", "###_####_"],
+            [
+                "%\n+\nNever gonna give you up",
+                "%%+++%+%%%+%%%++%%+%++%+++%+++%%++%+%%%++++%%%%%%%+%%%+%++%++%+%++%++%+%%%+%%+%+++%+++++%%%+++++++%+++%+%%+%%+++%%+%++%+++%+++%%+++%%%%%%%+%+%%%++%++%+%++%+%%++%%%+++++++%+%%++%%+%+++++",
+            ],
+            [
+                "P\nl\na={1,1}for i=3,io.read('n')do a[i]=a[i-1]+a[i-2]end print(table.concat(a,','))",
+                "PPlPPPPPlllPlPllPPlPlPPlPPPlPPPPlllPPlPPPPPlPPPPllPlPlPPllPlllPlllPllPlPllPlPPPllllPPPPPPPlPPlllPPPlPlPPlllPlllPlllPPlPPPPlPPlllPPlPPlPlPPPllPlPPPlPlllPPPlPPPllPPlPPPPPllPlllPPPPPllPPPPPPlllPlPPlPPlPllllPPPlPlllPPlllPPlPPPllllPllPlPlllPPPPPPPlPPPPPllPPlPPlPPlPPlllPPllPlPPlllPlPllPPlPPPPPllPPlPPlPPlPPlllPPPllPllPPPlPPPPllPPlPllPPPllPPlPPlPPPPPllPPlPPlPPlPPlllPPPllPllPPPlPPPlllPPlPllPPlPPPllPPlPPlPlllPlllPPPPPlllllllPlPPPPPPlPlllPPPlPPlllPPlPPlPlllPlPPlllllPPlllllPlPPllllPlllllPPlPPPPlllPllPllllPlllPPlllPPlPlllPllllPllPllPlPllPllPlPPPlPPPPlPPlPPPPPllPlPPlllllPPlllllPlllllPPPllPlllllPPPlPlllPPlPPPPPlllPlPPPllPPPlllPPlllP",
+            ],
+            [
+                "~\n`\nU'pt#/f>uUb_3m;pjtBYEsSW{7g!jT7:?x^T_9@%eT`b&3LTl31&^pv0C!Abm(sh?E.$_BMr6_jt_8r:X)DV,s:xsxqYznJC2Ncj",
+                "~~``~~``~~~```~`~~`~``````~`~~`````~~~~`~~~``~`~``~```~````~`~`~~~`~``~~``~~``~~``~````~~~``~`~`~~~`~~~`~~`~~`~~```~`~~`~~`~``````~``~~```~`~~````~~~~~```~~`~~~``~~~~``~~`~```~``~~```~``~~``~`~~`~`~~`~~~`~~`~``~```~`~~~`````~~`~~``~~~``~~`````~``~`~~~`~``~~~~`~`~`~~`~`~~~~~``~`~```~~``~~~~``~`~`~~~`~```~~`````````~~~``~~`~~~``~~``~~````~```````~````~~~~```~````~```~``~~~`~~~~``~~````~``~`````~```~```~````~~~```~```~~`~`~~~`~``````~`~~`~~~~`~~~~~~`````~```~~~~~``~~~~~~``~````~~~`~~`~~```~~`````~`~~~`~~`~~``````~`~`~``~~~~``~~~``~`~~~~```~~~~``~`~`~~`````~~~```~``~~`~```~~~~`~~`~~~``~`~`~~`~~``~~~`~``~~~~``~`~`~~~`~`````~`~~~````~`~~```~~`~~~~~~``~~~``~~~~````~~``~````~~`~~~~`~```~```~`~~```~`~`````~`~~~`~~`~`~~~~~`~````~~``~```~~`~`~~```~``~`~~~```~~```~~~~~`~~~`~~~```~~~`~```~````~``~``~~``",
+            ],
+            ["$\n0\n\n", "$"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Tree size",
+        author: "wizwag86",
+        testCases: [
+            ["10\n10\n", "1"],
+            ["100\n45", "99"],
+            ["25\n25", "11"],
+            ["40\n12", "8"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "BRUTE FORCE",
+        author: "TrialCoder",
+        testCases: [
+            ["a", "1"],
+            ["Hello*World", "67"],
+            ["%*A", "67"],
+            ["**A5%*%**-", "1350125107"],
+            ["AbC23#+-%$", "1"],
+            ["**aa*aa*a*aa*5a*aa*a", "406067677556641"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "The Formulas",
+        author: "YS_Yousef",
+        testCases: [
+            ["A\n1 2 3 4 5", "3"],
+            ["A\n1 2 3 4 5 6 7 8 9 10", "5"],
+            ["Q\n1 2 3 4 5 6", "3"],
+            ["Q\n90 94 53 68 79 84 87 72 70 69 65 89 85", "78"],
+            ["G\n2 4 1", "2"],
+            ["G\n4 9 8 5", "6"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Phone number",
+        author: "Mizasse",
+        testCases: [
+            ["Hello, my phone number is 0123456789, my address is rue Voltaire 145. ", "0123456789"],
+            [
+                "the number 1234567890 is not valid anymore. Contact the number 0147258369 if you have any question",
+                "0147258369",
+            ],
+            [
+                "the number 012345678 is not valid anymore. Contact the number 0999999888 if you have any question",
+                "0999999888",
+            ],
+            [
+                "Our customer care representatives are available to assist you 24 hours a day, 7 days a week on : 0000000000, 9999999999 and 0777778899",
+                "0777778899",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "lot of sums",
+        author: "clxm",
+        testCases: [
+            ["5", "-3"],
+            ["6", "-3"],
+            ["21", "-26"],
+            ["237", "-4562"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "summary language",
+        author: "Jean_75020",
+        testCases: [
+            ['"maman j\'ai grand faim!"', "4 7 10 a m"],
+            ['"je suis un codeur hors pair"', "6 10 12 u s"],
+            ['"De tout Temps, NOUS avons voulu faire la chasse aux mauvaises ondes soNORES"', "13 29 33 e s"],
+            ['"    ..... "', "NONE"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Wavy Words",
+        author: "Hydrothermal",
+        testCases: [
+            ["wavyword\n1", "   y   d\nw v w r \n a   o  "],
+            ["Hello world!\n2", "      w     \n       o    \nH   o   r   \n e l     l !\n  l       d "],
+            ["not wavy\n0", "not wavy"],
+            [
+                "This one is a pretty long string!\n3",
+                "         i           l           \n          s           o         !\n       e           y   n       g \nT     n     a     t     g     n  \n h   o           t           i   \n  i           p e         s r    \n   s           r           t     ",
+            ],
+            ["A\n1", " \nA\n "],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Hazards in the water",
+        author: "C_breeze",
+        testCases: [
+            ["^\n^", "South"],
+            ["^\nv", "West"],
+            ["^^\n^v", "South-West"],
+            ["^^\nv^", "South-West"],
+        ],
+        solutions: [],
+    },
 ];
