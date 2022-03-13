@@ -126,7 +126,6 @@ function printResults(matchArray) {
 
 async function submitSearch() {
     await clearSearchResults();
-    await clearSearchQuery();
 
     var searchAuthor = document.getElementById("authorInput").value;
 
@@ -136,6 +135,7 @@ async function submitSearch() {
     var currentMatches = searchByInfo(searchAuthor, searchTestCaseInput, searchTestCaseOutput);
 
     printResults(currentMatches);
+    await clearSearchQuery();
 }
 
 function solutionInfoCount() {
