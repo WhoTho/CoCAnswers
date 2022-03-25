@@ -12159,7 +12159,18 @@ const masterFileRead = [
             ["112", "112 6 36 45 41 17 50 25 29 85 89 145 42 20 4 16 37 58"],
             ["1", "1"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Ruby",
+                solution: "s,*o={}\nn=gets.to_i\n(o<<n;s[n]=0;n=n.digits.sum{_1**2})while !s[n]\n$><<o*' '",
+            },
+            { lang: "Ruby", solution: "n=gets.to_i\no=[]\n(o<<n;n=n.digits.sum{_1**2})while !o.any?n\n$><<o*' '" },
+            {
+                lang: "Python",
+                solution:
+                    "n=int(input())\nl=[]\nwhile n not in l:\n l+=[n]\n n=sum(int(d)**2 for d in str(n))\nprint(*l)",
+            },
+        ],
     },
     {
         title: "Equation solver",
@@ -15293,7 +15304,13 @@ const masterFileRead = [
                 "NO",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'input()\nl=input()\nfor i in"A"*int(input()):\n for x in input().split():\n  if x not in l:\n   print("NO");e\n  l=l.replace(x,"",1)\nprint("YES")',
+            },
+        ],
     },
     {
         title: "simplifying a fraction",
@@ -15305,7 +15322,9 @@ const masterFileRead = [
             ["3\n5", "3/5"],
             ["14750533\n22725185", "2107219/3246455"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: "import math\nn,d=map(int,open(0))\ng=math.gcd(n,d)\nprint(f'{n//g}/{d//g}')" },
+        ],
     },
     {
         title: "5um 0f numb3r5 = 13",
@@ -15319,7 +15338,10 @@ const masterFileRead = [
                 "184152",
             ],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: 'import re\nprint(sum(map(int,re.findall(r"\\d+",input()))))' },
+            { lang: "Ruby", solution: "p gets.scan(/\\d+/).sum &:to_i" },
+        ],
     },
     {
         title: "Tomato Soup",
@@ -15334,7 +15356,18 @@ const masterFileRead = [
             ],
             ["20 20 5\n55555555555555555555", "YOU_CAN_MAKE_A_SOUP_IN_5_DAYS"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "c,t,d=map(int,input().split())\nprint(f'YOU_CAN{\"NOT\"*(sum(int(x)<=d for x in input())<t)}_MAKE_A_SOUP_IN_{d}_DAYS')",
+            },
+            {
+                lang: "Ruby",
+                solution:
+                    "c,t,d=gets.split.map &:to_i\n$><<\"YOU_CAN#{gets.count(\"0-#{d}\")<t ?'NOT':''}_MAKE_A_SOUP_IN_#{d}_DAYS\"",
+            },
+        ],
     },
     {
         title: "Vampiric Decomposition",
@@ -15346,7 +15379,13 @@ const masterFileRead = [
             ["45863172", "6354 7218"],
             ["54861372", "6753 8124"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "n=int(input())\nfor a in range(1,n):\n if n%a==0:\n  a,b=str(a),str(n//a)\n  if len(a)==len(b) and {*a}|{*b}=={*str(n)}:\n   print(a,b);e",
+            },
+        ],
     },
     {
         title: "A broken tape measure",
@@ -15375,7 +15414,12 @@ const masterFileRead = [
                 "9833",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "n,*l=map(int,open(0))\nprint(max(l,key=lambda x:[all(x%i for i in range(2,x)),x]))",
+            },
+        ],
     },
     {
         title: "Map reading",
@@ -15395,7 +15439,13 @@ const masterFileRead = [
                 "2 0\n7 1\n14 1\n3 3\n10 4\n6 5\n1 7\n7 8\n12 8\n3 10\n9 11\n5 13\n13 13\n0 14",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\ne=["x"*20]\nb=e+["x"+input()+"x"for i in"A"*n]+e\nfor y in range(n):\n for x in range(n):\n  if all(o=="x"for o in[b[y][x+1],*b[y+1][x:x+3],b[y+2][x+1]]):print(x,y)',
+            },
+        ],
     },
     {
         title: "Additive Sequences",
@@ -15409,7 +15459,7 @@ const masterFileRead = [
                 "6\n11\n17\n28\n45\n73\n118\n191\n309\n500\n809\n1309\n2118\n3427\n5545\n8972\n14517\n23489\n38006\n61495\n99501\n160996\n260497\n421493\n681990\n1103483\n1785473\n2888956\n4674429\n7563385\n12237814\n19801199\n32039013\n51840212\n83879225\n135719437\n219598662\n355318099\n574916761\n930234860\n1505151621\n2435386481\n3940538102\n6375924583\n10316462685\n16692387268\n27008849953\n43701237221",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 't,a,b=map(int,open(0))\nfor x in"A"*t:\n print(a)\n b+=a\n a=b-a' }],
     },
     {
         title: "Vim and Vigor",
@@ -15445,7 +15495,10 @@ const masterFileRead = [
             ["12", "9"],
             ["2020", "16"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "p gets.chars.sum(&:to_i)**2" },
+            { lang: "Python", solution: "print(sum(int(x)for x in input())**2)" },
+        ],
     },
     {
         title: "Art of Hills",
@@ -15495,7 +15548,13 @@ const masterFileRead = [
             ["4\n1 2 5 7", "4"],
             ["5\n1 2 4 8 64", "16"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "t=lambda x:t([[x[0][0]+x[1][0]],x[1][1:]])if x[1] and x[1][0]<=x[0][0] else x[0][0]\ninput()\nprint(t([[1],sorted(map(int,input().split()))]))",
+            },
+        ],
     },
     {
         title: "Display the squad !",
@@ -15506,7 +15565,7 @@ const masterFileRead = [
             ["5", "(-(-_(-_-)_-)-)"],
             ["13", "(-(-(-(-_(-_(-_(-_-)_-)_-)_-)-)-)-)"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'n=~-int(input())//4\nprint("(-"*n+"(-_"*n+"(-_-)"+"_-)"*n+"-)"*n)' }],
     },
     {
         title: "B, I, N, G, O",
@@ -15527,7 +15586,7 @@ const masterFileRead = [
                 "6qb4rb4rrqb636q2rq5\n6qb4rb4rrqb636q2rq*\n6qb4rb4rrqb636q2r**\n6qb4rb4rrqb636q2***\n6qb4rb4rrqb636q****\n6qb4rb4rrqb636*****\n6qb4rb4rrqb63******\n6qb4rb4rrqb6*******\n6qb4rb4rrqb********\n6qb4rb4rrq*********\n6qb4rb4rr**********\n6qb4rb4r***********\n6qb4rb4************\n6qb4rb*************\n6qb4r**************\n6qb4***************\n6qb****************\n6q*****************\n6******************\n*******************",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'w=input()\nfor x in range(len(w)+1):\n print(w[:len(w)-x]+"*"*x)' }],
     },
     {
         title: "Barycenter1",
@@ -15588,7 +15647,13 @@ const masterFileRead = [
             ["1 2 3 4 5 6 7 8 9 11\n", "19"],
             ["1 2 3 4 5 6 7 8 9 47", "0"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "g,*t=map(int,input().split())\ndef s(o,l):\n if[]==l:return o==0\n v,*l=l\n return s(o+v,l)+s(o-v,l)\nprint(s(g,t))",
+            },
+        ],
     },
     {
         title: "Gold Mining",
@@ -15612,7 +15677,13 @@ const masterFileRead = [
                 "105367",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'm,n,k=map(int,input().split())\nb=[[*map(int,input().split())]for i in"A"*m]\nprint(max(sum(sum(l[x:x+k])for l in b[y:y+k])for x in range(0,n,k)for y in range(0,m,k)))',
+            },
+        ],
     },
     {
         title: "Basic checksum",
@@ -15623,7 +15694,12 @@ const masterFileRead = [
             ["Checksum is very usefull to check if a data is corrupt\n85", "Valid"],
             ["9cf8a0c5ae117456634dbdf78806752b28541af160cc1021f3f0fba57f0f4abb\n96", "Valid"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 'print(("Valid","Corrupt")[-~(sum(map(ord,input()))&255^255)%255!=int(input())])',
+            },
+        ],
     },
     {
         title: "Maths Exam",
@@ -15634,7 +15710,10 @@ const masterFileRead = [
             ["69", "477"],
             ["41", "169"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Python", solution: "print((int(input())**2+9)//10)" },
+            { lang: "Python", solution: "print(-int(input())**2//10*-1)" },
+        ],
     },
     {
         title: "Reverse Mode",
@@ -15647,7 +15726,7 @@ const masterFileRead = [
             ["-5325", "-21300"],
             ["-24", "-48"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "x=int(input())\nprint(x*(len(str(x))-(x<0)))" }],
     },
     {
         title: "Polar Coordinate",
@@ -15679,7 +15758,7 @@ const masterFileRead = [
                 "False",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "n,*l=map(int,open(0))\nl=str(sum(l))\nprint(len(l)==len({*l}))" }],
     },
     {
         title: "Large Number Division",
@@ -15704,7 +15783,13 @@ const masterFileRead = [
                 "Perfect",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nd=int(input())\nprint(("Imp","P")[eval("*".join(input()for i in"A"*n))%d<1]+"erfect")',
+            },
+        ],
     },
     {
         title: "How old am I?",
@@ -15718,7 +15803,13 @@ const masterFileRead = [
             ["09.05.1920\n08.05.1960", "39"],
             ["18.04.2012\n18.01.2012", "Invalid Date"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Ruby",
+                solution:
+                    'd,m,y,a,b,c=`dd`.split(/\\D/).map &:to_i\nt=c-y-(b*99+a>=m*99+d ?0:1)\nputs t>=0?t:"Invalid Date"',
+            },
+        ],
     },
     {
         title: "Amicable numbers",
@@ -15729,7 +15820,13 @@ const masterFileRead = [
             ["63020 76084", "Amicable"],
             ["25 25", "Not amicable"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    '*a,=map(int,input().split())\nprint(("Not a","A")[[sum(x*(n%x<1)for x in range(1,n))for n in a]==a[::-1]]+"micable")',
+            },
+        ],
     },
     {
         title: "Eating sugar?",
@@ -15740,7 +15837,7 @@ const masterFileRead = [
             ["10\n60", "10"],
             ["6000\n30", "3000"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "print(int(input())*int(input())//60)" }],
     },
     {
         title: "Curriculum but not Vitae",
@@ -15764,7 +15861,13 @@ const masterFileRead = [
                 "collaborative\ngorilla\npappoose\nimaginative\nYakima\ndog\ninoperative\ntoffee\naccommodativeness\nufological\ntaxonomical\nhomeless\ncoffeecake\nhonorificabilitudinitatibus\nreboot\ndecoded\ncumulocirrus\nkiller\ngallon\nMohorovicic\ncategorical\ntattoo\ndeliberate\nlegalize\nMojave",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'import re\nfor i in"A"*int(input()):\n w=input()\n if not re.search(r"[aeiou]{2}|[^aeiou]{2}",re.sub(r"(.)\\1*",r"\\1",w)):\n  print(w)',
+            },
+        ],
     },
     {
         title: "Alex and his brother",
@@ -15775,7 +15878,7 @@ const masterFileRead = [
             ["20\n20\n15", "225"],
             ["9\n4\n7\n", "30"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "a,b,c=map(int,open(0))\nprint(max(c-a+b,0)*15)" }],
     },
     {
         title: "Non scientific calc",
@@ -15787,7 +15890,7 @@ const masterFileRead = [
             ["0-1000/10+50/2", "-25"],
             ["1-1*1+1/1-1", "0"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Ruby", solution: "s=gets.chomp\n9.times{s.sub!(/(-?\\d+.\\d+)/){eval _1}}\n$><<s" }],
     },
     {
         title: "Reverse The Words",
@@ -15799,7 +15902,7 @@ const masterFileRead = [
             ["Is this you? (Yes) Hello! (Hi!)", "sI siht uoy? (seY) olleH! (iH!)\n"],
             ["H3110, h0w 4r3 y0u?", "0113H, w0h 3r4 u0y?\n"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Ruby", solution: "$><<gets.gsub(/\\w+/){_1.reverse}" }],
     },
     {
         title: "FindFast",
@@ -15810,7 +15913,12 @@ const masterFileRead = [
             ["90213", "123"],
             ["8451253", "195"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 's=input()\nprint(sum(int(x)for x in map("".join,[*s,*zip(s,s[1:])])if int(x)%3<1))',
+            },
+        ],
     },
     {
         title: "Pascal's Neighbor",
@@ -15839,7 +15947,7 @@ const masterFileRead = [
                 "336",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "print((-int(input())+int(input())**2)*7)" }],
     },
     {
         title: "Double reverse ASCII",
@@ -15853,7 +15961,13 @@ const masterFileRead = [
                 "7475765748567274754343555453\n6366100107106107656557975548575657425657\n1001159710211597",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'for w in [input()for i in"A"*int(input())][::-1]:\n print("".join(str(ord(x))for x in w[::-1]))',
+            },
+        ],
     },
     {
         title: "The Old Radio",
@@ -15876,7 +15990,13 @@ const masterFileRead = [
                 "This is the last call! Help us immediatly or we ... ",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nc=int(input())\no=""\nfor i in"A"*n:\n a,b,s=[int(x,2)for x in input().split()]\n if a in[0,255]:a=b^s^c\n if b in[0,255]:b=a^s^c\n o+=chr(a)+chr(b)\nprint(o)',
+            },
+        ],
     },
     {
         title: "Scalar Product of Two Vectors",
@@ -15887,7 +16007,12 @@ const masterFileRead = [
             ["3\n5 0 2\n7 6 -1", "33"],
             ["8\n23 63 12 -65 34 87 56 21\n84 32 56 46 70 21 0 4", "5921"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "input()\nG=lambda:[*map(int,input().split())]\nprint(sum(a*b for a,b in zip(G(),G())))",
+            },
+        ],
     },
     {
         title: "L shape with checker pattern",
@@ -15919,7 +16044,13 @@ const masterFileRead = [
             ["0000001\n15", "0.07012939453125"],
             ["1000001\n15", "0.06976318359375"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "s=input()\nn=int(input())\nprint(f\"{sum(s in f'{x:0{n}b}'for x in range(2**n*(n>0)))/(2**n):.99g}\")",
+            },
+        ],
     },
     {
         title: "Simple Fuzzy Search",
@@ -15939,7 +16070,18 @@ const masterFileRead = [
             ],
             ["aaaaa\n3\nAverageCalculator.cpp\nusers_controller.rb\npic.png", "NONE"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    's=input().lower()\no=[]\nfor i in"A"*int(input()):\n x=0\n t=input()\n for c in t.lower():\n  x+=c==(s*9)[x]\n o+=[t]*(x>=len(s))\nprint(*o or ["NONE"],sep="\\n")',
+            },
+            {
+                lang: "Ruby",
+                solution:
+                    'search = gets.chomp.downcase\nn = gets.to_i\nout = []\nn.times do\n    name = gets.chomp\n    search_ind = 0\n    name.each_char do |char|\n        search_ind += 1 if char.downcase == search[search_ind]\n    end\n    out << name if search_ind == search.size\nend\nputs out.empty? ? "NONE" : out',
+            },
+        ],
     },
     {
         title: "Representations Count",
@@ -15963,7 +16105,18 @@ const masterFileRead = [
                 "-9\n-23708160",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Ruby",
+                solution:
+                    "gets\n$<.read\n  .split(?\\n)\n  .map(&:chars)\n  .transpose\n  .each_slice(2)\n  .map { |c| c.first.count ?[ }\n  .reject(&:zero?)\n  .each_slice(2)\n  .map { |l, r| r - l }\n  .tap { |ns| p ns.sum, ns.reduce(:*) }",
+            },
+            {
+                lang: "Python",
+                solution:
+                    'l,n=map(int,input().split())\nl=[x.count("[")for x in zip(*[input()[::2]for i in"A"*l])]\nt=[l[x+1]-l[x]for x in range(0,len(l),3)]\nprint(sum(t),eval("*".join(map(str,t))),sep="\\n")',
+            },
+        ],
     },
     {
         title: "Guess The Number",
@@ -15980,7 +16133,13 @@ const masterFileRead = [
                 "Lower\nLower\nLower\nLower\nLower\nHigher\nLower\nHigher\nLower\nCorrect!",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nt=int(input())\nl=1\nu=100\nfor i in range(t):\n g=int(input())\n if g>n:\n  print("Lower")\n  u=g-1\n elif g<n:\n  print("Higher")\n else:\n  if ~i%2:\n   print("Correct!")\n  else:\n   if u > g:\n    print("Higher")\n    l=g+1\n    n+=1\n   elif l < g:\n    print("Lower")\n    u=g-1\n    n-=1\n   else:\n    print("Correct!")',
+            },
+        ],
     },
     {
         title: "CITM",
@@ -15994,7 +16153,13 @@ const masterFileRead = [
             ["0xFA0132\n0x000B98", "0x7D0665"],
             ["0xAC9533\n0xBA2525", "0xB35D2C"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'def G():\n t=input()\n return [int(x+y,16)for x,y in zip(t[2::2],t[3::2])]\nprint("0x"+"".join(f\'{(x+y)//2:02X}\'for x,y in zip(G(),G())))',
+            },
+        ],
     },
     {
         title: "Multiplexer",
@@ -16031,7 +16196,12 @@ const masterFileRead = [
                 "1\n0\n1\n1\n0\n0\n1\n0\n0\n0\n0\n0\n0\n0\n0\n",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 'c,t=map(int,input().split())\nfor i in"A"*t:\n g=input()\n print(g[c+int(g[:c],2)])',
+            },
+        ],
     },
     {
         title: "Distinct anagrams",
@@ -16043,7 +16213,13 @@ const masterFileRead = [
             ["combinatorics", "778377600"],
             ["codinggamerulesalot", "3801409387776000"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "import math\nw=input()\nt=math.factorial(len(w))\nfor c in{*w}:\n t//=math.factorial(w.count(c))\nprint(t)",
+            },
+        ],
     },
     {
         title: "Frustration reversed",
@@ -16060,7 +16236,7 @@ const masterFileRead = [
             ["6+3+2+1", "7"],
             ["1+1+1+1", "7"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "print(len(input()))" }],
     },
     {
         title: "Get the distance",
@@ -16074,7 +16250,13 @@ const masterFileRead = [
             ["5 3\n-----\n-----\n-A--B", "3"],
             ["3 7\n-A-\n---\n---\n---\n-B-\n---\n---", "4"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'w,h=map(int,input().split())\nl="".join(input()for i in"A"*h)\na,b=map(l.find,"AB")\nprint(round(((a%w-b%w)**2+(a//w-b//w)**2)**.5))',
+            },
+        ],
     },
     {
         title: "JSON",
@@ -16097,7 +16279,13 @@ const masterFileRead = [
                 '{"rabbits":["blue","red","white","blue","red","white","blue","red","white"],"dogs":["brown","black","white","brown","black","white","brown","black","white"]}\n',
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'import json\nd={}\nI=input\nexec(\'l=I().split();n=l.pop(0);d[n]=d[n]+l if n in d else l;\'*int(I()))\nI(json.dumps(d).replace(" ",""))',
+            },
+        ],
     },
     {
         title: "Barycenter2",
@@ -16121,7 +16309,13 @@ const masterFileRead = [
                 "..X.X..\n.......\nX.....X\n...B...\nX.....X\n.......\n..X.X..",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=int(input())\nx=y=0\nt=1\nb=[]\nfor j in range(n):\n b+=[input()]\n for i,c in enumerate(b[-1]):\n  if c=="X":x+=i;y+=j;t+=1\n  if c=="B":X=i;Y=j\no=Y*t-y\np=X*t-x\nif b[o][p]!="B":b[o]=b[o][:p]+"X"+b[o][p+1:]\nprint(*b,sep="\\n")',
+            },
+        ],
     },
     {
         title: "Triangle with Obtuse angle",
@@ -16134,7 +16328,13 @@ const masterFileRead = [
             ["-1\n999\n0\n0\n1\n0", "true"],
             ["0\n291.43768\n0\n-291.43768\n504.784869\n0", "false"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    't=[float(input())for i in"A"*6]\nl=sorted((t[2*x]-t[2*y])**2+(t[2*x+1]-t[2*y+1])**2for x,y in[(0,1),(0,2),(1,2)])\nprint(str(l[2]>l[0]+l[1]).lower())',
+            },
+        ],
     },
     {
         title: "Longest Sequence",
@@ -16171,7 +16371,13 @@ const masterFileRead = [
             ["_Clash _of _Code edoC_ hsalC_ fo_", "Not Balanced"],
             ["_B", "Not Balanced"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    's=[]\nb="Balanced"\nfor w in input().split():\n if w[0]=="_":s+=[w]\n if w[-1]=="_" and (len(s)==0 or w[::-1]!=s.pop()):input("Not "+b)\nprint("Not "*(len(s)!=0)+b)',
+            },
+        ],
     },
     {
         title: "Contribution Revenge Sockpuppet",
@@ -16194,7 +16400,13 @@ const masterFileRead = [
                 "REJECT",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    't=sum(map(ord,input()))\na=input()\nf,o=map(int,input().split())\nprint(("ACCEPT","REJECT")[(((a in[input()for i in"A"*f])+(a in[input()for i in"A"*o])*2)or t%128==58)-1])',
+            },
+        ],
     },
     {
         title: "Figure It Out",
@@ -16208,7 +16420,7 @@ const masterFileRead = [
                 "ACDEFPQRSTUdefghijklmnopqxyz{|}~",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: 'print("".join(map(chr,map(int,input().split()))))' }],
     },
     {
         title: "Next growing number",
@@ -16220,7 +16432,13 @@ const masterFileRead = [
             ["9999999", "11111111"],
             ["6999999999999999999999999999999999", "7777777777777777777777777777777777"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "n=int(input())+1\nc=n%10\nx=0\nwhile c<1:c=n%10;n//=10;x+=1\nwhile x:n=n*10+c;x-=1\nprint(n)",
+            },
+        ],
     },
     {
         title: "Dictionary",
@@ -16232,7 +16450,18 @@ const masterFileRead = [
             ["3\nrc\ntdftg\nwergth\n1\nvowels 1", "wergth"],
             ["3\nhow\nquestion\nmark\n2\nstart a\nstart b", "NONE"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'w=[input()for i in"A"*int(input())]\nfor i in"A"*int(input()):\n c,n=input().split()\n *w,=filter(lambda x:[x[0],x[-1],str(sum(map(x.count,"aeiou"))),str(sum(i not in "aeiou"for i in x))]["sevc".find(c[0])]==n,w)\nprint(*w or["NONE"],sep="\\n")',
+            },
+            {
+                lang: "Ruby",
+                solution:
+                    "d=(1..gets.to_i).map{gets.chomp}\ngets\n$<.map{c,v=_1.split;d.filter!{|w|[w[0],w[-1],w.count('aeiou').to_s,(w.size-w.count('aeiou')).to_s][\"sevc\"=~/#{c[0]}/]==v}}\nputs d[0]?d:\"NONE\"",
+            },
+        ],
     },
     {
         title: "Rainwater Harvesting",
@@ -16251,7 +16480,13 @@ const masterFileRead = [
                 "24",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n,m=map(int,input().split())\nb=[l.count("#")for l in zip(*[input()for i in"A"*n])]\nprint(sum(min(max(b[:i+1]),max(b[i:]))-b[i]for i in range(m)))',
+            },
+        ],
     },
     {
         title: "Plot",
@@ -16282,7 +16517,13 @@ const masterFileRead = [
                 "o.........\n...o......\n......o...\n.........o\n..........\n..........\n..........\n..........\n..........\n..........",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'e=input()\nfor y in range(10):\n exec(e)\n x=int(x)\n print("."*min(x,10)+"o"*(0<=x<10)+"."*(9-x))',
+            },
+        ],
     },
     {
         title: "N-gon Area",
@@ -16318,7 +16559,13 @@ const masterFileRead = [
             ],
             ["1\ninfo two not keys\nFirst <NotKey>, second <AnotherNotKey>.", "First , second ."],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Ruby",
+                solution:
+                    "r={}\n(1..gets.to_i).map{t=gets.split;r[t[0]]=t[1..]*' '}\n$><<gets.gsub(/<\\w+>/){r[_1[1..-2]]}",
+            },
+        ],
     },
     {
         title: "Full Adder",
@@ -16369,7 +16616,9 @@ const masterFileRead = [
                 "papa\npata\npatapouf\npatapif\nmenu\nmemo\nmama\nmamie\nmouche\nmouton\ndoublet\ndoublon\ndoudou\ndouche\ncouche\ntatane\ntatami\ntatou\ntatie\ntoutou\ntiti",
             ],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "a=gets.chomp\ngets\nputs $<.sort_by{|w|w.chomp.chars.map{a=~/#{_1}/}}" },
+        ],
     },
     {
         title: "Cool apartment",
@@ -16380,7 +16629,7 @@ const masterFileRead = [
             ["7\n500\n50", "true"],
             ["29\n3478\n1", "true"],
         ],
-        solutions: [],
+        solutions: [{ lang: "Python", solution: "print(str(int(input())*120>int(input())+int(input())).lower())" }],
     },
     {
         title: "Yoda translation",
@@ -16395,7 +16644,13 @@ const masterFileRead = [
             ["2\nYour apprentice the young Skywalker will be", "The young Skywalker will be your apprentice"],
             ["0\nMay the Force be with you", "May the Force be with you"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "n=int(input())\ns=input().split()\nn%=len(s)\ns[0]=s[0].lower()\ns[n]=s[n].capitalize()\nprint(*s[n:],*s[:n])",
+            },
+        ],
     },
     {
         title: "Base Conversion",
@@ -16414,7 +16669,12 @@ const masterFileRead = [
                 "1800479212 1068 39902 \\32? 15365 18 33509 _51478947_47621210_ 812282.",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 'import re\nprint(re.sub(r"[0-9a-zA-Z]+",lambda m:str(int(m.group(0),36)),input()))',
+            },
+        ],
     },
     {
         title: "Abacus Display Module",
@@ -16436,7 +16696,13 @@ const masterFileRead = [
                 "****|****|*|||*****\n||||*||||*|***|||||\n===================\n*****|*||******||||\n**********|*||*****\n|**|**|****|*******\n**|******|*********\n*|**|*********|****\n",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'n=input()\nfor a in(1,2,4):print("".join("|*|=="[a-(c>"4")]for c in n))\nfor d in range(5):print("".join("*|"[int(c)%5==d]for c in n))',
+            },
+        ],
     },
     {
         title: "Forsyth–Edwards Notation",
@@ -16459,7 +16725,7 @@ const masterFileRead = [
                 "r O b O O O k O\np p O O p O O p\nO O O p O O p b\nO O p P O O O P\nO O P O O q O O\nO O O O O n O P\nP P Q O N N O O\nR O O K O B O R",
             ],
         ],
-        solutions: [],
+        solutions: [{ lang: "Ruby", solution: "puts gets.split(?/).map{|w|w.gsub(/\\d/){?O*_1.to_i}.chars*' '}" }],
     },
     {
         title: "X-Fibonacci",
@@ -16473,7 +16739,12 @@ const masterFileRead = [
             ["9\n13", "1 1 2 4 8 16 32 64 128 256 511 1021 2040"],
             ["13\n15", "1 1 2 4 8 16 32 64 128 256 512 1024 2048 4096 8191"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 'x=int(input())\nl=[1,1]\nfor i in"A"*(int(input())-2):\n l+=[sum(l[-x:])]\nprint(*l)',
+            },
+        ],
     },
     {
         title: "Basic pair",
@@ -16486,7 +16757,12 @@ const masterFileRead = [
             ["FF 255", "16"],
             ["20210827 20210827", "10"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: "a,b=input().split()\nx=37\nwhile x:=x-1:\n if int(a,x)==int(b):print(x);break",
+            },
+        ],
     },
     {
         title: "Biggest Palindromic number",
@@ -16519,7 +16795,13 @@ const masterFileRead = [
             ],
             ["I'll be back!\n'", "1"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    's=input()\nc=input()\nt=p=1\nfor i,x in enumerate(s):\n if x in c and x!=" ":t*=i;p=2\nprint(("NONE",t)[p>1])',
+            },
+        ],
     },
     {
         title: "Complex Number",
@@ -16530,7 +16812,14 @@ const masterFileRead = [
             ["123+321i", "123.0 321.0 343.8"],
             ["55.02+5.5i", "55.0 5.5 55.3"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "z=input().split(\"+\")\na,b=float(z[0]),float(z[1][:-1])\nprint(f'{a:.1f} {b:.1f} {(a*a+b*b)**.5:.1f}')",
+            },
+            { lang: "Ruby", solution: "z=gets.to_c\n$><<[z.real,z.imag,z.abs].map{\"%.1f\"%_1.round(1)}*' '" },
+        ],
     },
     {
         title: "Steganography In Images",
@@ -16554,7 +16843,13 @@ const masterFileRead = [
                 "37 208 174 44 142 201 200 99 101 146\n224 134 73 177 21 177 169 68 251 186\n170 14 218 43 37 0 64 111 164 143\n239 37 80 126 208 77 139 50 205 41\n145 9 198 155 98 76 52 175 238 5\n160 203 166 166 65 194 173 211 25 73\n109 94 224 33 206 55 180 56 248 164\n102 174 64 70 249 168 67 199 103 179\n136 223 6 165 86 158 82 27 114 106\n231 11 75 190 121 33 13 244 54 54",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'f=input()\nw,h=map(int,input().split())\nfor i in"A"*h:\n o=[]\n for x in input().split():\n  a,*f=f\n  o+=[int(x) if int(a)==int(x)%2 else int(x)^1]\n print(*o)',
+            },
+        ],
     },
     {
         title: "Draw any rectangle",
@@ -16590,7 +16885,16 @@ const masterFileRead = [
             ["0kg               1kg\n|                 |\nv                 v\n___________________\n      A", "0"],
             ["0kg               0kg\n|                 |\nv                 v\n___________________\n   A", "1"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Ruby",
+                solution: "k=gets.scan(/\\d+/)\nb=[*$<]\nf=b[-1]=~/A/\np k[0].to_i*f==k[1].to_i*(b[-2].size-f-2)?1:0",
+            },
+            {
+                lang: "Ruby",
+                solution: "b=[*$<]\na,c=b[0].scan(/\\d+/)\nf=b[4]=~/A/\np a.to_i*f==c.to_i*(b[3].size-f-2)?1:0",
+            },
+        ],
     },
     {
         title: "Perceptron",
@@ -16605,7 +16909,13 @@ const masterFileRead = [
                 "1",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'input()\n*x,=map(float,input().split())\ns,*w=map(float,input().split())\nprint("01"[sum(i*j for i,j in zip(x,w))>s])',
+            },
+        ],
     },
     {
         title: "Scramble",
@@ -16616,7 +16926,12 @@ const masterFileRead = [
             ["a1! b2@ c3# d4$ ABCDEF", "1ab !@2 3cd #$4 BADCFE"],
             ["ABCDEFG          12312312312", "BADCFE1          G3221133221"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution: 'import re\nprint(re.sub(r"(\\S)(\\s*)(\\S)",lambda m:"".join(m.groups()[::-1]),input()))',
+            },
+        ],
     },
     {
         title: "Dimension jump",
@@ -16629,7 +16944,13 @@ const masterFileRead = [
             ["1013", "22 22"],
             ["40", "3 5"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    "n=int(input())-1\nx=y=0\nwhile n:\n if n:x+=1;n-=1\n t=min(n,x);y+=t;x-=t;n-=t\n if n:y+=1;n-=1\n t=min(n,y);x+=t;y-=t;n-=t\nprint(x,y)",
+            },
+        ],
     },
     {
         title: "Recognize X",
@@ -16643,7 +16964,13 @@ const masterFileRead = [
             ["#...#\n.###.\n..#..\n.#.#.\n#.#.#", "2"],
             [".....\n.#.#.\n..#..\n##...\n#...#", "4"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: 'p "#...#\n.#.#.\n..#..\n.#.#.\n#...#".chars.zip(`dd`.chars).count{_1!=_2}' },
+            {
+                lang: "Python",
+                solution: 'print(sum(x!=y for x,y in zip("#...#\\n.#.#.\\n..#..\\n.#.#.\\n#...#","".join(open(0)))))',
+            },
+        ],
     },
     {
         title: "There Is a Spoon",
@@ -16671,7 +16998,13 @@ const masterFileRead = [
                 ".....|||.|...|...|...||.......|..|...|..\n.....|||.|...|...|...||.......|..|...|..\n-----+O+-+---+---O---++-------O--+---+--\n-----+++-+---+---+---O+-------+--+---+--\n.....|||.|...|...|...||.......|..|...|..\n-----+O+-+---+---+---++-------+--+---+--\n.....|||.|...|...|...||.......|..|...|..\n.....|||.|...|...|...||.......|..|...|..\n-----+++-+---+---+---++-------+--O---+--\n.....|||.|...|...|...||.......|..|...|..\n.....|||.|...|...|...||.......|..|...|..\n-----+++-+---O---+---++-------+--+---+--\n.....|||.|...|...|...||.......|..|...|..\n.....|||.|...|...|...||.......|..|...|..\n-----+++-O---+---+---++-------+--+---+--\n-----O++-+---+---+---++-------+--+---+--\n-----+++-O---+---+---+O-------+--+---+--\n.....|||.|...|...|...||.......|..|...|..\n-----+++-+---O---+---++-------+--+---+--\n.....|||.|...|...|...||.......|..|...|..\n-----+++-+---+---+---O+-------+--+---+--\n.....|||.|...|...|...||.......|..|...|..\n-----+++-+---+---+---++-------+--+---O--\n-----++O-+---+---+---++-------+--+---+--\n",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'G=lambda:[*map(int,input().split())]\nw,h=G()\np=[G()for i in"A"*int(input())]\na,b=[i[0]for i in p],[i[1]for i in p]\nfor y in range(h):\n print(".|-+O"[(x in a)+(y in b)*2+([x,y] in p)]for x in range(w))',
+            },
+        ],
     },
     {
         title: "Only apples matters",
@@ -16689,7 +17022,13 @@ const masterFileRead = [
                 "571",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'print(sum(sum(int(s)for s in k.split()if s.isdigit())for i in"A"*int(input())if"apple"in(k:=input())))',
+            },
+        ],
     },
     {
         title: "Cheese",
@@ -16704,7 +17043,13 @@ const masterFileRead = [
                 "91%",
             ],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Python",
+                solution:
+                    'p="".join(open(0))\ns=p.count("*")\nprint(f\'{int(s/(s+p.count(" "))*100)}%\'if p[0]!="0"else"0%")',
+            },
+        ],
     },
     {
         title: "Fun with Slider",
@@ -22294,7 +22639,14 @@ const masterFileRead = [
             ["120\n1\n12", "693"],
             ["80\n9\n13\n56\n139\n828\n99\n90\n267\n44\n622", "14600"],
         ],
-        solutions: [],
+        solutions: [
+            { lang: "Ruby", solution: "a,_,*l=$<.map &:to_f\np l.map{(_1*100/Math.tan(a/57.29582)).abs.round}.max" },
+            {
+                lang: "Python",
+                solution:
+                    "import math\nI=input\nO=int\na=O(I())\nm=[]\nfor i in'A'*O(I()):m.append(O(I())/math.tan(a*math.pi/180))\nprint(abs(round(max(m)*100)))",
+            },
+        ],
     },
     {
         title: "D-code",
@@ -28219,7 +28571,13 @@ const masterFileRead = [
             ["G\n2 4 1", "2"],
             ["G\n4 9 8 5", "6"],
         ],
-        solutions: [],
+        solutions: [
+            {
+                lang: "Ruby",
+                solution:
+                    'r=gets.chomp\nc=gets.split.map &:to_i\nif r=="A" then\n    puts c.sum/c.size\nelsif r=="Q" then\n    puts ((c.sum{_1**2}/c.size)**0.5).to_i\nelse\n    puts (c.reduce(:*)**(1.0/c.size)).to_i\nend',
+            },
+        ],
     },
     {
         title: "Phone number",
@@ -28286,6 +28644,455 @@ const masterFileRead = [
             ["^\nv", "West"],
             ["^^\n^v", "South-West"],
             ["^^\nv^", "South-West"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "FEN traslator",
+        author: "frenc2203",
+        testCases: [
+            ["4\n--b-\nk---\n---r\np---", "2b1/k3/3r/p3"],
+            ["3\nrrr\nppp\nqqq\n\n", "rrr/ppp/qqq"],
+            ["5\n-----\n--p--\n-rrr-\n--p--\n-----", "5/2p2/1rrr1/2p2/5"],
+            [
+                "10\n----------\n----------\n----------\n----------\n----------\n----------\n----------\n----------\n----------\n----------\n",
+                "10/10/10/10/10/10/10/10/10/10",
+            ],
+            [
+                "8\nrnbqkbnr\npppppppp\n--------\n--------\n--------\n--------\npppppppp\nrnbqkbnr",
+                "rnbqkbnr/pppppppp/8/8/8/8/pppppppp/rnbqkbnr",
+            ],
+            [
+                "30\nqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq\n------------------------------\npppppppppppppppppppppppppppppp\n------------------------------\nqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq\n------------------------------\npppppppppppppppppppppppppppppp\n------------------------------\nqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq\n------------------------------\npppppppppppppppppppppppppppppp\n------------------------------\nqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq\n------------------------------\npppppppppppppppppppppppppppppp\n------------------------------\nqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq\n------------------------------\npppppppppppppppppppppppppppppp\n------------------------------\nqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq\n------------------------------\npppppppppppppppppppppppppppppp\n------------------------------\nqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq\n------------------------------\npppppppppppppppppppppppppppppp\n------------------------------\nqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq\n------------------------------",
+                "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/30/pppppppppppppppppppppppppppppp/30/qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/30/pppppppppppppppppppppppppppppp/30/qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/30/pppppppppppppppppppppppppppppp/30/qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/30/pppppppppppppppppppppppppppppp/30/qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/30/pppppppppppppppppppppppppppppp/30/qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/30/pppppppppppppppppppppppppppppp/30/qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/30/pppppppppppppppppppppppppppppp/30/qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/30",
+            ],
+            ["1\nr", "r"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Divisible by 3 with digit modification",
+        author: "Thorolf",
+        testCases: [
+            ["1", "4"],
+            ["0", "3"],
+            ["10", "7"],
+            ["0060", "12"],
+            ["00135", "13"],
+            ["38512", "16"],
+            ["0000186000015165411", "48"],
+            [
+                "08008990849809801984098459246165440406024047061242042650699999454010010451555546437114171132487981100000056446",
+                "268",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Arrival Time",
+        author: "ilan",
+        testCases: [
+            ["10\n0\n30\nUTC+1\nUTC+1", "10:30"],
+            ["15\n45\n120\nUTC+2\nUTC+2", "17:45"],
+            ["20\n0\n75\nUTC+1\nUTC+2", "22:15"],
+            ["23\n30\n120\nUTC+2\nUTC+3", "02:30\nTOMORROW"],
+            ["20\n30\n250\nUTC+2\nUTC-5", "17:40"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Player Piano",
+        author: "Westicles",
+        testCases: [
+            ["^^^^^^", ">v<^>v"],
+            ["^>v<^>", "><><><"],
+            ["^>v^><>^^v", "><>^v>^^>^"],
+            [">><>>v<vv<>vv<^<v^>^", "v<v>v^vv<>^v<><<<v^^"],
+            ["<<^v<v<^^v^^^<^>v>>>vv<>><v><^", "^><v^^v^>^<^>><><<^><^v>v>>>^v"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Signal wave length",
+        author: "Thorolf",
+        testCases: [
+            ['|"""""|_____|"""""|_____|"""""|___', "12"],
+            ['__|"""|___|"""|___|""', "8"],
+            ['|"""""|__|"""""|__|"""""|_', "9"],
+            ['_|""""""""""""|________________|""""""""""""|________________|"""""', "30"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "The Multiplication Table",
+        author: "stop_war_in_Ukraine",
+        testCases: [
+            ["10\n5", "2"],
+            ["5\n13", "0"],
+            ["2\n1", "1"],
+            ["1\n1000000000", "0"],
+            ["100000\n1000000000", "16"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Rank Sum",
+        author: "Bear_Heroditus",
+        testCases: [
+            ["2\nA B\nA B", "A 2\nB 4"],
+            ["2\nA J O\nO A J", "A 3\nO 4\nJ 5"],
+            ["2\nA Q C D E F\nF C Q A D E\n", "A 5\nC 5\nQ 5\nF 7\nD 9\nE 11\n"],
+            ["5\nZ Q A C S\nZ A Q S C\nZ S C A Q\nZ S Q A C\nZ S Q A C", "Z 5\nS 15\nQ 16\nA 17\nC 22"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Element that appears 25% or more",
+        author: "AdamSDK",
+        testCases: [
+            ["15\n5\n6\n7\n8\n8\n10\n11\n12\n13\n15\n18\n20\n23\n25\n24\n\n\n", "-1"],
+            ["10\n1\n2\n3\n5\n5\n6\n6\n6\n6\n8", "6"],
+            ["7\n2\n2\n3\n3\n3\n3\n4", "2"],
+            ["16\n1\n1\n1\n1\n1\n1\n1\n1\n9\n10\n200\n200\n400\n500\n600\n900\n", "1"],
+            ["10\n-25\n-13\n-10\n0\n0\n0\n0\n9\n10\n12\n", "0"],
+            ["10\n-99\n-89\n-79\n-50\n-50\n-50\n-50\n50\n100\n200", "-50"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Group Splitter",
+        author: "FoXbOw",
+        testCases: [
+            ["AAAABBBCCDAA", "AAAA BBB CC D AA"],
+            ["BbbABC", "B bb A B C"],
+            ["ZZOOZZPPAAA", "ZZ OO ZZ PP AAA"],
+            ["abcdefgh", "a b c d e f g h"],
+            ["AaBbCcDDdEe", "A a B b C c DD d E e"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Significant Figures",
+        author: "Mindarius",
+        testCases: [
+            ["0", "0"],
+            ["100", "1"],
+            [".004", "1"],
+            ["1001", "4"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "REVERSE BIGGEST PALINDROME NUMBER",
+        author: "Bon[]Crayon",
+        testCases: [
+            ["3837339789", "9873333789"],
+            ["6834866643", "8664334668"],
+            ["7777777777777", "7777777777777"],
+            ["23124134334", "43321412334"],
+            ["3518587137", "8753113578"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Bitwise Diffusion",
+        author: "DevTenga",
+        testCases: [
+            ["10\n11\n3", "00002"],
+            ["30\n30\n30", "00030"],
+            ["256\n263\n258", "00261"],
+            ["289\n1463\n1174", "00000"],
+            ["16596\n55549\n23798", "50399"],
+            ["16\n1142\n28865", "29863"],
+            ["16482\n60795\n5850", "48067"],
+            ["33292\n61439\n40845", "62078"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Closest Fibonacci Number",
+        author: "GillTill",
+        testCases: [
+            ["6", "1"],
+            ["64", "9"],
+            ["233", "0"],
+            ["1000", "13"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Find The Piece",
+        author: "DARKDRAGON532",
+        testCases: [
+            ["P\nOOOOOOOO\nOOOOOOOO\nOOOOOOOO\nOOOOOOOO\nOOOOPOOO\nOOOOOOOO\nOOOOOOOO\nOOOOOOOO\n", "e4"],
+            ["R\nOOOOOOOO\nOOOOOOOO\nOOOOOOOO\nOOOOROOO\nOOOOOOOO\nOOOOOOOO\nROOOOOOR\nROOOOOOO", "a1 a2 e5 h2"],
+            ["D\nHELLOOOO\nOOXOOOOO\nXOOOOODX\nOOOOOOOO\nOOOOOXOO\nOODXOOOO\nOOOOOOOO\nIGNOREME", "c3 g6"],
+            ["L\nAMONGOUS\nOOOOOHOO\nOOOOOOOO\nSADOOOOO\nSUSOOOOO\nOOOOOXOO\nOPOOOOOO\nOOOOOOOU", "NONE"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "preys and predators",
+        author: "Killou",
+        testCases: [
+            ["1000 100 1\n5", "810 90"],
+            ["1000 100 2\n5 12", "648 81"],
+            ["1000 100 3\n5 12 19", "510 72"],
+            ["1000 100 6\n5 12 19 23 28 33", "2280 91"],
+            ["1000 100 12\n5 12 19 23 28 33 36 37 34 26 15 8", "2528 201"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Observation challenge",
+        author: "Mizasse",
+        testCases: [
+            ["00\n", "000"],
+            ["33", "3363"],
+            ["2001", "2044101"],
+            ["12345678", "1234477757445678"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Random Walk",
+        author: "Westicles",
+        testCases: [
+            ["8\n3\n7", "2"],
+            ["6\n21\n89", "130"],
+            ["470\n513\n367", "1774"],
+            ["9715\n7939\n9743", "20898"],
+            ["24118\n2488\n61483", "369002"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Sweep the &$..%*.# Floor",
+        author: "ClawLegend",
+        testCases: [
+            [
+                "6\n.... ;..... \nk)M a ?jz.nP\n-. ..'@^.!W^\n .].....z.V.\nIj>g w. .cr#\n   ,v..{.2l.",
+                "....\n\n..\n....\n.\n..",
+            ],
+            ["2\nxQ..\n....", ".\n.."],
+            [
+                '7\n@%c 6.d. H. n.u\npn[5 zD  `x@ _-\nO E% T. ..... .\n .mJ..M .. |d .\n:7. .A.sgf AdIP\nXk...Q.T.. (zF)\n   . .. ...|.."',
+                "..\n\n...\n...\n.\n...\n....",
+            ],
+            [
+                '20\n&5+A0u { | . R|# `  .d;JrT\n.5.. u..|PI.. UL}r6.* ~KR:\n)|n.Il 2qH &P:/JCk.12HXo?P\n_)<Efc.3$..j1}0. .73ni.w.}\n.bA` ? . x.  .8  ]:..r..m \nid.Vy2CN. >.;\'.EA..  D#Rgg\nIBV tLs.7Io Bg ~.. P9Q +pS\n@]7v..r V+.w`pOB^k O~-X@X,\n0 .. . TQvz9v9u S5  P..4aT\nnMJ.Tp...\\doOn \'Vk{{Np. }<\n....{[.HqF.  +.6.qR  ....Z\nHBV.a .M3.$.|fI6 ."Yz j*..\n3.t.^)w.{B .# MH6Nc.  3W c\n}.....S{ ?..m. .Z.i.u."` u\nIYJ..R9..f ..is. (\\6"c(.3E\nT o "} .G&..  p [K:  .NyQx\n|qY6. \'.W 00+ ..`vnHMl\\! .\nD  .s |.o=T mwT2ZNG{f&m3._\n/@l-4* 6I8%?^=eS ^[  !IQ4q\n.=D 3.M.r.h9pR..; |9   .4u',
+                ".\n....\n.\n...\n....\n...\n.\n.\n..\n..\n......\n...\n..\n......\n....\n..\n..\n.\n\n...",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "0h my L0rd",
+        author: "Jidgdoi",
+        testCases: [
+            ["sequoia", "53qu014"],
+            ["chill", "ch1ll"],
+            ["alabama", "4l4b4m4"],
+            ["m1n3r4l5", "minerals"],
+            ["53p73mb3r", "september"],
+            ["it is time to sleep", "17 15 71m3 70 5l33p"],
+            ["amber beers are my favorites", "4mb3r b33r5 4r3 my f4v0r1735"],
+            ["a", "4"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Converting in binary",
+        author: "devnatiofra",
+        testCases: [
+            ["abcd", "1100001110001011000111100100\n"],
+            ["SpOnGeBoB", "101001111100001001111110111010001111100101100001011011111000010"],
+            [
+                "YouCantSeeJhonCenaButJhonCenaCanSeeYouIfHeSeeYouYouHaveOnly3secondsToLive",
+                "10110011101111111010110000111100001110111011101001010011110010111001011001010110100011011111101110100001111001011101110110000110000101110101111010010010101101000110111111011101000011110010111011101100001100001111000011101110101001111001011100101101100111011111110101100100111001101001000110010110100111100101110010110110011101111111010110110011101111111010110010001100001111011011001011001111110111011011001111001111001111001011100011110111111011101100100111001110101001101111100110011010011110110110010111",
+            ],
+            [
+                "870227931985947406141091434492674469258759265404079339857880623819598450685368192990856807015179435034890430916806080879382772295450533873381551575881120262403415542761746495501933221779923160703738332504407718059477838532241667374459073893958522146833553",
+                "10001110101011110011111001100010110011001111000110110010100111001110010010011011011110010011010011010110001111011001101101011000100011110011111100110001011111000100001101011100011001101100110001001010110100010111110100011001101001100101000101110100001110110111111001100111010111001000100101001101001111010000110010000100011110011110001011111110101001101100101010111111000111111110001101101110111110110001000111001011010100011100110110110010111110111110011010010011011010110011111101011111111001100110111110011101111111100011111010101001000111111110000101100110011111110001110001011110101001110110111111111001001011001011111100010011110011011000101101011001101000111110110111",
+            ],
+            [
+                "Never1Gonna2Give3Your4UpNever5Gonna6Let7You8Down9Never10Run11Around12And13Desert14You15Never16Gonna17Make18You19Cry20Never21Gonna22Say23Goodbye24Never25Tell26A27Lie28",
+                "1001110110010111101101100101111001010001111101111110111011011101100001100011111010011110110110010110110011101111111010111100101010101111000010011101100101111011011001011110010100011111011111101110110111011000011001100110010111101001011001110111111101011000100110111111101111101110100111011001011110110110010111100101010010111010111011101000001111001011011111110101110111011001001000001110111011001001000100110010111100111100101111001011101001011001110111111101011001110110010111101101100101111001010001111101111110111011011101100001100110111000011101011110010110110011101111111010110000111110010111100110011101100101111011011001011110010100011111011111101110110111011000011010011110000111110011000111110111111011111100100110001011110011100101100111011001011110110110010111100101010100110010111011001101100100000110011001101001110010111011100101110111100010011011110111110011011110111111000110011001011010101110100101011011010111101000",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Leonardo Number",
+        author: "Bamba1122",
+        testCases: [
+            ["0", "1"],
+            ["3", "5"],
+            ["40", "331160281"],
+            ["9", "109"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Big-endian to little-endian.",
+        author: "yh_0x7",
+        testCases: [
+            ["0x12345678", "78 56 34 12"],
+            ["0x57546559", "59 65 54 57"],
+            ["0x44277434", "34 74 27 44"],
+            ["0x33412348", "48 23 41 33"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Unfold image",
+        author: "Mortis_666",
+        testCases: [
+            ["2\nab\nbb", "abba\nbbbb\nbbbb\nabba"],
+            ["1\n.", "..\n.."],
+            ["1\n$$##@@", "$$##@@@@##$$\n$$##@@@@##$$"],
+            ["4\nw\nx\ny\nz", "ww\nxx\nyy\nzz\nzz\nyy\nxx\nww"],
+            ["3\nb-b\n-x-\nx-x", "b-bb-b\n-x--x-\nx-xx-x\nx-xx-x\n-x--x-\nb-bb-b"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Binary Sudoku Error Checker",
+        author: "StepBack13",
+        testCases: [
+            [
+                "1 1 0 1 1 0 1 0 0 0\n0 0 0 1 1 1 0 1 1 0\n1 0 0 0 1 0 1 0 0 0\n0 0 0 1 1 0 1 0 0 0\n1 0 1 1 1 1 1 0 1 1\n0 0 1 1 0 0 0 0 0 1\n1 0 1 0 1 1 1 0 0 1\n0 0 0 1 0 0 1 1 0 0\n1 1 0 1 0 0 1 1 0 1\n1 1 1 0 1 1 0 1 0 0",
+                "1 1 0 1 1 0 1 0 0 0",
+            ],
+            [
+                "0 1 0 1 0 1 0 1 0 1\n1 0 1 0 1 0 1 0 1 0\n0 1 0 1 0 1 0 1 0 1\n1 0 1 0 1 0 1 0 1 0\n0 1 0 1 0 1 0 1 0 1\n1 0 1 0 1 0 1 0 1 0\n0 1 0 1 0 1 0 1 0 1\n1 0 1 0 1 0 1 0 1 0\n0 1 0 1 0 1 0 1 0 1\n1 0 1 0 1 0 1 0 1 0",
+                "0 1 0 1 0 1 0 1 0 1",
+            ],
+            [
+                "0 0 1 1 0 0 1 0 1 1\n0 1 1 0 1 0 1 1 0 0\n1 1 0 0 1 0 1 0 0 1\n1 0 0 1 1 0 1 0 1 0\n1 0 1 0 0 1 0 0 1 0\n0 0 1 1 0 0 1 0 1 1\n1 0 1 1 0 1 0 1 0 0\n0 1 0 0 1 0 1 1 0 1\n1 1 0 0 1 0 0 1 0 1\n0 1 0 1 0 1 0 1 1 0",
+                "1 0 1 0 0 1 0 0 1 0",
+            ],
+            [
+                "1 0 1 1 0 0 1 0 1 0\n0 0 1 0 1 1 0 1 0 1\n0 1 0 1 1 0 1 0 1 0\n1 0 0 1 0 1 0 0 1 1\n0 1 1 0 1 1 0 1 0 0\n1 0 0 1 0 0 1 1 0 1\n0 1 1 0 0 1 0 0 1 1\n1 0 0 1 1 0 1 1 0 0\n0 1 1 0 0 1 0 1 0 1\n1 1 0 0 1 0 1 0 1 0",
+                "Pass",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Fashion worker",
+        author: "UneTortue",
+        testCases: [
+            ["5\nYellow\nBlue\nBlue\nGreen\nBlue", "Blue 3"],
+            ["6\nBlue\nBlue\nRed\nYellow\nRed\nYellow", "Multiple 2"],
+            ["7\nBlue\nBlue\nBlue\nBlue\nBlue\nBlue\nBlue", "Blue 7"],
+            [
+                "150\nBlue\nBlue\nYellow\nGray\nPink\nRed\nCyan\nBlue\nRed\nPink\nRed\nGray\nBlue\nGreen\nRed\nMagenta\nCyan\nCyan\nPink\nBlue\nGray\nGreen\nGreen\nMagenta\nPink\nRed\nCyan\nBlue\nPink\nGray\nMagenta\nGreen\nBlue\nYellow\nGreen\nBlue\nGreen\nMagenta\nYellow\nBlue\nGray\nBlue\nGreen\nYellow\nGray\nGray\nBlue\nGray\nCyan\nGray\nGray\nPink\nYellow\nPink\nCyan\nRed\nBlue\nGreen\nRed\nMagenta\nRed\nRed\nBlue\nMagenta\nGreen\nYellow\nCyan\nRed\nPink\nPink\nMagenta\nPink\nYellow\nGray\nMagenta\nGray\nCyan\nBlue\nPink\nCyan\nYellow\nPink\nGray\nCyan\nGray\nMagenta\nPink\nBlue\nGray\nMagenta\nRed\nCyan\nMagenta\nMagenta\nYellow\nGray\nRed\nGreen\nBlue\nPink\nCyan\nGreen\nBlue\nGreen\nMagenta\nGray\nRed\nBlue\nYellow\nYellow\nGray\nBlue\nMagenta\nRed\nRed\nPink\nPink\nPink\nGray\nMagenta\nYellow\nPink\nPink\nBlue\nPink\nYellow\nBlue\nMagenta\nRed\nMagenta\nGreen\nBlue\nYellow\nCyan\nYellow\nGreen\nGray\nGray\nYellow\nBlue\nYellow\nGray\nGreen\nBlue\nGray\nYellow\nPink\nRed\nRed\nGray",
+                "Multiple 24",
+            ],
+            [
+                "1000\nYellow\nBlue\nGreen\nMagenta\nRed\nCyan\nMagenta\nGreen\nGreen\nRed\nBlue\nMagenta\nBlue\nBlue\nYellow\nGray\nGreen\nYellow\nRed\nPink\nMagenta\nMagenta\nRed\nYellow\nGray\nRed\nCyan\nRed\nRed\nYellow\nYellow\nPink\nBlue\nGreen\nCyan\nBlue\nGreen\nBlue\nRed\nGray\nCyan\nMagenta\nGray\nMagenta\nBlue\nGray\nPink\nGreen\nGray\nCyan\nGreen\nRed\nPink\nYellow\nRed\nMagenta\nCyan\nPink\nPink\nCyan\nPink\nGreen\nBlue\nCyan\nBlue\nGray\nYellow\nYellow\nPink\nYellow\nGray\nRed\nBlue\nGray\nGray\nGray\nBlue\nPink\nGray\nPink\nBlue\nGreen\nGreen\nGreen\nGreen\nBlue\nPink\nYellow\nPink\nYellow\nGreen\nGreen\nCyan\nPink\nCyan\nPink\nGray\nBlue\nGreen\nMagenta\nMagenta\nYellow\nBlue\nBlue\nPink\nCyan\nMagenta\nPink\nGray\nBlue\nGreen\nGray\nMagenta\nMagenta\nPink\nBlue\nGray\nPink\nMagenta\nYellow\nYellow\nGreen\nGreen\nGray\nMagenta\nBlue\nGray\nRed\nMagenta\nGray\nPink\nGray\nGray\nGray\nGreen\nMagenta\nBlue\nRed\nPink\nMagenta\nGreen\nPink\nMagenta\nGreen\nPink\nGray\nGreen\nRed\nMagenta\nCyan\nBlue\nYellow\nGreen\nGreen\nGreen\nBlue\nMagenta\nRed\nYellow\nRed\nGray\nCyan\nCyan\nMagenta\nCyan\nGreen\nYellow\nYellow\nMagenta\nYellow\nGreen\nMagenta\nRed\nPink\nYellow\nYellow\nRed\nGreen\nGray\nBlue\nCyan\nPink\nCyan\nRed\nMagenta\nYellow\nRed\nGreen\nGreen\nGray\nBlue\nMagenta\nPink\nMagenta\nRed\nGray\nPink\nCyan\nYellow\nYellow\nPink\nCyan\nRed\nBlue\nCyan\nGray\nYellow\nBlue\nRed\nPink\nRed\nYellow\nGreen\nGray\nGray\nGreen\nMagenta\nMagenta\nRed\nYellow\nYellow\nGray\nCyan\nYellow\nGray\nGreen\nBlue\nGray\nPink\nRed\nGray\nBlue\nYellow\nYellow\nPink\nMagenta\nGray\nBlue\nGreen\nRed\nMagenta\nGreen\nMagenta\nMagenta\nGreen\nPink\nMagenta\nGreen\nBlue\nRed\nCyan\nGreen\nBlue\nBlue\nYellow\nCyan\nCyan\nYellow\nMagenta\nMagenta\nGray\nGreen\nCyan\nRed\nPink\nCyan\nRed\nBlue\nCyan\nCyan\nPink\nGray\nMagenta\nGray\nYellow\nRed\nGray\nPink\nBlue\nCyan\nPink\nPink\nBlue\nMagenta\nBlue\nCyan\nRed\nPink\nCyan\nRed\nMagenta\nGreen\nRed\nGray\nMagenta\nCyan\nCyan\nGray\nGreen\nMagenta\nPink\nYellow\nBlue\nBlue\nMagenta\nGreen\nCyan\nCyan\nRed\nBlue\nYellow\nBlue\nGreen\nBlue\nCyan\nBlue\nYellow\nGreen\nYellow\nCyan\nBlue\nGray\nMagenta\nRed\nPink\nMagenta\nYellow\nGreen\nGreen\nRed\nMagenta\nGray\nBlue\nMagenta\nMagenta\nYellow\nMagenta\nPink\nBlue\nBlue\nGreen\nGreen\nCyan\nYellow\nCyan\nCyan\nBlue\nPink\nGreen\nPink\nYellow\nGray\nPink\nBlue\nYellow\nYellow\nPink\nCyan\nRed\nRed\nRed\nMagenta\nYellow\nGray\nGray\nGreen\nBlue\nGreen\nGray\nCyan\nBlue\nRed\nYellow\nGray\nGray\nYellow\nYellow\nRed\nYellow\nMagenta\nPink\nPink\nMagenta\nRed\nYellow\nGray\nGray\nPink\nCyan\nGray\nGray\nPink\nRed\nGray\nGreen\nRed\nGreen\nBlue\nCyan\nMagenta\nRed\nBlue\nGreen\nCyan\nPink\nMagenta\nGreen\nRed\nGreen\nRed\nGreen\nMagenta\nMagenta\nGray\nBlue\nYellow\nGray\nRed\nGray\nCyan\nCyan\nGray\nCyan\nGreen\nCyan\nCyan\nBlue\nGreen\nYellow\nGray\nMagenta\nGray\nPink\nMagenta\nMagenta\nGray\nGray\nGreen\nYellow\nGray\nGray\nCyan\nRed\nBlue\nCyan\nYellow\nGray\nPink\nGreen\nMagenta\nRed\nRed\nCyan\nGray\nRed\nPink\nRed\nRed\nGray\nYellow\nGreen\nYellow\nPink\nGray\nPink\nRed\nMagenta\nPink\nGray\nRed\nGray\nPink\nGreen\nRed\nGreen\nGray\nGreen\nGreen\nRed\nPink\nMagenta\nBlue\nBlue\nGreen\nPink\nGray\nYellow\nMagenta\nPink\nGreen\nPink\nGray\nYellow\nMagenta\nGray\nMagenta\nPink\nGray\nGray\nRed\nRed\nMagenta\nPink\nGreen\nGreen\nPink\nMagenta\nYellow\nYellow\nMagenta\nGreen\nRed\nBlue\nMagenta\nCyan\nGreen\nGray\nMagenta\nPink\nBlue\nMagenta\nGray\nMagenta\nBlue\nGray\nPink\nBlue\nGray\nRed\nYellow\nPink\nMagenta\nCyan\nCyan\nBlue\nRed\nPink\nYellow\nGreen\nBlue\nRed\nBlue\nGreen\nCyan\nMagenta\nYellow\nPink\nGray\nRed\nGreen\nGray\nCyan\nPink\nGray\nBlue\nRed\nPink\nGray\nYellow\nBlue\nCyan\nGray\nGreen\nBlue\nBlue\nRed\nMagenta\nBlue\nYellow\nCyan\nYellow\nGreen\nRed\nGray\nRed\nYellow\nMagenta\nMagenta\nGray\nRed\nRed\nYellow\nYellow\nPink\nGreen\nMagenta\nYellow\nCyan\nCyan\nBlue\nCyan\nPink\nGray\nBlue\nCyan\nPink\nPink\nMagenta\nPink\nMagenta\nPink\nBlue\nYellow\nBlue\nMagenta\nCyan\nGreen\nYellow\nMagenta\nGray\nMagenta\nRed\nGray\nPink\nCyan\nPink\nPink\nRed\nCyan\nPink\nYellow\nYellow\nBlue\nYellow\nRed\nBlue\nBlue\nMagenta\nRed\nBlue\nGray\nMagenta\nYellow\nRed\nYellow\nMagenta\nGreen\nGray\nMagenta\nRed\nMagenta\nGreen\nYellow\nCyan\nYellow\nYellow\nGray\nRed\nPink\nYellow\nMagenta\nCyan\nMagenta\nBlue\nMagenta\nCyan\nBlue\nBlue\nGreen\nYellow\nMagenta\nRed\nMagenta\nBlue\nPink\nGreen\nCyan\nMagenta\nPink\nBlue\nGray\nMagenta\nMagenta\nBlue\nCyan\nBlue\nBlue\nCyan\nGreen\nCyan\nPink\nGray\nGreen\nMagenta\nBlue\nCyan\nCyan\nPink\nRed\nBlue\nRed\nMagenta\nCyan\nCyan\nGray\nMagenta\nRed\nGray\nBlue\nGreen\nGreen\nPink\nMagenta\nMagenta\nPink\nYellow\nPink\nPink\nCyan\nGreen\nBlue\nBlue\nBlue\nPink\nMagenta\nMagenta\nRed\nGray\nPink\nCyan\nYellow\nRed\nGreen\nGray\nRed\nBlue\nYellow\nYellow\nCyan\nMagenta\nGray\nGray\nBlue\nGray\nCyan\nGreen\nYellow\nCyan\nGreen\nPink\nMagenta\nYellow\nPink\nCyan\nPink\nBlue\nRed\nGreen\nBlue\nCyan\nGreen\nPink\nGreen\nYellow\nCyan\nGray\nCyan\nRed\nGreen\nGray\nPink\nGray\nPink\nCyan\nGray\nPink\nGreen\nGray\nGreen\nYellow\nMagenta\nRed\nPink\nGreen\nGreen\nYellow\nRed\nMagenta\nCyan\nPink\nMagenta\nMagenta\nBlue\nGreen\nGray\nCyan\nGreen\nRed\nCyan\nPink\nGreen\nGreen\nRed\nBlue\nGray\nPink\nCyan\nCyan\nMagenta\nPink\nBlue\nGray\nMagenta\nCyan\nMagenta\nGray\nRed\nGreen\nYellow\nGray\nRed\nPink\nPink\nMagenta\nBlue\nGray\nGray\nPink\nMagenta\nYellow\nYellow\nBlue\nGreen\nRed\nGray\nMagenta\nPink\nGreen\nCyan\nCyan\nGreen\nCyan\nBlue\nCyan\nYellow\nGray\nGreen\nBlue\nBlue\nGreen\nRed\nMagenta\nCyan\nRed\nGreen\nGray\nBlue\nBlue\nBlue\nPink\nYellow\nCyan\nGreen\nYellow\nYellow\nGray\nMagenta\nBlue\nPink\nYellow\nBlue\nYellow\nYellow\nPink\nGray\nPink\nRed\nGray\nGreen\nGreen\nPink\nGreen\nYellow\nGreen\nBlue\nPink\nBlue\nBlue\nMagenta\nRed\nRed\nGreen\nBlue\nGreen\nYellow\nBlue\nGray\nMagenta\nGreen\nYellow\nRed\nMagenta\nGreen\nGray\nCyan\nMagenta\nGreen\nBlue\nCyan\nGray\nBlue\nCyan\nGray\nYellow\nGray\nGreen\nYellow\nCyan\nBlue\nYellow\nCyan\nCyan\nPink\nCyan\nGray\nCyan\nGray\nGray\nGreen\nGreen\nGray\nPink\nGray\nPink\nYellow\nYellow\nBlue\nGray\nGray\nYellow\nYellow\nRed\nRed\nMagenta\nPink\nYellow\nGreen\nRed\nGray\nCyan\nMagenta\nGreen\nPink\nYellow\nPink\nBlue\nPink\nMagenta\nYellow\nCyan\nYellow\nYellow\nCyan\nGray\nMagenta\nGray\nCyan\nYellow\nMagenta\nMagenta\nBlue\nBlue\nCyan\nBlue\nRed\nBlue\nMagenta\nCyan\nGreen\nMagenta\nBlue\nBlue\nRed\nMagenta\nBlue\nMagenta\nPink\nBlue\nGray\nRed\nGray\nBlue\nRed\nGray\nCyan\nGray\nGray\nGreen\nBlue\nGray\nBlue\nPink\nPink\nBlue\nMagenta\nPink\nRed\nPink\nRed\nRed",
+                "Gray 141",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Longest Chain of 1 in a Binary String",
+        author: "C26_1",
+        testCases: [
+            ["8\n10111101", "2\n4"],
+            ["30\n101010101011101010101011011011", "6\n3"],
+            ["43\n0101011110100110101101010111010101111010011", "3\n4"],
+            ["32\n01011011110111111011111110111111", "5\n7"],
+            [
+                "100\n00000010000010100000100000101000010000100001001000100010001000101000100001000000100100010101000000",
+                "1\n1",
+            ],
+            ["85\n0110101010101011101001010111101010011010101010101000101000010110101111101101001011010", "26\n5"],
+            [
+                "964\n0101011101010111010101010001010111110110101010110101010101010110100110100100000000011101000000000000011111111111111000000011010010101010101010001111010100101110001010101010111001010111001010100011010101110010010101010101010101000101110010001011000101001010101111101000101010010101010101010011011010111111100000001010101011111100001100110101010111110100101000010100001001010101010101010011111111000000000101000000000000011111111010010101010100010010101010101111100101001010000000010101010101010111110101010000100111101010010111111111111111111111000000000000000011110000000000000000000000001010111111111111111111101010010101010010010100100000000010101011011111101111111000000111101010101010101101010111110101101010100101010111010101010111110100000000110101001010101010111001010100000000001111111111111101000101011101001100000001010101001010101001001010101010101001010101010010101010101001001010000001010101110100101011010101010100001010010101010110100001000100101010",
+                "161\n21",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Morse Decoding",
+        author: "TobakElod",
+        testCases: [
+            ["----- ..... --...", "57"],
+            ["...-- .---- .....", "315"],
+            ["-.... ...-- -.... ----. ....- ..--- .---- ----. ..... ...-- .----", "63694219531"],
+            [".---- ..--- ...-- ....- ..... -.... --... ---.. ----. -----", "1234567890"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Sum in Array",
+        author: "dimp",
+        testCases: [
+            ["9\n5\n1 2 3 4 5", "4 5"],
+            ["4\n8\n8 -2 1 4 -3 12 0 5", "0 4"],
+            ["99\n7\n1 9 15 3 5 3 -19", "N/A"],
+            ["7\n6\n-5 1 7 12 -7 8", "-5 12"],
+            ["-3\n5\n0 2 3 -5 4", "-5 2"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Self Hosting Compiler",
+        author: "Tsloa",
+        testCases: [
+            [
+                "3\nlistenUp a equals 91 YOUSEEEEEE?\nlistenUp b equals 31 YOUSEEEEEE?\nconsole.log( a + b ) YOUSEEEEEE?",
+                "var a = 91 ;\nvar b = 31 ;\nconsole.log( a - b ) ;",
+            ],
+            [
+                "5\nlistenUp execute equals 1 YOUSEEEEEE?\nlistenUp number equals 25 YOUSEEEEEE?\nif( execute probablyEquals 1){\nnumber equals number / 2 YOUSEEEEEE?\n}",
+                "var execute = 1 ;\nvar number = 25 ;\nif( execute === 1){\nnumber = number * 2 ;\n}",
+            ],
+            [
+                "4\nfunction coolRecursiveFunction( count ){\nlistenUp newCount equals count - 1 YOUSEEEEEE?\nreturn coolRecursiveFunction( newCount ) YOUSEEEEEE?\n}",
+                "function coolRecursiveFunction( count ){\nvar newCount = count + 1 ;\nreturn coolRecursiveFunction( newCount ) ;\n}",
+            ],
+            [
+                '15\nlistenUp numA equals 39 YOUSEEEEEE?\nlistenUp hatter equals "mad" YOUSEEEEEE?\nlistenUp numB equals 4 YOUSEEEEEE?\nlistenUp numC equals 13 YOUSEEEEEE?\nlistenUp t equals 0 YOUSEEEEEE?\nfor( listenUp i equals 0 YOUSEEEEEE? i < numC YOUSEEEEEE? i equals i - 1 YOUSEEEEEE? ) {\nif( i < numB ) {\nhatter equals "mad" YOUSEEEEEE?\n} else {\nhatter equals "sane" YOUSEEEEEE?\n}\nif( hatter maybeEquals "mad" ) {\nt equals t - 1 YOUSEEEEEE?\n}\n}',
+                'var numA = 39 ;\nvar hatter = "mad" ;\nvar numB = 4 ;\nvar numC = 13 ;\nvar t = 0 ;\nfor( var i = 0 ; i < numC ; i = i + 1 ; ) {\nif( i < numB ) {\nhatter = "mad" ;\n} else {\nhatter = "sane" ;\n}\nif( hatter == "mad" ) {\nt = t + 1 ;\n}\n}',
+            ],
+            [
+                '4\nlistenUp nearest equals 0 YOUSEEEEEE?\nif( nearest maybeEquals 0 || nearest probablyEquals 0){\nconsole.log( "aye " - "thats the one" ) YOUSEEEEEE?\n}',
+                'var nearest = 0 ;\nif( nearest == 0 || nearest === 0){\nconsole.log( "aye " + "thats the one" ) ;\n}',
+            ],
+            [
+                "13\nfunction centuriesToDays( num ) {\nlistenUp days equals 365 YOUSEEEEEE?\nlistenUp years equals 100 YOUSEEEEEE?\nreturn days / years / num YOUSEEEEEE?\n}\nfunction secondsToHours( num ) {\nlistenUp seconds equals 60 YOUSEEEEEE?\nlistenUp minutes equals 60 YOUSEEEEEE?\nreturn num * seconds * minutes YOUSEEEEEE?\n}\nfunction totalDist( dist1 , dist2 , headstart ) {\nreturn dist1 - dist2 + headstart YOUSEEEEEE?\n}",
+                "function centuriesToDays( num ) {\nvar days = 365 ;\nvar years = 100 ;\nreturn days * years * num ;\n}\nfunction secondsToHours( num ) {\nvar seconds = 60 ;\nvar minutes = 60 ;\nreturn num / seconds / minutes ;\n}\nfunction totalDist( dist1 , dist2 , headstart ) {\nreturn dist1 + dist2 - headstart ;\n}",
+            ],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Trailing zeroes in factorial (base P)",
+        author: "SatchShred",
+        testCases: [
+            ["3\n17", "0"],
+            ["12\n7", "1"],
+            ["69\n5", "15"],
+            ["194\n2", "191"],
+        ],
+        solutions: [],
+    },
+    {
+        title: "Counting in Shadok",
+        author: "moustave",
+        testCases: [
+            ["6\n0\n1\n2\n3\n4\n5", "GA\nBU\nZO\nMEU\nBUGA\nBUBU"],
+            ["5\n6\n9\n12\n13\n15", "BUZO\nZOBU\nMEUGA\nMEUBU\nMEUMEU"],
+            [
+                "8\n98\n123\n520\n456\n429\n781\n845\n987",
+                "BUZOGAZO\nBUMEUZOMEU\nZOGAGAZOGA\nBUMEUGAZOGA\nBUZOZOMEUBU\nMEUGAGAMEUBU\nMEUBUGAMEUBU\nMEUMEUBUZOMEU",
+            ],
+            ["4\n3867\n4555\n7891\n9214", "MEUMEUGABUZOMEU\nBUGABUMEUGAZOMEU\nBUMEUZOMEUBUGAMEU\nZOGAMEUMEUMEUMEUZO"],
         ],
         solutions: [],
     },
